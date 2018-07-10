@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "AboutTheSecurities";
+    Layout = this.ViewData["_Layout"].ToString();
+}
+
+<h1>
+    About the securities
+</h1>
+<div id="securedDetailsDIV"></div>
+<div class="bottombtns">
+    <a href="@Url.Action("AssetStatement")" class="green2" style="float: left">BACK</a> <a  href="#" id="aNext"   class="green2"
+        style="float: right">NEXT</a>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#process #AboutTheSecurities").addClass("activedprocess");
+        $("#process #AboutTheSecurities a").addClass("activedprocesstxt");
+
+        $("#securedDetailsDIV").load('@Url.Action("UAboutTheSecuritiesDetails")');
+
+        $("#aNext").click(function () {
+            submitAndRedirect("#securedDetailsDIV form", '@Url.Action("BusinessBankDetails")');
+        });
+    });
+</script>
+
+

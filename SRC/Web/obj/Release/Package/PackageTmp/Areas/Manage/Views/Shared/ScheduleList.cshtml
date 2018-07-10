@@ -1,0 +1,437 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@using HiLand.General.Entity;
+@using HiLand.Utility4.MVC;
+@using GBFinance.Entity;
+@using GBFinance.Web.Models;
+@using HiLand.Utility4.MVC.Controls;
+@using GBFinance.Web.Control;
+@model List<LoanScheduleEntity>
+@{
+    ViewBag.Title = "Secured Loan Schedule";
+    Guid loanGuid = Guid.Empty;
+    if (this.ViewData["LoanGuid"] != null)
+    {
+        loanGuid = new Guid(this.ViewData["LoanGuid"].ToString());
+    }
+
+    bool isDisplayGenerateButton = false;
+    if (Model == null)
+    {
+        isDisplayGenerateButton = false;
+
+    }
+    else
+    {
+        if (Model.Count > 0)
+        {
+            isDisplayGenerateButton = false;
+        }
+        else
+        {
+            isDisplayGenerateButton = true;
+        }
+    }
+}
+<h2>
+    Secured Loan List</h2>
+<div class="OperateArea" id="OperateAreaContainer">
+</div>
+<div id="ItemListDIV">
+    <table width="98%" class="grid">
+        <tr>
+            <th style="width: 10px">
+                No.
+            </th>
+            <th style="width: 80px">
+                Payment Date
+            </th>
+            <th style="width: 80px">
+                Payment Amount
+            </th>
+            <th style="width: 50px">
+                Interest
+            </th>
+            <th style="width: 50px">
+                Principal Balance
+            </th>
+            <th style="width: 50px">
+                Penalty
+            </th>
+            <th style="width: 50px">
+                Late Fee
+            </th>
+            <th style="width: 50px">
+                Other Charge
+            </th>
+            <th style="width: 80px">
+                Paid Amount
+            </th>
+            <th style="width: 80px">
+                Paid Date
+            </th>
+            <th style="width: 80px">
+                Balance
+            </th>
+            <th style="width: 100px">
+                Operate
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Value
+            </th>
+            <th>
+                Penalty
+            </th>
+            <th>
+                Amount Paid
+            </th>
+            <th>
+                Paid Date
+            </th>
+            <th>
+                New Balance
+            </th>
+            <th>
+            </th>
+        </tr>
+        @{ 
+            decimal AddUpBalance = 0;
+            decimal NewBalance = 0;
+            int number = 0;}
+        @helper RenderPaidDate(LoanScheduleEntity entity)
+            {
+                string paidDateString = string.Empty;
+                if (entity.PaidDate != HiLand.Utility.Data.DateTimeHelper.Min)
+                {
+                    paidDateString = entity.PaidDate.ToString(Miscs.DateTimeFormating);
+                }
+            @paidDateString
+        }
+        @helper RenderPaidAmount(LoanScheduleEntity entity)
+            {
+                string paidAmount = string.Empty;
+                if (entity.AmountPaid > 0)
+                {
+                    paidAmount = entity.AmountPaid.ToString("0.00");
+                }
+            @paidAmount
+        }
+        @helper RenderReInstalledOperetor(LoanScheduleEntity entity)
+            {
+                string paymentDate = entity.PaymentDate.ToString(Miscs.DateTimeFormating);
+            <a href="#" id="ReEditDisplayA" class="modalInput" itemGuid="@entity.ScheduleGuid" pureAmount="@entity.PureAmount"  payPenalty="@entity.Penalty" itemPayDate="@paymentDate" itemPaidAmount="@entity.AmountPaid"  rel="#ReEditDisplayDIV">
+                Edit</a> <a href="#" id="deleteScheduleInfo" itemGuid="@entity.ScheduleGuid" >Delete</a>
+        }
+        @helper RenderReInstalledScheduleInfo(LoanScheduleEntity entity)
+            {
+            <td btype="reed">@entity.PaymentDate.ToString(Miscs.DateTimeFormating)
+            </td>
+            <td btype="reed">@entity.PureAmount
+            </td>
+            <td btype="reed">@entity.Penalty
+            </td>
+            <td btype="reed">@RenderPaidAmount(entity)
+            </td>
+            <td btype="reed">@RenderPaidDate(entity)
+            </td>
+        }
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            LoanScheduleEntity entity = Model[i];
+
+            if (entity.ScheduleTimes <= 1)
+            {
+                number++;
+            }
+
+            string paymentDate = entity.PaymentDate.ToString(Miscs.DateTimeFormating);
+            string paidDateString = string.Empty;
+                if (entity.PaidDate != HiLand.Utility.Data.DateTimeHelper.Min)
+                {
+                    paidDateString = entity.PaidDate.ToString(Miscs.DateTimeFormating);
+                }
+
+            if (entity.ScheduleTimes <= 1)
+            {
+                AddUpBalance += entity.CurrentBalance;
+                if (entity.ScheduleStatus == HiLand.General.ScheduleStatuses.Normal)
+                {
+                    NewBalance += entity.CurrentBalance;
+                }
+            }
+            else
+            {
+                AddUpBalance -= entity.AmountPaid;
+                NewBalance += entity.CurrentBalance;
+            }
+
+            bool renderNextEntityOnThisRow = false;
+            int nextIndex = i + 1;
+            LoanScheduleEntity nextEntity = null;
+            if (nextIndex < Model.Count)
+            {
+                nextEntity = Model[nextIndex];
+                if (entity.ScheduleTimes <= 1 && nextEntity.ScheduleTimes > 1 && nextEntity.PaymentDate.Date == entity.PaymentDate.Date)
+                {
+                    renderNextEntityOnThisRow = true;
+                    AddUpBalance -= entity.AmountPaid;
+                    NewBalance += nextEntity.CurrentBalance;
+                    i++;
+                }
+                else
+                {
+                    renderNextEntityOnThisRow = false;
+                }
+            }
+                
+            <tr>
+                @if (entity.ScheduleTimes > 1)
+                {
+                    <td colspan="12">
+                    </td>
+                    @RenderReInstalledScheduleInfo(entity)
+                    <td>@NewBalance
+                    </td>
+                    <td>
+                        @RenderReInstalledOperetor(entity)
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        @number
+                    </td>
+                    <td>@entity.PaymentDate.ToString(Miscs.DateTimeFormating)
+                    </td>
+                    <td>
+                        <b>@entity.PureAmount</b>
+                    </td>
+                    <td>
+                        @entity.Interest.ToString()
+                    </td>
+                    <td>
+                        @entity.PrincipalBalance
+                    </td>
+                    <td>
+                        @entity.Penalty
+                    </td>
+                    <td>
+                        @entity.LateCharge
+                    </td>
+                    <td>
+                        @entity.OtherFee
+                    </td>
+                    <td>
+                        @RenderPaidAmount(entity)
+                    </td>
+                    <td>
+                        @RenderPaidDate(entity)
+                    </td>
+                    <td>
+                        @AddUpBalance
+                    </td>
+                    <td>
+                        @if (entity.ScheduleStatus == HiLand.General.ScheduleStatuses.Normal)
+                        {
+                            <a href="#" id="EditDisplayA" class="modalInput" itemGuid="@entity.ScheduleGuid" payPrincipal="@entity.Principal"  payInterest="@entity.Interest" payPenalty="@entity.Penalty" payLateCharge="@entity.LateCharge" payOtherFee="@entity.OtherFee" paymentDate="@paymentDate" paidAmount="@entity.AmountPaid" paidDate="@paidDateString"  rel="#EditDisplayDIV">
+                                Edit</a>  <a href="#" id="ReinstallDisplayA" class="modalInput" itemGuid="@entity.ScheduleGuid" itemBalanceToReinstall="@AddUpBalance" rel="#ReinstallDisplayDIV">
+                                    ReSchedule</a> <a  href="#" id="NewDisplayA" class="modalInput" loanGuid="@entity.LoanGuid"  rel="#NewDisplayDIV">NewSchedule</a>
+                        }
+                        else
+                        {
+                            <span class="reinstalled"><b>reinstalled</b></span>
+                        }
+                    </td>
+                        if (renderNextEntityOnThisRow == true && nextEntity != null)
+                        {
+                    @RenderReInstalledScheduleInfo(nextEntity)
+                    <td btype="reed">@NewBalance
+                    </td>
+                    <td btype="reed">@RenderReInstalledOperetor(nextEntity)
+                    </td>
+                        }
+                        else
+                        {
+                    <td btype="reed" colspan="5">
+                    </td>
+                    <td btype="reed">@NewBalance
+                    </td>
+                    <td btype="reed">
+                    </td>
+                        }
+                }
+            </tr>   
+        }
+    </table>
+    <div class="modal modalFix" id="EditDisplayDIV">
+        <table>
+            <tr><td>PayDate :</td><td><input type="text" id="payDate" name="payDate" /></td></tr>
+            <tr><td>Principal :</td><td><input type="text" id="payPrincipal" name="payPrincipal" /></td></tr>
+            <tr><td>Interest :</td><td><input type="text" id="payInterest" name="payInterest" /></td></tr>
+            <tr><td>Penalty :</td><td><input type="text" id="payPenalty" name="payPenalty" /></td></tr>
+            <tr><td>LateCharge :</td><td><input type="text" id="payLateCharge" name="payLateCharge" /></td></tr>
+            <tr><td>OtherFee :</td><td><input type="text" id="payOtherFee" name="payOtherFee" /></td></tr>
+            <tr><td>PaidAmount:</td><td><input type="text" id="paidAmount" name="paidAmount" /></td></tr>
+            <tr><td>PaidDate:</td><td><input type="text" id="paidDate" name="paidDate" class="datePicker" /></td></tr>
+        </table>
+        <input type="hidden" value="" class="ScheduleGuid" name="ScheduleGuid" />
+        <input type="button" value="Save" class="btnSave" name="btnSavePayment" />
+    </div>
+    <div class="modal modalFix" id="ReEditDisplayDIV">
+        PayDate :<input type="text" id="itemPayDate" name="itemPayDate" /><br />
+        Value :<input type="text" id="pureAmount" name="pureAmount" /><br />
+        Penalty :<input type="text" id="payPenaltyForReEdit" name="payPenaltyForReEdit" /><br />
+        PaidAmount :<input type="text" id="itemPaidAmount" name="paidAmount" /><br />
+        <input type="hidden" value="" class="ScheduleGuid" name="ScheduleGuid" />
+        <br />
+        <input type="button" value="Save" class="btnSave" name="btnSavePayment" />
+    </div>
+    <div class="modal modalFix" id="NewDisplayDIV">
+        PayDate :<input type="text" id="itemPayDateForNew" name="itemPayDate" /><br />
+        Value :<input type="text" id="pureAmountForNew" name="pureAmount" /><br />
+        Penalty :<input type="text" id="payPenaltyForNew" name="payPenaltyForReEdit" /><br />
+        PaidAmount :<input type="text" id="itemPaidAmountForNew" name="paidAmount" /><br />
+        <input type="hidden" value="" class="loanGuid" name="loanGuid" />
+        <br />
+        <input type="button" value="Save" class="btnSave" name="btnSavePayment" />
+    </div>
+    <div class="modal modalFix" id="ReinstallDisplayDIV">
+        pay Calculate Date:<input type="text" id="paymentTermCalculateDate" name="paymentTermCalculateDate" /><br />
+        No. of Installment:<input type="text" id="paymentTermCount" name="paymentTermCount" /><br />
+        Term Type:@Html.GBFLoanTermTypeDropDownList().Name("paymentTermType").Render()
+        <br />
+        <input type="hidden" value="" class="ScheduleGuid" name="ScheduleGuid" />
+        <input type="hidden" value="" id="itemBalanceToReinstall" name="itemBalanceToReinstall" />
+        <br />
+        <input type="button" value="Save" class="btnSave" name="btnSavePayment" />
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".datePicker").datePicker();
+
+            $(".reinstalled").parents("tr").find("td[btype!='reed']").css("backgroundColor", "#999999").css("text-decoration", "line-through");
+
+            $("#EditDisplayA").live("click", function () {
+                var itemGuid = $(this).attr("itemGuid");
+                var payPrincipal = $(this).attr("payPrincipal");
+                var payInterest = $(this).attr("payInterest");
+                var payPenalty = $(this).attr("payPenalty");
+                var payLateCharge = $(this).attr("payLateCharge");
+                var payOtherFee = $(this).attr("payOtherFee");
+                var payDate = $(this).attr("paymentDate");
+                var paidAmount = $(this).attr("paidAmount");
+                var paidDate = $(this).attr("paidDate");
+                $("#EditDisplayDIV #payPrincipal").val(payPrincipal);
+                $("#EditDisplayDIV #payInterest").val(payInterest);
+                $("#EditDisplayDIV #payPenalty").val(payPenalty);
+                $("#EditDisplayDIV #payLateCharge").val(payLateCharge);
+                $("#EditDisplayDIV #payOtherFee").val(payOtherFee);
+                $("#EditDisplayDIV .ScheduleGuid").val(itemGuid);
+                $("#EditDisplayDIV #payDate").val(payDate);
+                $("#EditDisplayDIV #paidAmount").val(paidAmount);
+                $("#EditDisplayDIV #paidDate").val(paidDate);
+            });
+
+            $("#EditDisplayDIV .btnSave").click(function () {
+                var url = '@Url.Action("EditSchedule2")';
+                var itemGuid = $("#EditDisplayDIV .ScheduleGuid").val();
+                var payPrincipal = $("#EditDisplayDIV #payPrincipal").val();
+                var payInterest = $("#EditDisplayDIV #payInterest").val();
+                var payPenalty = $("#EditDisplayDIV #payPenalty").val();
+                var payLateCharge = $("#EditDisplayDIV #payLateCharge").val();
+                var payOtherFee = $("#EditDisplayDIV #payOtherFee").val();
+                var payDate = $("#EditDisplayDIV #payDate").val();
+                var paidAmount = $("#EditDisplayDIV #paidAmount").val();
+                var paidDate = $("#EditDisplayDIV #paidDate").val();
+                $.post(url, { scheduleGuid: itemGuid, payPrincipal: payPrincipal, payInterest: payInterest, payPenalty: payPenalty, payLateCharge: payLateCharge, payOtherFee: payOtherFee, payDate: payDate, paidAmount: paidAmount, paidDate: paidDate }, function (data) {
+                    window.location.reload();
+                });
+            });
+
+            $("#ReEditDisplayA").live("click", function () {
+                var itemGuid = $(this).attr("itemGuid");
+                var pureAmount = $(this).attr("pureAmount");
+                var payPenalty = $(this).attr("payPenalty");
+                var itemPayDate = $(this).attr("itemPayDate");
+                var itemPaidAmount = $(this).attr("itemPaidAmount");
+                $("#ReEditDisplayDIV #pureAmount").val(pureAmount);
+                $("#ReEditDisplayDIV #payPenaltyForReEdit").val(payPenalty);
+                $("#ReEditDisplayDIV #itemPayDate").val(itemPayDate);
+                $("#ReEditDisplayDIV #itemPaidAmount").val(itemPaidAmount);
+                $("#ReEditDisplayDIV .ScheduleGuid").val(itemGuid);
+            });
+
+            $("#ReEditDisplayDIV .btnSave").click(function () {
+                var url = '@Url.Action("EditSchedule2")';
+                var itemGuid = $("#ReEditDisplayDIV .ScheduleGuid").val();
+                var payPrincipal = $("#ReEditDisplayDIV #pureAmount").val();
+                var paidAmountForEdit = $("#ReEditDisplayDIV #itemPaidAmount").val();
+                var payPenalty = $("#ReEditDisplayDIV #payPenaltyForReEdit").val();
+                var itemPayDate = $("#ReEditDisplayDIV #itemPayDate").val();
+                $.post(url, { scheduleGuid: itemGuid, payPrincipal: payPrincipal, payPenalty: payPenalty, payDate: itemPayDate, paidAmount: paidAmountForEdit }, function (data) {
+                    window.location.reload();
+                });
+            });
+
+            $("#NewDisplayA").live("click", function () {
+                var loanGuid = $(this).attr("loanGuid");
+                $("#NewDisplayDIV .loanGuid").val(loanGuid);
+            });
+
+            $("#NewDisplayDIV .btnSave").click(function () {
+                var url = '@Url.Action("CreateSchedule2")';
+                var loanGuid = $("#NewDisplayDIV .loanGuid").val();
+                var payPrincipal = $("#NewDisplayDIV #pureAmountForNew").val();
+                var paidAmount = $("#NewDisplayDIV #itemPaidAmountForNew").val();
+                var payPenalty = $("#NewDisplayDIV #payPenaltyForNew").val();
+                var itemPayDate = $("#NewDisplayDIV #itemPayDateForNew").val();
+                $.post(url, { loanGuid: loanGuid, payPrincipal: payPrincipal, payPenalty: payPenalty, payDate: itemPayDate, paidAmount: paidAmount }, function (data) {
+                    window.location.reload();
+                });
+            });
+
+            $("#ReinstallDisplayA").live("click", function () {
+                var itemGuid = $(this).attr("itemGuid");
+                var itemBalanceToReinstall = $(this).attr("itemBalanceToReinstall");
+
+                $("#ReinstallDisplayDIV .ScheduleGuid").val(itemGuid);
+                $("#ReinstallDisplayDIV #itemBalanceToReinstall").val(itemBalanceToReinstall);
+            });
+
+            $("#ReinstallDisplayDIV .btnSave").click(function () {
+                var url = '@Url.Action("ReinstallSchedule2")';
+                var itemGuid = $("#ReinstallDisplayDIV .ScheduleGuid").val();
+                var itemBalanceToReinstall = $("#ReinstallDisplayDIV #itemBalanceToReinstall").val();
+                var paymentTermCalculateDate = $("#ReinstallDisplayDIV #paymentTermCalculateDate").val();
+                var paymentTermCount = $("#ReinstallDisplayDIV #paymentTermCount").val();
+                var paymentTermType = $("#ReinstallDisplayDIV #paymentTermType").val();
+                $.post(url, { scheduleGuid: itemGuid, paymentTermCount: paymentTermCount, paymentTermType: paymentTermType, balanceToReinstall: itemBalanceToReinstall, loanStartDate: paymentTermCalculateDate }, function (data) {
+                    window.location.reload();
+                });
+            });
+
+            $("#deleteScheduleInfo").live("click", function () {
+                var url = '@Url.Action("DeleteSchedule")';
+                var itemGuid = $(this).attr("itemGuid");
+                $.post(url, { scheduleGuid: itemGuid }, function (data) {
+                    window.location.reload();
+                })
+            });
+
+            $(".modalInput").overlay({
+                mask: {
+                    color: '#ebecff',
+                    loadSpeed: 200,
+                    opacity: 0.9
+                },
+                closeOnClick: false,
+                oneInstance: false
+            });
+
+            var address = '@Url.Action("LoanInfoForSchedule")?loanGuid=@loanGuid' + '&isDisplayGenerateButton=@isDisplayGenerateButton';
+            $("#OperateAreaContainer").load(address);
+        });
+    </script>
+</div>

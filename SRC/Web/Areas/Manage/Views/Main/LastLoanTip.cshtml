@@ -1,0 +1,58 @@
+﻿@using HiLand.General.Entity
+@using GBFinance.Web.Models
+@model List<LoanBasicEntity>
+@{
+    ViewBag.Title = "LastLoanTip";
+    this.Layout = null;
+}
+<div id="ItemListDIV">
+    <table width="98%" class="grid">
+        <tr>
+            <th style="width: 30px">
+                No.
+            </th>
+            <th style="width: 80px">
+                Loan Type
+            </th>
+            <th style="width: 80px">
+                Loan Amount
+            </th>
+            <th style="width: 60px">
+                Loan Date
+            </th>
+            <th>
+                Custom Name
+            </th>
+            <th style="width: 150px">
+                Operate
+            </th>
+        </tr>
+        @foreach (LoanBasicEntity entity in Model)
+        {     
+            <tr>
+                <td>@entity.LoanID
+                </td>
+                <td>@entity.LoanType.ToString()
+                </td>
+                <td>@entity.LoanAmount.ToString()
+                </td>
+                <td>@entity.LoanDate.ToString(Miscs.DateTimeFormating)
+                </td>
+                <td>@entity.LoanOwnerDisplay
+                </td>
+                <td>
+                    <a name="knownA" href="#" class="knownA" itemGuid="@entity.LoanGuid">I have Known</a>
+                </td>
+            </tr>   
+        }
+    </table>
+</div>
+<script type="text/javascript">
+    $(".knownA").live("click", function () {
+        var itemGuid = $(this).attr("itemGuid");
+        var url = '@Url.Action("UpdateLoanReadInfo")';
+        $.post(url, { loanGuid: itemGuid }, function (data) {
+            window.location.reload();
+        });
+    });
+</script>

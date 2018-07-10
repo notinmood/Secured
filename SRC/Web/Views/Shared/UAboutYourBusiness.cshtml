@@ -1,0 +1,143 @@
+﻿@using HiLand.Utility4.MVC.Controls
+@using HiLand.Framework.BusinessCore
+@using GBFinance.Web.Models
+@using GBFinance.Web.Control
+@using HiLand.General.Entity
+@using HiLand.General
+@using GBFinance.Entity
+@using HiLand.Utility.Data
+@model LoanWorkEntity
+@{
+    Layout = null;
+    MvcControlUsingModes usingMode = (this.ViewContext.Controller as GBFinance.Web.Controllers.BaseLoanController).GetUsingMode();
+    bool isPopLayer = (this.ViewContext.Controller as GBFinance.Web.Controllers.BaseLoanController).CheckIsPopLayer();
+    string nextIncomeDay = string.Empty;
+    if (Model.NextIncomeDay > DateTimeHelper.Min)
+    {
+        nextIncomeDay = DateTimeHelper.UnParse(Model.NextIncomeDay, HiLand.Utility.Enums.DateFormats.DMY, "/");
+    }
+}
+<style type="text/css">
+    .hlDiv .span
+    {
+        width: 200px;
+        text-align: right;
+    }
+</style>
+<div id="UAboutYourBusinessContainer">
+    @using (Html.BeginForm())
+    { 
+        <fieldset id="businessDetails" class="simpleFieldset">
+            <legend>Work Details</legend>
+            <table>
+                <tr>
+                    <td>
+                        Employer Name:
+                    </td>
+                    <td>
+                        @Html.HiTextBox().Name("EmployerName").Value(Model.EmployerName).UsingMode(usingMode).IsUseSelfContainer(false).Render(new {style="width:250px"})
+                    </td>
+                </tr>
+                <tr>
+                <td>
+                        Employer Address:
+                    </td>
+                    <td>
+                        @Html.HiTextBox().Name("EmployerAddress").Value(Model.EmployerAddress).Lable("Employer Address").UsingMode(usingMode).IsUseSelfContainer(false).Render(new { style = "width:250px" })
+                    </td>
+                </tr>
+                <tr>
+                <td>
+                       Employer Telephone:
+                    </td>
+                    <td>
+                        @Html.HiTextBox().Name("EmployerTelephone").Value(Model.EmployerTelephone).Lable("Employer Telephone").UsingMode(usingMode).IsUseSelfContainer(false).Render(new { style = "width:250px" })
+                    </td>
+                </tr>
+                <tr>
+                <td>
+                        Employment Status:
+                    </td>
+                    <td>@Html.GBFEmploymentStatusDropDownList().Name("EmploymentStatus").Value(Model.EmploymentStatus).Lable("Employment Status").UsingMode(usingMode).IsUseSelfContainer(false).Render()
+                    </td>
+                </tr>
+                <tr>
+                <td>
+                        Job Title:
+                    </td>
+                    <td>
+                        @Html.HiTextBox().Name("JobTitle").Value(Model.JobTitle).Lable("Job Title").UsingMode(usingMode).IsUseSelfContainer(false).Render()
+                    </td>
+                </tr>
+                <tr>
+                <td>
+                        Time Employed:
+                    </td>
+                    <td>
+                            @Html.HiTextBox().Name("TimeEmployedYears").Value(Model.TimeEmployedYears).Lable("Time Employed").UsingMode(usingMode).IsUseSelfContainer(false).Render(new { style = "width:50px" })
+                            <span>Year(s)</span>
+                            @Html.HiTextBox().Name("TimeEmployedMonths").Value(Model.TimeEmployedMonths).UsingMode(usingMode).IsUseSelfContainer(false).Render(new { style = "width:50px" })
+                            <span>Month(s)</span>
+                    </td>
+                </tr>
+                <tr>
+                <td>
+                        Take Home Pay After Taxes:
+                    </td>
+                    <td>
+                        @Html.HiTextBox().Name("IncomeafterTaxes").Value(Model.IncomeafterTaxes).Lable("Take home pay after taxes").UsingMode(usingMode).IsUseSelfContainer(false).Render()
+                        @Html.GBFPersonalLoanTermTypeDropDownList().Name("IncomeCircle").Lable("Per").Value(Model.IncomeCircle).UsingMode(usingMode).IsUseSelfContainer(false).Render()
+                    </td>
+                </tr>
+                <tr>
+                <td>
+                         Next Pay Day:
+                    </td>
+                    <td>
+                        @Html.HiTextBox().Name("NextIncomeDay").Value(nextIncomeDay).IsUseSelfContainer(false).Lable("Next Pay Day").UsingMode(usingMode).Render()
+                        <span>(dd/mm/yyyy)</span>
+                    </td>
+                </tr>
+                <tr>
+                <td>
+                        Your rent/mortgage payment:
+                    </td>
+                    <td>
+                        @Html.HiTextBox().Name("MainPayment").Value(Model.MainPayment.ToString()).Lable("Your rent/mortgage payment").UsingMode(usingMode).IsUseSelfContainer(false).Render()
+                        @Html.GBFPersonalLoanTermTypeDropDownList().Name("MainPaymentCircle").Value(Model.MainPaymentCircle).UsingMode(usingMode).IsUseSelfContainer(false).Render()
+                    </td>
+                </tr>
+                <tr>
+                <td>
+                        Your regular repayment to other lenders:
+                    </td>
+                    <td>
+                        @Html.HiTextBox().Name("RegularOtherPayment").Value(Model.RegularOtherPayment).Lable("Your regular repayment to other lenders").UsingMode(usingMode).IsUseSelfContainer(false).Render()
+                        @Html.GBFPersonalLoanTermTypeDropDownList().Name("RegularOtherPaymentCircle").Value(Model.RegularOtherPaymentCircle).UsingMode(usingMode).IsUseSelfContainer(false).Render()
+                    </td>
+                </tr>
+            </table>
+            @Html.HiddenFor(m => m.WorkID)
+            @Html.HiddenFor(m => m.WorkGuid)
+        </fieldset>
+    }
+    @if (isPopLayer == true)
+    {
+        <div class="notification attention png_bg">
+            <a href="#" class="close">
+                <img src="@Url.Content("~/Content/NotificationImages/cross_grey_small.png")" title="Close this notification"
+            alt="close" /></a>
+            <div class="notificationContent">
+                You can close this PopWindow by the key "Esc".
+            </div>
+        </div>
+        <input type="button" value="Save" id="btnSave" />
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#UAboutYourBusinessContainer #btnSave").click(function () {
+                    submitAndRedirect("#UAboutYourBusinessContainer form");
+                });
+            });
+        </script>
+    }
+</div>

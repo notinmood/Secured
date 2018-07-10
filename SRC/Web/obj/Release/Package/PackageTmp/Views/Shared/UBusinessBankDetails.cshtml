@@ -1,0 +1,63 @@
+﻿@using HiLand.Utility4.MVC.Controls
+@using HiLand.Framework.BusinessCore
+@using GBFinance.Web.Models
+@using GBFinance.Web.Control
+@using HiLand.General.Entity
+@model HiLand.General.Entity.BankEntity
+@{
+    Layout = null;
+
+    MvcControlUsingModes usingMode = (this.ViewContext.Controller as GBFinance.Web.Controllers.BaseLoanController).GetUsingMode();
+    bool isPopLayer = (this.ViewContext.Controller as GBFinance.Web.Controllers.BaseLoanController).CheckIsPopLayer(); 
+}
+<div id="UBusinessBankDetailsContainer">
+    <fieldset id="bankDetails" class="simpleFieldset">
+        <legend>This is the account we will credit to and deduct from</legend>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+    
+            
+            <table>
+                <tr>
+                    <td>@Html.HiTextBox().Name("BankName").Value(Model.BankName).Lable("Bank Name").UsingMode(usingMode).Render()
+                    </td>
+                    <td>@Html.HiTextBox().Name("Branch").Value(Model.Branch).Lable("Branch").UsingMode(usingMode).Render()
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.HiTextBox().Name("AccountName").Value(Model.AccountName).Lable("Account Name").UsingMode(usingMode).Render()
+                    </td>
+                    <td>@Html.HiTextBox().Name("BankCode").Value(Model.BankCode).Lable("BSB").UsingMode(usingMode).Render()
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.HiTextBox().Name("AccountNumber").Value(Model.AccountNumber).Lable("Account Number").UsingMode(usingMode).Render()
+                    </td>
+                    <td>@Html.HiTextBox().Name("AccountNumberConfirm").Value(Model.AccountNumber).Lable("Confirm Account Number").UsingMode(usingMode).Render()
+                    </td>
+                </tr>
+            </table>
+            @Html.HiddenFor(m => m.BankGuid)
+        }
+    </fieldset>
+    @if (isPopLayer == true)
+    {
+        <div class="notification attention png_bg">
+            <a href="#" class="close">
+                <img src="@Url.Content("~/Content/NotificationImages/cross_grey_small.png")" title="Close this notification"
+            alt="close" /></a>
+            <div class="notificationContent">
+                You can close this PopWindow by the key "Esc".
+            </div>
+        </div>
+        <input type="button" value="Save" id="btnSave" />
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#UBusinessBankDetailsContainer #btnSave").click(function () {
+                    submitAndRedirect("#UBusinessBankDetailsContainer form");
+                });
+            });
+        </script>
+    }
+</div>

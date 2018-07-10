@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_SecuredProgressLayout.cshtml";
+
+
+    bool isNewBirthLoan = true;
+    if (this.ViewData["isNewBirthLoan"] != null)
+    {
+        string isNewBirthLoanString = this.ViewData["isNewBirthLoan"].ToString();
+        bool.TryParse(isNewBirthLoanString, out isNewBirthLoan);
+    }
+}
+<h1>
+    Apply Now
+</h1>
+<ul>
+    <li  style="list-style:none">1. Complete the application online.</li>
+    <li  style="list-style:none">2. Print, sign and fax the forms, which will be given at the end of application along with below required documents:
+        <ol style="list-style-type: none; text-indent: 15px;">
+            <li  style="list-style:none">• Latest two payslips</li>
+            <li  style="list-style:none">• 100 points of ID</li>
+            <li  style="list-style:none">• 3 months bank statement</li>
+            <li  style="list-style:none">• Current Rates Notice(s) for all security properties or car rego papers</li>
+            <li  style="list-style:none">• Copy of Utility bill verifying your current address</li>
+        </ol>
+    </li>
+    <li  style="list-style:none">3. When we receive your application, you will receive a courtesy call or email from one of our staff to acknowledge that we have received it and are starting work on it right away.</li>
+    <li  style="list-style:none">4. Within 2 working hours, you will receive an answer, and if approved, you will receive the letter of offer straight away.</li>
+    <li  style="list-style:none">5. Once the letter of offer is faxed back to us and all conditions are met, we will finalise the due diligence and instruct our solicitors to prepare the loan contracts, which will be sent to you via email.</li>
+    <li  style="list-style:none">6. Within 2 working hours of receiving the loan contracts back, we will settle the loan. Our staff will call you to advise that settlement has taken place.</li>
+</ul>
+<br />
+<p>
+    Please call <span class="browntxt">1300 137 906</span> or email <a href="mailto:apply@cashsolution.com.au"
+        class="brownlink">apply@cashsolution.com.au</a> if you have any problems/questions
+    filling in this form.</p>
+<div style="display: none">
+    <a href="#" id="validateLoopA" class="modalInput" rel="#displayDIV">validateLoop</a></div>
+<div class="bottombtns">
+    <a href="@Url.Action("InitialLoanInformation")" class="green2"  style="float: right">
+        NEXT</a>
+</div>
+@*<div class="modal modalFix" id="displayDIV">
+    There is an undone loan.Click "OK" will cancel the loan and start a new loan;Click "Cancel" will continue the undone loan.
+    <br />
+    <button type="button" name="okButton" id="btnOK" class="close">
+        OK
+    </button>
+    <button type="button" class="close">
+        Cancel
+    </button>
+</div>*@
+<div id="outterFormContainer">
+    @using (Html.BeginForm())
+    {
+        <div  style="display:none">
+            <input type="checkbox" value="resetLoan" name="resetLoan" checked="checked" />
+            <input type="submit" value="submit" />
+        </div>
+    }
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#process #applyNow").addClass("activedprocess");
+        $("#process #applyNow a").addClass("activedprocesstxt");
+        $(".modalInput").overlay({
+            mask: {
+                color: '#ebecff',
+                loadSpeed: 200,
+                opacity: 0.9
+            },
+            closeOnClick: false
+        });
+    });
+</script>
+@*@if (isNewBirthLoan == false)
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#validateLoopA").trigger("click");
+            $("#btnOK").click(function () {
+                $("#outterFormContainer form").ajaxSubmit({
+                    success: function (responseText) {
+                        //alert(responseText);
+                    }
+                });
+            });
+        });
+    </script>
+}*@

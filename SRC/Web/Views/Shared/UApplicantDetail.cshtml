@@ -1,0 +1,154 @@
+﻿@using HiLand.Utility4.MVC.Controls
+@using HiLand.Framework.BusinessCore
+@using GBFinance.Web.Models
+@using GBFinance.Web.Control
+@using HiLand.General.Entity
+@using HiLand.Utility4.Data
+@model HiLand.Framework.BusinessCore.BusinessUser
+@{
+    Layout = null;
+
+    List<string> cssFiles = new List<string>() { Url.Content("~/Content/jQuery.tools.dateinput.css") };
+    List<string> javaScriptFiles = new List<string>() { Url.Content("~/Scripts/jQuery.tools.min.js") };
+    string dateTimeOptions = "{format: 'dd/mm/yyyy'}";
+    string userBirthDay = string.Empty;
+    if (Model != null && Model.UserBirthDay != null && Model.UserBirthDay != HiLand.Utility.Data.DateTimeHelper.Min)
+    {
+        userBirthDay = Model.UserBirthDay.ToString(Miscs.DateTimeFormating, Miscs.CurrentCultureInfo);
+    }
+
+    MvcControlUsingModes usingMode = (this.ViewContext.Controller as GBFinance.Web.Controllers.BaseLoanController).GetUsingMode();
+    bool isPopLayer = (this.ViewContext.Controller as GBFinance.Web.Controllers.BaseLoanController).CheckIsPopLayer();
+    ResidentalEntity residentalEntity = this.ViewBag.ResidentalEntity;
+    ResidentalEntity residentalEntityPre = this.ViewBag.ResidentalEntityPre;
+}
+<style type="text/css">
+    .hlDiv .span
+    {
+        width: 120px;
+        text-align: right;
+    }
+</style>
+<div id="UApplicantDetailContainer">
+    @using (Html.BeginForm())
+    { 
+        <fieldset id="personalDetails" class="simpleFieldset">
+            <legend>Personal Details</legend>
+            <table>
+                <tr>
+                    <td>@Html.HiTextBox().Name("UserTitle").Value(Model.UserTitle).Lable("Title").UsingMode(usingMode).Render()
+                    </td>
+                    <td>@Html.GBFSexRadioButtionList().Name("UserSex").Value(Model.UserSex.ToString()).Lable("Gender").UsingMode(usingMode).Render()
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.HiTextBox().Lable("First Name").Name("UserNameFirst").Value(Model.UserNameFirst).UsingMode(usingMode).Render()
+                    </td>
+                    <td>@Html.HiTextBox().Lable("Middle Name").Name("UserNameMiddle").Value(Model.UserNameMiddle).UsingMode(usingMode).Render()
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.HiTextBox().Lable("Last Name").Name("UserNameLast").Value(Model.UserNameLast).UsingMode(usingMode).Render()
+                    </td>
+                    <td>@Html.HiTextBox().Lable("Date of Birth").Name("UserBirthDay").Value(userBirthDay).UsingMode(usingMode).Render()
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.GBFMaritalStatusesDropDownList().Lable("Marital Status").OptionLabel("please select...").Name("MaritalStatus").Value((Model.MaritalStatus).ToString()).UsingMode(usingMode).Render()
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.HiTextBox().Lable("Drivers Licence").Name("DriversLicenceNumber").Value(Model.DriversLicenceNumber).UsingMode(usingMode).Render()
+                    </td>
+                    <td>@Html.GBFAustraliaStateDropDownList().Lable("State Issued").Name("DriversLicenceNumberIssued").Value(Model.DriversLicenceNumberIssued).UsingMode(usingMode).Render()
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.HiTextBox().Lable("Home Tel.").Name("HomeTelephone").Value(Model.HomeTelephone).UsingMode(usingMode).Render()
+                    </td>
+                    <td>@Html.HiTextBox().Lable("Mobile No.").Name("UserMobileNO").Value(Model.UserMobileNO).UsingMode(usingMode).Render()
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.HiTextBox().Lable("Work Tel.").Name("WorkTelphone").Value(Model.WorkTelphone).UsingMode(usingMode).Render()
+                    </td>
+                    <td>@Html.HiTextBox().Lable("Email").Name("UserEmail").Value(Model.UserEmail).UsingMode(usingMode).Render()
+                    </td>
+                </tr>
+            </table>
+            @Html.HiddenFor(m => m.UserGuid)
+        </fieldset>
+        <fieldset id="residentialDetails" class="simpleFieldset">
+            <legend>Residential Details</legend>
+            <table>
+                <tr>
+                    <td>@Html.GBFResidentalTypeDropDownList().Name("ResidentialStatus").Value((residentalEntity.ResidentialStatus).ToString()).Lable("Residential Status").UsingMode(usingMode).Render(new { style="width:155px;"})
+                    </td>
+                    <td>@Html.HiTextBox().Name("UnitApartmentNo").Value(residentalEntity.ApartmentNo).Lable("Apart No.").UsingMode(usingMode).Render()
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.HiTextBox().Name("StreetNoAndName").Value(residentalEntity.Street).Lable("Street No.& name").UsingMode(usingMode).Render()
+                    </td>
+                    <td>@Html.HiTextBox().Name("Suburb").Value(residentalEntity.Suburb).Lable("Suburb").UsingMode(usingMode).Render()
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.GBFAustraliaStateDropDownList().Name("State").Value(residentalEntity.State).Lable("State").UsingMode(usingMode).Render()
+                    </td>
+                    <td>@Html.HiTextBox().Name("Postcode").Value(residentalEntity.PostCode).Lable("Postcode").UsingMode(usingMode).Render()
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.HiTextBox().Name("AddressYears").Value(residentalEntity.ResidentalYears.ToString()).Lable("Address Years").UsingMode(usingMode).Render()
+                    </td>
+                    <td>@Html.HiTextBox().Name("AddressMonths").Value(residentalEntity.ResidentalMonths.ToString()).Lable("Months").UsingMode(usingMode).Render()
+                    </td>
+                </tr>
+            </table>
+            @Html.Hidden("ResidentalGuid", residentalEntity.ResidentialGuid.ToString())
+        </fieldset>
+        <fieldset id="preResidentialDetails" class="simpleFieldset">
+            <legend>Previous Residential Details</legend>
+            <table>
+                <tr>
+                    <td>@Html.HiTextBox().Name("PreStreetNoAndName").Value(residentalEntityPre.Street).Lable("Street no.& name").UsingMode(usingMode).Render()
+                    </td>
+                    <td>@Html.HiTextBox().Name("PreSuburb").Value(residentalEntityPre.Suburb).Lable("Suburb").UsingMode(usingMode).Render()
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.GBFAustraliaStateDropDownList().Name("PreState").Value(residentalEntityPre.State).Lable("State").UsingMode(usingMode).Render()
+                    </td>
+                    <td>@Html.HiTextBox().Name("PrePostcode").Value(residentalEntityPre.PostCode).Lable("Postcode").UsingMode(usingMode).Render()
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.HiTextBox().Name("PreAddressYears").Value(residentalEntityPre.ResidentalYears.ToString()).Lable("AddressYears").UsingMode(usingMode).Render()
+                    </td>
+                    <td>@Html.HiTextBox().Name("PreAddressMonths").Value(residentalEntityPre.ResidentalMonths.ToString()).Lable("AddressMonths").UsingMode(usingMode).Render()
+                    </td>
+                </tr>
+            </table>
+            @Html.Hidden("ResidentalGuidPre", residentalEntityPre.ResidentialGuid.ToString())
+        </fieldset>
+    }
+    @if (isPopLayer == true)
+    {
+        
+        <a href="#" class="close">
+            <img src="@Url.Content("~/Content/NotificationImages/cross_grey_small.png")" title="Close this notification"
+            alt="close" /></a>
+       
+        <input type="button" value="Save" id="btnSave" />
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#UApplicantDetailContainer #btnSave").click(function () {
+                    submitAndRedirect("#UApplicantDetailContainer form");
+                });
+            });
+        </script>
+    }
+</div>

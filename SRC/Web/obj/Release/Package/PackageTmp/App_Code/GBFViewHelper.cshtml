@@ -1,0 +1,42 @@
+﻿@using HiLand.Utility4.MVC.Controls;
+@using System.Web.Mvc;
+@{
+    Layout = null;
+}
+@helper DisplaySubmitInfo(string formContainerSelector)
+    {
+        UrlHelper Url = new UrlHelper(HttpContext.Current.Request.RequestContext);
+        string closeImgString = Url.Content("~/Content/NotificationImages/cross_grey_small.png");
+    <div class="notification attention png_bg">
+        <a href="#" class="close">
+            <img src="@closeImgString" title="Close this notification"
+            alt="close" /></a>
+        <div class="notificationContent">
+            You can close this PopWindow by the key "Esc".
+        </div>
+    </div>
+    <input type="button" value="Save" id="btnSave" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("@formContainerSelector #btnSave").click(function () {
+                $("@formContainerSelector form").ajaxSubmit({
+                    success: function (responseInfo) {
+                        if (responseInfo.IsSuccessful == false) {
+                            alert(responseInfo.statusMessage);
+                        }
+                        else {
+                            //alert(responseInfo.IsSuccessful);
+                            window.location.reload();
+                        }
+                    },
+                    data: { "isAjaxDeal": "true" }
+                });
+            });
+        });
+    </script>
+}
+
+@helper Test(string value)
+{
+    <span>hello,@value</span>
+    }

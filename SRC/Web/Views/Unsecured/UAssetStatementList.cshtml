@@ -1,0 +1,76 @@
+﻿@using GBFinance.Entity;
+@using HiLand.Utility4.MVC.Controls
+@using HiLand.Framework.BusinessCore
+@model List<IncomeAssetEntity>
+@{
+    Layout = null;
+    MvcControlUsingModes usingMode = (this.ViewContext.Controller as GBFinance.Web.Controllers.BaseLoanController).GetUsingMode();
+    bool isPopLayer = (this.ViewContext.Controller as GBFinance.Web.Controllers.BaseLoanController).CheckIsPopLayer(); 
+    }
+<div class="contentDetail" id="UAssetStatementListContainer">
+    <table>
+        <tr>
+            <th style="width: 5%">
+                No.
+            </th>
+            <th style="width: 20%">
+                Source of Income
+            </th>
+            <th style="width: 20%">
+                Net Income/month
+            </th>
+            <th style="width: 20%">
+                Operate
+            </th>
+        </tr>
+        @if (Model != null)
+        {
+            for (int i = 0; i < Model.Count; i++)
+            {
+                IncomeAssetEntity entity = Model[i];
+                int j = i + 1;
+                string editButtonID = "btnEdit" + entity.ItemGuid;
+                string deleteButtonID = "btnDelete" + entity.ItemGuid;
+            <tr>
+                <td>
+                    @j
+                </td>
+                <td>
+                    @entity.ItemName
+                </td>
+                <td>
+                    @entity.ItemValue
+                </td>
+                <td>
+                    @if (usingMode == MvcControlUsingModes.Editable)
+                    {
+                        <input type="button" value="Edit" id="@editButtonID" isPopLayer="@isPopLayer" entityGuid="@entity.ItemGuid" />
+                    }
+                    <input type="button" value="Delete" id="@deleteButtonID" entityGuid="@entity.ItemGuid" />
+                </td>
+            </tr>
+            }
+        }
+    </table>
+    @using (Html.BeginForm())
+    { 
+        <input type="hidden" id="entityGuidToDelete" name="entityGuidToDelete" value="" />
+    }
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#UAssetStatementListContainer input[type='button'][value='Edit']").click(function () {
+                var entityGuid = $(this).attr("entityGuid");
+                var address = '@Url.Action("UAssetStatementDetails")' + '?ItemGuid=' + entityGuid;
+                $("#itemDetailsDIV").load(address);
+            });
+
+            $("#UAssetStatementListContainer input[type='button'][value='Delete']").click(function () {
+                var entityGuid = $(this).attr("entityGuid");
+                $("#UAssetStatementListContainer #entityGuidToDelete").val(entityGuid);
+                var address = '@Url.Action("UAssetStatementList")';
+                submitAndRedirect("#UAssetStatementListContainer form");
+            });
+        });
+    </script>
+</div>

@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "UAboutYourWorks";
+    Layout = this.ViewData["_Layout"].ToString();
+}
+
+<h1>
+    About Your Work
+</h1>
+<div id="outterFormContainer"></div>
+<div class="bottombtns">
+    <a href="@Url.Action("AboutTheApplicants")" class="green2" style="float: left">BACK</a> <a href="#" id="aNext"  class="green2"  style="float: right">NEXT</a>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#process #AboutYourBusiness").addClass("activedprocess");
+        $("#process #AboutYourBusiness a").addClass("activedprocesstxt");
+        $("#outterFormContainer").load('@Url.Action("UAboutYourWorks")');
+        $("#aNext").click(function () {
+            submitAndRedirect("#outterFormContainer form", '@Url.Action("LiabilityStatement")');
+        });
+    });
+</script>
+
+

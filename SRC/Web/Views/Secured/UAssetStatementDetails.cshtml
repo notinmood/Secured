@@ -1,0 +1,119 @@
+﻿@using GBFinance.Entity;
+@using HiLand.Utility4.MVC.Controls
+@using HiLand.Framework.BusinessCore
+@model List<IncomeAssetEntity>
+@{
+    Layout = null;
+
+    MvcControlUsingModes usingMode = (this.ViewContext.Controller as GBFinance.Web.Controllers.BaseLoanController).GetUsingMode();
+    bool isPopLayer = (this.ViewContext.Controller as GBFinance.Web.Controllers.BaseLoanController).CheckIsPopLayer();
+
+    int rowCount = 0;
+    int rowCountMin = 5;
+    int rowCountToFeedback = 0;
+}
+<style type="text/css">
+    .hlDiv .span
+    {
+        width: 150px;
+        text-align: right;
+    }
+</style>
+<div id="UAssetStatementDetailsContainer" class="contentDetail">
+    @using (Html.BeginForm())
+    { 
+        <fieldset id="securedDetails" class="simpleFieldset">
+            <legend>Asset Statement Details</legend>
+            <table id="itemTable" id="itemTable">
+                <tr>
+                    <th style="width: 5%">
+                        No.
+                    </th>
+                    <th style="width: 20%">
+                        Assets
+                    </th>
+                    <th style="width: 20%">
+                        Current Value
+                    </th>
+                    <th style="width: 20%">
+                        Operate
+                    </th>
+                </tr>
+                @if (Model != null)
+                {
+                    rowCount = Model.Count;
+                    for (int rowNumber = 0; rowNumber < rowCount; rowNumber++)
+                    {
+                        IncomeAssetEntity currentItem = Model[rowNumber];
+                        Html.RenderAction("UAssetStatementAddRow", new { rowNumber = rowNumber, entity = currentItem });
+                    }
+                }
+                @{
+                if (rowCount < rowCountMin)
+                {
+                    for (int rowNumber = rowCount; rowNumber < rowCountMin; rowNumber++)
+                    {
+                        Html.RenderAction("UAssetStatementAddRow", new { rowNumber = rowNumber });
+                    }
+
+                    rowCountToFeedback = rowCountMin;
+                }
+                else
+                {
+                    rowCountToFeedback = rowCount;
+                }
+                }
+            </table>
+            <span>@Html.Hidden("rowCountToFeedback", rowCountToFeedback)</span>
+            <div style="text-align: right">
+                <a id="aAddNewRow"  class="operateEntry addEntry">Add New Row</a>
+            </div>
+        </fieldset>
+    }
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#aAddNewRow").click(function () {
+                //1.
+                var lastRowNumber = $("#rowCountToFeedback").attr("value");
+                var targetUrl = '@Url.Action("UAssetStatementAddRow")' + "?rowNumber=" + lastRowNumber;
+                $.get(targetUrl, function (data) {
+                    $('#itemTable tr:last').after(data);
+                });
+
+                //2.
+                $("#rowCountToFeedback").attr("value", +lastRowNumber + 1);
+            });
+
+            $(".deleteEntry").live("click", function () {
+                var currentObject = $(this);
+                var itemGuid = currentObject.attr("itemGuid");
+                $.post('@Url.Action("UAssetStatementDeleteRow")', { itemIDToDelete: itemGuid }, function (responseInfo) {
+                    if (responseInfo.IsSuccessful == false) {
+                    }
+                    else {
+                        currentObject.parents("tr").html("");
+                    }
+                });
+            });
+        });
+    </script>
+    @if (isPopLayer == true)
+    {
+        <div class="notification attention png_bg">
+            <a href="#" class="close">
+                <img src="@Url.Content("~/Content/NotificationImages/cross_grey_small.png")" title="Close this notification"
+            alt="close" /></a>
+            <div class="notificationContent">
+                You can close this PopWindow by the key "Esc".
+            </div>
+        </div>
+        <input type="button" value="Save" id="btnSave" />
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#UAssetStatementDetailsContainer #btnSave").click(function () {
+                    submitAndRedirect("#UAssetStatementDetailsContainer form");
+                });
+            });
+        </script>
+    }
+</div>

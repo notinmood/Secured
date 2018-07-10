@@ -1,0 +1,17 @@
+﻿@using HiLand.Utility4.MVC.Controls
+
+@{
+    ViewBag.Title = "ControlTest";
+}
+
+<h2>ControlTest</h2>
+
+<table>
+    <tr>
+        <td>@Html.HiTextBox().Lable("sss").Render()</td>
+        <td>@Html.HiTextBox().Lable("bbb").Render()</td>
+    </tr>
+    @Html.HiTextBox().Lable("sssssssssssss").Render(new { aa="ssss",bb="ccccccccccc"})
+</table>
+
+@{Html.RenderAction("UAboutYourBusiness", "Secured");}

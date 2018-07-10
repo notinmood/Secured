@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "LiabilityStatement";
+    Layout = this.ViewData["_Layout"].ToString();
+}
+<h1>
+    Liability Statement
+</h1>
+<div id="itemWrapperDIV">
+    @{Html.RenderAction("ULiabilityStatementWrapper");}
+</div>
+<div class="bottombtns">
+    <a href="@Url.Action("AboutYourBusiness")" class="green2" style="float: left">BACK</a> <a  href="#" id="aNext"   class="green2"
+        style="float: right">NEXT</a>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#process #LiabilityStatement").addClass("activedprocess");
+        $("#process #LiabilityStatement a").addClass("activedprocesstxt");
+
+        $("#aNext").click(function () {
+            submitAndRedirect("#itemDetailsDIV form", '@Url.Action("AssetStatement")');
+        });
+    });
+</script>
+
+

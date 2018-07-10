@@ -1,0 +1,38 @@
+﻿@{
+    
+    ViewBag.Title = "ValidateTestWrapper";
+}
+<h2>
+    ValidateTestWrapper</h2>
+<div id="formContainer">
+</div>
+<input type="button" name="outerSubmit" id="outerSubmit" value="outerSubmit" />
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#formContainer").load('@Url.Action("ValidateTest")');
+
+        $("#formContainer form").validate({
+            rules: {
+                myInput: "required"
+            },
+            messages: {
+                myInput: "*"
+            }
+        });
+
+
+        $("#outerSubmit").click(function () {
+            $("#formContainer form").ajaxSubmit({
+
+                beforeSend: function () {
+                    var result = $("#formContainer form").valid();
+                    return result;
+                },
+
+                success: function (content) {
+                    alert(content);
+                }
+            });
+        });
+    });
+</script>

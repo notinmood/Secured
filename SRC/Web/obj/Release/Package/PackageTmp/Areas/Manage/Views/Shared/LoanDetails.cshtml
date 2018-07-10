@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "LoanDetails";
+}
+<div class="OperateArea" id="OperateAreaContainer">
+    <div style="display: inline; width: 25%; text-align: right">
+        <a href="@Url.Action("SecuredLoanList")">return list</a>
+    </div>
+</div>
+@{
+    Html.RenderAction("UApplicationSummary");
+}
+<style type="text/css">
+    #main-content table td, #main-content table th
+    {
+        padding: 1px;
+        line-height: 1.3em;
+    }
+</style>

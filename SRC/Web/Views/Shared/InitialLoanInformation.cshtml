@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "InitialLoanInformation";
+    Layout = this.ViewData["_Layout"].ToString();
+}
+<h1>
+    Initial Loan Information
+</h1>
+<div id="outterFormContainer">
+
+</div>
+<div class="bottombtns">
+    <a href="@Url.Action("Index")" class="green2" style="float: left">BACK</a> <a id="aNext" href="#" class="green2"
+        style="float: right">NEXT</a>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#outterFormContainer").load('@Url.Action("UInitialLoanInformation",new {isPopLayer=false})');
+        $("#process #InitialLoanInformation").addClass("activedprocess");
+        $("#process #InitialLoanInformation a").addClass("activedprocesstxt");
+        $("#aNext").click(function () {
+            submitAndRedirect("#outterFormContainer form", '@Url.Action("AboutTheApplicants")');
+        });
+    });
+</script>

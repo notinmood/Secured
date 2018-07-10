@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "ValidateTestResult";
+    string status = this.ViewData["Status"].ToString();
+    string myInput = string.Empty;
+
+    if (this.ViewData["MyInput"] != null)
+    {
+        myInput = this.ViewData["MyInput"].ToString();
+    }
+}
+
+<h2>ValidateTestResult</h2>
+@status <br />
+@myInput
+
+<br />
+@Html.ActionLink("Back","ValidateTest")
+

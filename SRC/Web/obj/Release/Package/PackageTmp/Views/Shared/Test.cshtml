@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_SecuredProgressLayout.cshtml";
+}
+<h2>
+    Test</h2>
+<input type="radio" name="sss" value="unset" />
+<input type="radio" name="sss" value="male" />
+<input type="radio" name="sss" value="female" />
+
+@{
+    Html.RenderAction("UAboutTheSecuritiesDetails");
+    }

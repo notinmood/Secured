@@ -1,0 +1,73 @@
+﻿@using HiLand.General.Entity
+@using GBFinance.Web.Controllers
+@model LoanBasicEntity
+@using HiLand.Utility4.MVC.Controls
+@using GBFinance.Web.Control
+@using HiLand.Utility4.MVC.Data
+@{
+    Layout = null;
+
+    MvcControlUsingModes usingMode = (this.ViewContext.Controller as GBFinance.Web.Controllers.BaseLoanController).GetUsingMode();
+    bool isPopLayer = (this.ViewContext.Controller as GBFinance.Web.Controllers.BaseLoanController).CheckIsPopLayer();
+
+    int LoansAmountMax = this.GetPassedParam<LoanBasicEntity, int>("LoansAmountMax");
+    int LoansAmountMin = this.GetPassedParam<LoanBasicEntity, int>("LoansAmountMin");
+}
+<div id="UInitialLoanInformationContainer">
+    <style type="text/css">
+        .hlDiv
+        {
+            vertical-align: text-top;
+        }
+    </style>
+    @using (Html.BeginForm())
+    {
+        <fieldset id="securedDetails" class="simpleFieldset">
+            <legend>Initial Loan Details</legend>
+            <table>
+                <tr>
+                    <td style="text-align: left;width:45%">
+                        Amount Required:
+                    </td>
+                    <td>@Html.HiTextBox().UsingMode(usingMode).Name("LoanAmount").Value(Model.LoanAmount.ToString()).IsUseSelfContainer(false).Lable("Amount Required").Render()
+                       [@LoansAmountMin to @LoansAmountMax]
+                    </td>
+                </tr>
+                <tr>
+                <td>Loan Terms:</td>
+                    <td>@Html.GBFLoanTermCountDropDownList(3, 24).UsingMode(usingMode).Name("LoanTermCount").Value(Model.LoanTermCount.ToString()).Lable("Loan Terms").IsUseSelfContainer(false).Render()
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align:top">Loan Purpose:</td>
+                    <td style="vertical-align: top">@Html.HiTextArea().UsingMode(usingMode).Name("LoanPurpose").Value(Model.LoanPurpose).Lable("Purpose").IsUseSelfContainer(false).Render(new { rows = 8, cols = 40 })
+                    </td>
+                </tr>
+            </table>
+            @Html.HiddenFor(m => m.LoanGuid)
+        </fieldset>
+    }
+    <script type="text/javascript">
+    $(document).ready(function () {
+               
+            });
+    </script>
+    @if (isPopLayer == true)
+    {
+        <div class="notification attention png_bg">
+            <a href="#" class="close">
+                <img src="@Url.Content("~/Content/NotificationImages/cross_grey_small.png")" title="Close this notification" alt="close" /></a>
+            <div class="notificationContent">
+                You can close this PopWindow by the key "Esc".
+            </div>
+        </div>
+        <input type="button" value="Save" id="btnSave" />
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#UInitialLoanInformationContainer #btnSave").click(function () {
+                    submitAndRedirect("#UInitialLoanInformationContainer form");
+                });
+            });
+        </script>
+    }
+</div>

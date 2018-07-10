@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "AboutTheApplicants";
+    Layout = this.ViewData["_Layout"].ToString();
+}
+<h1>
+    About Yourself
+</h1>
+<div id="applicantDetailsDIV">
+</div>
+<div id="applicantListDIV">
+</div>
+<div style="display:none"> @Html.CheckBox("cbxIsAddAnother") <label  for="cbxIsAddAnother">If add another applicant director,please check this box and click the "NEXT" button.</label> </div>
+<div class="bottombtns">
+    <a href="@Url.Action("InitialLoanInformation")" class="green2" style="float: left">BACK</a>  <a href="#" id="aNext" class="green2"
+            style="float: right">NEXT</a>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#process #AboutTheApplicants").addClass("activedprocess");
+        $("#process #AboutTheApplicants a").addClass("activedprocesstxt");
+
+        $("#applicantDetailsDIV").load('@Url.Action("UApplicantDetail")');
+        $("#applicantListDIV").load('@Url.Action("UApplicantList")');
+
+        $("#aSava").click(function () {
+            submitAndRedirect("#applicantDetailsDIV", "currenturl");
+        });
+
+        $("#aNext").click(function () {
+            var nextUrl = "currenturl";
+            if ($("#cbxIsAddAnother").attr("checked") == false) {
+                nextUrl = '@Url.Action("AboutYourBusiness")';
+            }
+            submitAndRedirect("#applicantDetailsDIV form", nextUrl);
+        });
+    });
+</script>

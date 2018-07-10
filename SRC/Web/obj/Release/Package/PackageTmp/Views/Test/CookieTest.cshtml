@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "CookieTest";
+    int currentStep = 0;
+    if( this.ViewData["CurrentStep"]!=null)
+    {
+        currentStep = (int)this.ViewData["CurrentStep"];
+    }
+
+    string browserName= Request.Browser.Browser;
+    bool isSupportCookie= Request.Browser.Cookies;
+}
+
+<h2>CookieTest</h2>
+
+@using (Html.BeginForm())
+{ 
+    @currentStep.ToString()
+    <input type="submit" value="Submit" />
+}
+
+============================<br />
+@browserName <br />
+@isSupportCookie
+

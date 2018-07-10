@@ -1,0 +1,91 @@
+﻿@using GBFinance.Entity;
+@using HiLand.Utility4.MVC.Controls
+@using HiLand.Framework.BusinessCore
+@model List<LiabilityEntity>
+@{
+    Layout = null;
+    MvcControlUsingModes usingMode = (this.ViewContext.Controller as GBFinance.Web.Controllers.BaseLoanController).GetUsingMode();
+    bool isPopLayer = (this.ViewContext.Controller as GBFinance.Web.Controllers.BaseLoanController).CheckIsPopLayer(); 
+}
+<div class="contentDetail" id="ULiabilityStatementListContainer">
+    <table>
+        <tr>
+            <th style="width: 5%">
+                No.
+            </th>
+            <th style="width: 20%">
+                Leader
+            </th>
+            <th style="width: 20%">
+                Amount Owing
+            </th>
+            <th style="width: 20%">
+                Repayments/month
+            </th>
+            <th style="width: 20%">
+                Operate
+            </th>
+        </tr>
+        @if (Model != null)
+        {
+            for (int i = 0; i < Model.Count; i++)
+            {
+                LiabilityEntity entity = Model[i];
+                int j = i + 1;
+                string editButtonID = "btnEdit" + entity.LiabilityGuid;
+                string deleteButtonID = "btnDelete" + entity.LiabilityGuid;
+            <tr>
+                <td>
+                    @j
+                </td>
+                <td>
+                    @entity.LiabilityLenderInfo
+                </td>
+                <td>
+                    @entity.LiabilityAmountOwing
+                </td>
+                <td>
+                    @entity.LiabilityPaymentMonthly
+                </td>
+                <td>
+                    @if (usingMode == MvcControlUsingModes.Editable)
+                    {
+                        <input type="button" value="Edit" id="@editButtonID" isPopLayer="@isPopLayer" entityGuid="@entity.LiabilityGuid" />
+                    }
+                    <input type="button" value="Delete" id="@deleteButtonID" entityGuid="@entity.LiabilityGuid" />
+                </td>
+            </tr>
+            }
+        }
+    </table>
+    @using (Html.BeginForm())
+    { 
+        <input type="hidden" id="entityGuidToDelete" name="entityGuidToDelete" value="" />
+    }
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#ULiabilityStatementListContainer input[type='button'][value='Edit']").click(function () {
+                var entityGuid = $(this).attr("entityGuid");
+                var isPopLayer = $(this).attr("isPopLayer");
+                var address = '@Url.Action("ULiabilityStatementDetails")' + '?ItemGuid=' + entityGuid + '&isPopLayer=' + isPopLayer;
+                $("#itemDetailsDIV").load(address);
+            });
+
+            $("#ULiabilityStatementListContainer input[type='button'][value='Delete']").click(function () {
+                var entityGuid = $(this).attr("entityGuid");
+                var address = '@Url.Action("ULiabilityStatementDelete")';
+                //alert(address);
+                //submitAndRedirect("#ULiabilityStatementListContainer form");
+                $.post(address, { entityGuidToDelete: entityGuid }, function (responseInfo) {
+                    if (responseInfo.IsSuccessful == false) {
+
+                    }
+                    else {
+                        window.location.reload();
+                    }
+                });
+            });
+        });
+    </script>
+</div>

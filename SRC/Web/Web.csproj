@@ -1,0 +1,551 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{72A271F2-299F-47CF-A8B3-BF37E92070E1}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Web</RootNamespace>
+    <AssemblyName>Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GBFinance.BLL">
+      <HintPath>..\Libs\GBFinance.BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="GBFinance.DAL">
+      <HintPath>..\Libs\GBFinance.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="GBFinance.Entity">
+      <HintPath>..\Libs\GBFinance.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="HiLand.Framework">
+      <HintPath>..\Libs\HiLand.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="HiLand.Framework4">
+      <HintPath>..\Libs\HiLand.Framework4.dll</HintPath>
+    </Reference>
+    <Reference Include="HiLand.General">
+      <HintPath>..\Libs\HiLand.General.dll</HintPath>
+    </Reference>
+    <Reference Include="HiLand.Utility">
+      <HintPath>..\Libs\HiLand.Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="HiLand.Utility4">
+      <HintPath>..\Libs\HiLand.Utility4.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcPager">
+      <HintPath>..\Libs\MvcPager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.40804.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Areas\Manage\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Manage\Controllers\BaseLoanController.cs" />
+    <Compile Include="Areas\Manage\Controllers\MainController.cs" />
+    <Compile Include="Areas\Manage\Controllers\SecuredController.cs" />
+    <Compile Include="Areas\Manage\Controllers\UnSecuredController.cs" />
+    <Compile Include="Areas\Manage\ManageAreaRegistration.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseLoanController.cs" />
+    <Compile Include="Controllers\FilesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SecuredController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\UnSecuredController.cs" />
+    <Compile Include="Controllers\UserControlController.cs" />
+    <Compile Include="Control\HtmlHelperEx.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\AdminLoanCookie.cs" />
+    <Compile Include="Models\AdminSecuredLoanCookie.cs" />
+    <Compile Include="Models\AdminUnSecuredLoanCookie.cs" />
+    <Compile Include="Models\BusinessUserExt.cs" />
+    <Compile Include="Models\CodeUtils.cs" />
+    <Compile Include="Models\LoanBasicExtEntity.cs" />
+    <Compile Include="Models\LoanBasicSetting.cs" />
+    <Compile Include="Models\LoanCookie.cs" />
+    <Compile Include="Models\LoanSimpleInfo.cs" />
+    <Compile Include="Models\ManageAuthorizeAttribute.cs" />
+    <Compile Include="Models\Miscs.cs" />
+    <Compile Include="Models\SecuredLoanCookie.cs" />
+    <Compile Include="Models\UnSecuredLoanCookie.cs" />
+    <Compile Include="Models\UserCookie.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Shared\Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\adminStyle.css" />
+    <Content Include="Content\CSSN\ie-css3.htc" />
+    <Content Include="Content\CSSN\PIE.htc" />
+    <Content Include="Content\CSSN\style.css" />
+    <Content Include="Content\datePicker.css" />
+    <Content Include="Content\flashs\expressinstall.swf" />
+    <Content Include="Content\flashs\slideshow.swf" />
+    <Content Include="Content\general.css" />
+    <Content Include="Content\Icon\AddEntry.ico" />
+    <Content Include="Content\Icon\DeleteEntry.ico" />
+    <Content Include="Content\Icon\EditEntry.ico" />
+    <Content Include="Content\ie-css3.htc" />
+    <Content Include="Content\ImagesN\applybtn.gif" />
+    <Content Include="Content\ImagesN\arrow1.gif" />
+    <Content Include="Content\ImagesN\bg.jpg" />
+    <Content Include="Content\ImagesN\box1icon.jpg" />
+    <Content Include="Content\ImagesN\box1pic.jpg" />
+    <Content Include="Content\ImagesN\box2icon.jpg" />
+    <Content Include="Content\ImagesN\box2pic.jpg" />
+    <Content Include="Content\ImagesN\box3icon.jpg" />
+    <Content Include="Content\ImagesN\box3pic.jpg" />
+    <Content Include="Content\ImagesN\btn-left.png" />
+    <Content Include="Content\ImagesN\btn-right.png" />
+    <Content Include="Content\ImagesN\btnbg.png" />
+    <Content Include="Content\ImagesN\contactpic.jpg" />
+    <Content Include="Content\ImagesN\greenbtn.gif" />
+    <Content Include="Content\ImagesN\homebannerbox.jpg" />
+    <Content Include="Content\ImagesN\homeboxbg.gif" />
+    <Content Include="Content\ImagesN\login.jpg" />
+    <Content Include="Content\ImagesN\login2.jpg" />
+    <Content Include="Content\ImagesN\logo.jpg" />
+    <Content Include="Content\ImagesN\member.jpg" />
+    <Content Include="Content\ImagesN\nav-divid.png" />
+    <Content Include="Content\ImagesN\navbg.jpg" />
+    <Content Include="Content\ImagesN\phoneicon.jpg" />
+    <Content Include="Content\ImagesN\processactived.gif" />
+    <Content Include="Content\ImagesN\processbg.gif" />
+    <Content Include="Content\ImagesN\submit.gif" />
+    <Content Include="Content\ImagesN\subpage-header.jpg" />
+    <Content Include="Content\ImagesN\tick.png" />
+    <Content Include="Content\ImagesN\tick2.png" />
+    <Content Include="Content\ImagesN\tick2鍓湰.png" />
+    <Content Include="Content\ImagesN\top-right-bg.jpg" />
+    <Content Include="Content\images\applybtn.gif" />
+    <Content Include="Content\images\arrow1.gif" />
+    <Content Include="Content\images\bg.jpg" />
+    <Content Include="Content\images\box1icon.jpg" />
+    <Content Include="Content\images\box1pic.jpg" />
+    <Content Include="Content\images\box2icon.jpg" />
+    <Content Include="Content\images\box2pic.jpg" />
+    <Content Include="Content\images\box3icon.jpg" />
+    <Content Include="Content\images\box3pic.jpg" />
+    <Content Include="Content\images\btn-left.png" />
+    <Content Include="Content\images\btn-right.png" />
+    <Content Include="Content\images\btnbg.png" />
+    <Content Include="Content\images\Business loansPic.jpg" />
+    <Content Include="Content\images\calculatorPic.jpg" />
+    <Content Include="Content\images\calendar.png" />
+    <Content Include="Content\images\contactpic.jpg" />
+    <Content Include="Content\images\faqPic.jpg" />
+    <Content Include="Content\images\greenbtn.gif" />
+    <Content Include="Content\images\homebannerbox.jpg" />
+    <Content Include="Content\images\homeboxbg.gif" />
+    <Content Include="Content\images\logo.jpg" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\logo_min.png" />
+    <Content Include="Content\images\nav-divid.png" />
+    <Content Include="Content\images\navbg.jpg" />
+    <Content Include="Content\images\phoneicon.jpg" />
+    <Content Include="Content\images\processactived.gif" />
+    <Content Include="Content\images\processbg.gif" />
+    <Content Include="Content\images\subpage-header.jpg" />
+    <Content Include="Content\images\tick.png" />
+    <Content Include="Content\images\top-right-bg.jpg" />
+    <Content Include="Content\invalid.css" />
+    <Content Include="Content\jQuery.tools.dateinput.css" />
+    <Content Include="Content\manageImages\b.png" />
+    <Content Include="Content\manageImages\bg-body.gif" />
+    <Content Include="Content\manageImages\bg-button-green.gif" />
+    <Content Include="Content\manageImages\bg-content-box.gif" />
+    <Content Include="Content\manageImages\bg-form-field.gif" />
+    <Content Include="Content\manageImages\bg-login-top.png" />
+    <Content Include="Content\manageImages\bg-login.gif" />
+    <Content Include="Content\manageImages\bg-menu-item-current.gif" />
+    <Content Include="Content\manageImages\bg-menu-item-green.gif" />
+    <Content Include="Content\manageImages\bg-radial-gradient.gif" />
+    <Content Include="Content\manageImages\bg-sidebar.gif" />
+    <Content Include="Content\manageImages\bl.png" />
+    <Content Include="Content\manageImages\br.png" />
+    <Content Include="Content\manageImages\icons\bullet_black.png" />
+    <Content Include="Content\manageImages\icons\clock_48.png" />
+    <Content Include="Content\manageImages\icons\comment_48.png" />
+    <Content Include="Content\manageImages\icons\cross.png" />
+    <Content Include="Content\manageImages\icons\cross_circle.png" />
+    <Content Include="Content\manageImages\icons\cross_grey_small.png" />
+    <Content Include="Content\manageImages\icons\exclamation.png" />
+    <Content Include="Content\manageImages\icons\hammer_screwdriver.png" />
+    <Content Include="Content\manageImages\icons\image_add_48.png" />
+    <Content Include="Content\manageImages\icons\information.png" />
+    <Content Include="Content\manageImages\icons\jquery.wysiwyg.gif" />
+    <Content Include="Content\manageImages\icons\paper_content_pencil_48.png" />
+    <Content Include="Content\manageImages\icons\pencil.png" />
+    <Content Include="Content\manageImages\icons\pencil_48.png" />
+    <Content Include="Content\manageImages\icons\tick_circle.png" />
+    <Content Include="Content\manageImages\logo.png" />
+    <Content Include="Content\manageImages\menu-current-arrow.gif" />
+    <Content Include="Content\manageImages\shortcut-button-bg.gif" />
+    <Content Include="Content\manageImages\tl.png" />
+    <Content Include="Content\manageImages\tr.png" />
+    <Content Include="Content\NotificationImages\bullet_black.png" />
+    <Content Include="Content\NotificationImages\clock_48.png" />
+    <Content Include="Content\NotificationImages\comment_48.png" />
+    <Content Include="Content\NotificationImages\cross.png" />
+    <Content Include="Content\NotificationImages\cross_circle.png" />
+    <Content Include="Content\NotificationImages\cross_grey_small.png" />
+    <Content Include="Content\NotificationImages\exclamation.png" />
+    <Content Include="Content\NotificationImages\hammer_screwdriver.png" />
+    <Content Include="Content\NotificationImages\image_add_48.png" />
+    <Content Include="Content\NotificationImages\information.png" />
+    <Content Include="Content\NotificationImages\jquery.wysiwyg.gif" />
+    <Content Include="Content\NotificationImages\paper_content_pencil_48.png" />
+    <Content Include="Content\NotificationImages\pencil.png" />
+    <Content Include="Content\NotificationImages\pencil_48.png" />
+    <Content Include="Content\NotificationImages\tick_circle.png" />
+    <Content Include="Content\notificationStyle.css" />
+    <Content Include="Content\PIE.htc" />
+    <Content Include="Content\reset.css" />
+    <Content Include="Content\slideshow.swf" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\swfobjectN\expressinstall.swf" />
+    <Content Include="Content\swfobjectN\slideshow.swf" />
+    <Content Include="Content\swfobjectN\swfobject.js" />
+    <Content Include="Content\toasts\color.css" />
+    <Content Include="Content\toasts\forms.css" />
+    <Content Include="Content\toasts\grid.css" />
+    <Content Include="Content\toasts\less.js" />
+    <Content Include="Content\toasts\reset.css" />
+    <Content Include="Content\toasts\toast.css" />
+    <Content Include="Content\toasts\type.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="images\0.gif" />
+    <Content Include="images\008.gif" />
+    <Content Include="images\008bg.gif" />
+    <Content Include="images\aff.jpg" />
+    <Content Include="images\b-back2.gif" />
+    <Content Include="images\ball.gif" />
+    <Content Include="images\bar.gif" />
+    <Content Include="images\bl2.gif" />
+    <Content Include="images\br2.gif" />
+    <Content Include="images\c-1-j.jpg" />
+    <Content Include="images\c-2-1-j.jpg" />
+    <Content Include="images\c-2a.gif" />
+    <Content Include="images\cc.gif" />
+    <Content Include="images\copybg3.png" />
+    <Content Include="images\cplog.gif" />
+    <Content Include="images\faq-g-new1.gif" />
+    <Content Include="images\footer_copyright.jpg" />
+    <Content Include="images\grad-title.gif" />
+    <Content Include="images\hbix-img-new1.jpg" />
+    <Content Include="images\hbix-img-new2.jpg" />
+    <Content Include="images\hbix.gif" />
+    <Content Include="images\header_01.jpg" />
+    <Content Include="images\header_02.gif" />
+    <Content Include="images\header_03.gif" />
+    <Content Include="images\header_05.png" />
+    <Content Include="images\header_12.jpg" />
+    <Content Include="images\header_13.gif" />
+    <Content Include="images\header_bg.gif" />
+    <Content Include="images\header_logo.gif" />
+    <Content Include="images\hosted.jpg" />
+    <Content Include="images\icons\arr_bg.gif" />
+    <Content Include="images\icons\lbg.jpg" />
+    <Content Include="images\ixcp.css" />
+    <Content Include="images\lc.gif" />
+    <Content Include="images\lcb-g-new.gif" />
+    <Content Include="images\left_background.gif" />
+    <Content Include="images\ll.gif" />
+    <Content Include="images\need.gif" />
+    <Content Include="images\psb-g-new.gif" />
+    <Content Include="images\rasporka.gif" />
+    <Content Include="images\rc.gif" />
+    <Content Include="images\rr.gif" />
+    <Content Include="images\sitestud.gif" />
+    <Content Include="images\space.gif" />
+    <Content Include="images\t-back.gif" />
+    <Content Include="images\tcap-img-new.jpg" />
+    <Content Include="images\tcap.gif" />
+    <Content Include="images\tl2.gif" />
+    <Content Include="images\tr.gif" />
+    <Content Include="images\usb-g-new1.gif" />
+    <Content Include="Scripts\date.js" />
+    <Content Include="Scripts\facebox.js" />
+    <Content Include="Scripts\GoogleAnalytics.js" />
+    <Content Include="Scripts\jquery.datePicker.min-2.1.2.js" />
+    <Content Include="Scripts\jQuery.effect.notifacation.js" />
+    <Content Include="Scripts\jQuery.effect.TitleContent.js" />
+    <Content Include="Scripts\jQuery.form.2.84.js" />
+    <Content Include="Scripts\jQuery.gbfSubmit.js" />
+    <Content Include="Scripts\jQuery.hiland.general.js" />
+    <Content Include="Scripts\jQuery.tools.min.js" />
+    <Content Include="Scripts\jquery.wysiwyg.js" />
+    <Content Include="Scripts\simpla.jquery.configuration.js" />
+    <Content Include="Scripts\swfobject.js" />
+    <Content Include="Upload\Log\businessLog.txt" />
+    <Content Include="Views\Home\About.aspx" />
+    <Content Include="Views\Home\ContactUs.aspx" />
+    <Content Include="Views\Home\CostsAndFees.aspx" />
+    <Content Include="Views\Home\Faqs.aspx" />
+    <Content Include="Views\Home\HowItWorks.aspx" />
+    <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Views\Home\PayrollFinance.aspx" />
+    <Content Include="Views\Home\PrivacyStatement.aspx" />
+    <Content Include="Views\Home\SecuredLoans.aspx" />
+    <Content Include="Views\Home\SecuredLoansCalculator.aspx" />
+    <Content Include="Views\Home\UnsecuredLoans.aspx" />
+    <Content Include="Views\Home\UnsecuredLoansCalculator.aspx" />
+    <Content Include="Views\UserControl\ContactExpress.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery-1.4.4.js" />
+    <Content Include="Scripts\jquery-1.4.4.min.js" />
+    <Content Include="Scripts\jquery-1.4.4-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Manage\Views\Account\ChangePassword.cshtml" />
+    <Content Include="Areas\Manage\Views\Account\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Main\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Main\LastLoanTip.cshtml" />
+    <Content Include="Areas\Manage\Views\SecuredLoan\AcrossAreaTest.cshtml" />
+    <Content Include="Areas\Manage\Views\SecuredLoan\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Shared\LoanDetails.cshtml" />
+    <Content Include="Areas\Manage\Views\Shared\LoanInfoForSchedule.cshtml" />
+    <Content Include="Areas\Manage\Views\Shared\LoanList.cshtml" />
+    <Content Include="Areas\Manage\Views\Shared\ScheduleList.cshtml" />
+    <Content Include="Areas\Manage\Views\Shared\_ManageLayout.cshtml" />
+    <Content Include="Areas\Manage\Views\UnSecuredLoan\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\Manage\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Manage\Views\Shared\UserNote.cshtml" />
+    <Content Include="Areas\Manage\Views\Shared\UserFollowUpHistory.cshtml" />
+    <Content Include="Areas\Manage\Views\Shared\LoanStatus.cshtml" />
+    <Content Include="App_Code\GBFViewHelper.cshtml" />
+    <None Include="Content\toasts\color.less" />
+    <None Include="Content\toasts\forms.less" />
+    <None Include="Content\toasts\grid.less" />
+    <None Include="Content\toasts\ooc.less" />
+    <None Include="Content\toasts\reset.less" />
+    <None Include="Content\toasts\toast.less" />
+    <None Include="Content\toasts\type.less" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Secured\AboutTheSecurities.cshtml" />
+    <Content Include="Views\Secured\ApplicationSummary.cshtml" />
+    <Content Include="Views\Secured\AssetStatement.cshtml" />
+    <Content Include="Views\Secured\Index.cshtml" />
+    <Content Include="Views\Secured\UAboutTheSecuritiesDetails.cshtml" />
+    <Content Include="Views\Secured\UAboutTheSecuritiesList.cshtml" />
+    <Content Include="Views\Secured\UAboutTheSecuritiesWrapper.cshtml" />
+    <Content Include="Views\Secured\UApplicationSummary.cshtml" />
+    <Content Include="Views\Secured\UAssetStatementDetails.cshtml" />
+    <Content Include="Views\Secured\UAssetStatementList.cshtml" />
+    <Content Include="Views\Secured\UAssetStatementWrapper.cshtml" />
+    <Content Include="Views\Shared\AboutTheApplicants.cshtml" />
+    <Content Include="Views\Shared\AboutYourBusiness.cshtml" />
+    <Content Include="Views\Shared\BusinessBankDetails.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Shared\_MainLayout.cshtml" />
+    <Content Include="Views\Shared\_SecuredProgressLayout.cshtml" />
+    <Content Include="Views\Shared\_UnSecuredProgressLayout.cshtml" />
+    <Content Include="Views\Shared\FinalStep.cshtml" />
+    <Content Include="Views\Shared\InitialLoanInformation.cshtml" />
+    <Content Include="Views\Shared\LiabilityStatement.cshtml" />
+    <Content Include="Views\Shared\Site.Master" />
+    <Content Include="Views\Shared\SubmitApplication.cshtml" />
+    <Content Include="Views\Shared\Test.cshtml" />
+    <Content Include="Views\Shared\UAboutYourBusiness.cshtml" />
+    <Content Include="Views\Shared\UApplicantDetail.cshtml" />
+    <Content Include="Views\Shared\UApplicantList.cshtml" />
+    <Content Include="Views\Shared\UBusinessBankDetails.cshtml" />
+    <Content Include="Views\Shared\UInitialLoanInformation.cshtml" />
+    <Content Include="Views\Shared\ULiabilityStatementDetails.cshtml" />
+    <Content Include="Views\Shared\ULiabilityStatementList.cshtml" />
+    <Content Include="Views\Shared\ULiabilityStatementWrapper.cshtml" />
+    <Content Include="Views\Unsecured\ApplicationSummary.cshtml" />
+    <Content Include="Views\Unsecured\AssetStatement.cshtml" />
+    <Content Include="Views\Unsecured\Index.cshtml" />
+    <Content Include="Views\Unsecured\UApplicationSummary.cshtml" />
+    <Content Include="Views\Unsecured\UAssetStatementDetails.cshtml" />
+    <Content Include="Views\Unsecured\UAssetStatementList.cshtml" />
+    <Content Include="Views\Unsecured\UAssetStatementWrapper.cshtml" />
+    <Content Include="Views\Test\ControlTest.cshtml" />
+    <Content Include="Views\Test\CookieTest.cshtml" />
+    <Content Include="Views\Test\DisplayControllerName.cshtml" />
+    <Content Include="Views\Test\LoanScheduleTest.cshtml" />
+    <Content Include="Views\Test\ValidateTest.cshtml" />
+    <Content Include="Views\Test\ValidateTestResult.cshtml" />
+    <Content Include="Views\Test\ValidateTestWrapper.cshtml" />
+    <Content Include="Views\Test\DataBaseTest.cshtml" />
+    <Content Include="Views\Test\ClearCache.cshtml" />
+    <Content Include="Views\Shared\PreQualification.cshtml" />
+    <None Include="Information\Credit-Guide.doc" />
+    <None Include="Information\Form3A.doc" />
+    <None Include="Information\INFORMATIONSTATEMENT.doc" />
+    <Content Include="Views\Test\TimeZoneTest.cshtml" />
+    <None Include="packages.config" />
+    <Content Include="Views\Test\blltest.cshtml" />
+    <Content Include="Views\Shared\USubmitApplication.cshtml" />
+    <None Include="Properties\PublishProfiles\本地文件夹.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Manage\Models\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>45007</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/GBCashSecured</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

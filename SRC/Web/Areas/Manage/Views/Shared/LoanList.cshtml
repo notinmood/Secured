@@ -1,0 +1,271 @@
+﻿@using Webdiyer.WebControls.Mvc;
+@using HiLand.General.Entity;
+@using HiLand.Utility4.MVC;
+@using GBFinance.Entity;
+@using GBFinance.Web.Models;
+@using Web.Models;
+@using HiLand.Utility4.MVC.Data
+@model PagedList<LoanBasicExtEntity>
+@{
+    ViewBag.Title = "Secured Loan List";
+
+    string queryName = this.GetPassedParam<PagedList<LoanBasicExtEntity>>("queryName");
+    string queryValue = this.GetPassedParam<PagedList<LoanBasicExtEntity>>("queryValue");
+}
+<style type="text/css">
+    .modalFix
+    {
+        width: 650px;
+    }
+</style>
+<h2>
+    Secured Loan List</h2>
+<div id="ItemListDIV">
+    @using (Html.BeginForm())
+    {
+        <select name="queryConditionName" id="queryConditionName">
+            <option value="">Please select...</option>
+            @if (queryName == "CustomerNo")
+            {
+                <option value="CustomerNo" selected="selected">Customer No.</option>
+            }
+            else
+            { 
+                <option value="CustomerNo">Customer No.</option>
+            }
+            @if (queryName == "FirstName")
+            {
+                <option value="FirstName" selected="selected">First Name</option>
+            }
+            else
+            { 
+                <option value="FirstName">First Name</option>
+            }
+            @if (queryName == "LastName")
+            {
+                <option value="LastName" selected="selected">Last Name</option>
+            }
+            else
+            { 
+                <option value="LastName">Last Name</option>
+            }
+            @if (queryName == "DateOfBirth")
+            {
+                <option value="DateOfBirth" selected="selected">Date of Birth</option>
+            }
+            else
+            { 
+                <option value="DateOfBirth">Date of Birth</option>
+            }
+            @if (queryName == "Approved")
+            {
+                <option value="Approved" selected="selected">Approved</option>
+            }
+            else
+            { 
+                <option value="Approved">Approved</option>
+            }
+            @if (queryName == "Rejected")
+            {
+                <option value="Rejected" selected="selected">Rejected</option>
+            }
+            else
+            { 
+                <option value="Rejected">Rejected</option>
+            }
+            @if (queryName == "Deleted")
+            {
+                <option value="Deleted" selected="selected">Deleted</option>
+            }
+            else
+            { 
+                <option value="Deleted">Deleted</option>
+            }
+        </select>
+        <input name="queryConditionValue" id="queryConditionValue" value="@queryValue" />
+        <input type="button" id="btnQuery" value="Query" />
+    }
+    <table width="98%" class="grid">
+        <tr>
+            <th style="width: 170px">
+                Operate
+            </th>
+            <th style="width: 40px">
+                Custom No.
+            </th>
+            <th style="width: 50px">
+                Loan Amount
+            </th>
+            <th style="width: 70px">
+                First Name
+            </th>
+            <th style="width: 40px">
+                Middle Name
+            </th>
+            <th style="width: 70px">
+                Last Name
+            </th>
+            <th style="width: 70px">
+                Date of Birth
+            </th>
+            <th style="width: 70px">
+                Email
+            </th>
+            <th style="width: 70px">
+                Regtime
+            </th>
+            <th style="width: 80px">
+                Loan Status
+            </th>
+            <th style="width: 70px">
+                Note
+            </th>
+            <th style="width: 70px">
+                FollowUp History
+            </th>
+        </tr>
+        @foreach (LoanBasicExtEntity entity in Model)
+        {
+            string birthdayString = string.Empty;
+            if (entity.UserBirthday != HiLand.Utility.Data.DateTimeHelper.Min)
+            {
+                birthdayString = entity.UserBirthday.ToString(Miscs.DateTimeFormating);
+            }
+
+            string userNote = "[EMPTY]";
+            string userNoteTip = "EMPTY";
+            if (string.IsNullOrWhiteSpace(entity.UserNote) == false)
+            {
+                userNoteTip = entity.UserNote;
+                userNote = entity.UserNote;
+                if (userNote.Length > 10)
+                {
+                    userNote = userNote.Substring(0, 10) + "...";
+                }
+            }
+
+            string userFollowupHistory = "[EMPTY]";
+            string userFollowupHistoryTip = "EMPTY";
+            if (string.IsNullOrWhiteSpace(entity.UserFlowUpHistory) == false)
+            {
+                userFollowupHistoryTip = entity.UserFlowUpHistory;
+                userFollowupHistory = entity.UserFlowUpHistory;
+                if (userFollowupHistory.Length > 10)
+                {
+                    userFollowupHistory = userFollowupHistory.Substring(0, 10) + "...";
+                }
+            }
+            
+            <tr>
+                <td>
+                    @if (entity.LoanStatus == HiLand.General.LoanStatuses.Deleted)
+                    { 
+                        <a href="#" class="recoverLoan"  loanGuid="@entity.LoanGuid">Recover</a>
+                    }
+                    else
+                    {
+                        @Html.Link("Details", @Url.Action("LoanDetails", new { loanGuid = entity.LoanGuid }), null)
+                        @Html.Link("Schedule", @Url.Action("ScheduleList", new { loanGuid = entity.LoanGuid }), null)
+                        <a href="#" class="deleteLoan"  loanGuid="@entity.LoanGuid">Delete</a>
+                    }
+                </td>
+                <td>@entity.UserIndexID
+                </td>
+                <td>@entity.LoanAmount.ToString()
+                </td>
+                <td>@entity.UserFirstName
+                </td>
+                <td>@entity.UserMiddleName
+                </td>
+                <td>@entity.UserLastName
+                </td>
+                <td>@birthdayString
+                </td>
+                <td>@entity.UserEmail
+                </td>
+                <td>@entity.UserRegisterDate.ToString(Miscs.DateTimeFormating)
+                </td>
+                <td>
+                    <a href="#"  class="modalInput loanStatus" rel="#LoanStatusDisplayDIV" loanGuid="@entity.LoanGuid" >
+                        @entity.LoanStatus.ToString()</a>
+                </td>
+                <td>
+                    <a href="#"  class="modalInput userNote" rel="#UserNoteDisplayDIV" userGuid="@entity.LoanOwnerKey" title="@userNoteTip">
+                        @userNote</a>
+                </td>
+                <td>
+                    <a href="#"  class="modalInput userFollowUpHistory" rel="#UserFollowUpHistoryDisplayDIV" userGuid="@entity.LoanOwnerKey" title="@userFollowupHistoryTip">
+                        @userFollowupHistory</a>
+                </td>
+            </tr>   
+        }
+    </table>
+    <div class="modal modalFix" id="UserNoteDisplayDIV">
+    </div>
+    <div class="modal modalFix" id="UserFollowUpHistoryDisplayDIV">
+    </div>
+    <div class="modal modalFix" id="LoanStatusDisplayDIV">
+    </div>
+    @Html.Pager(Model, new PagerOptions() { PageIndexParameterName = "id", ShowDisabledPagerItems = false, AlwaysShowFirstLastPageNumber = true })
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".modalInput").overlay({
+                mask: {
+                    color: '#ebecff',
+                    loadSpeed: 200,
+                    opacity: 0.9
+                },
+                closeOnClick: false
+            });
+
+            $("a.userNote").click(function () {
+                var targetID = $(this).attr("userGuid");
+                var url = '@Url.Action("UserNote")' + '?userID=' + targetID;
+                $("#UserNoteDisplayDIV").load(url);
+            });
+
+            $("a.userFollowUpHistory").click(function () {
+                var targetID = $(this).attr("userGuid");
+                var url = '@Url.Action("UserFollowUpHistory")' + '?userID=' + targetID;
+                $("#UserFollowUpHistoryDisplayDIV").load(url);
+            });
+
+            $("a.loanStatus").click(function () {
+                var targetID = $(this).attr("loanGuid");
+                var url = '@Url.Action("LoanStatus")' + '?loanID=' + targetID;
+                $("#LoanStatusDisplayDIV").load(url);
+            });
+
+            $("a.deleteLoan").click(function () {
+                var result = confirm("need delete this record?");
+                if (result == true) {
+                    var targetID = $(this).attr("loanGuid");
+                    var url = '@Url.Action("SetLoanStatusToDeleted")';
+                    $.post(url, { loanGuid: targetID }, function (data) {
+                        window.location.reload();
+                    });
+                }
+            });
+
+            $("a.recoverLoan").click(function () {
+                var result = confirm("need recover this record?");
+                if (result == true) {
+                    var targetID = $(this).attr("loanGuid");
+                    var url = '@Url.Action("SetLoanStatusToNew")';
+                    $.post(url, { loanGuid: targetID }, function (data) {
+                        window.location.reload();
+                    });
+                }
+            });
+
+            $("#btnQuery").click(function () {
+                var queryName = $("#queryConditionName").val();
+                var queryValue = $("#queryConditionValue").val();
+
+                var url = '@Url.Action("SecuredLoanList")' + '?queryConditionName=' + queryName + '&queryConditionValue=' + queryValue;
+                window.location = url;
+            });
+
+        });
+    </script>
+</div>

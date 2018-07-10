@@ -1,0 +1,122 @@
+﻿@using GBFinance.Entity;
+@using HiLand.Utility4.MVC.Controls
+@using HiLand.Framework.BusinessCore
+@model List<LiabilityEntity>
+@{
+    Layout = null;
+
+    MvcControlUsingModes usingMode = (this.ViewContext.Controller as GBFinance.Web.Controllers.BaseLoanController).GetUsingMode();
+    bool isPopLayer = (this.ViewContext.Controller as GBFinance.Web.Controllers.BaseLoanController).CheckIsPopLayer();
+
+    int rowCount = 0;
+    int rowCountMin = 5;
+    int rowCountToFeedback = 0;
+}
+<style type="text/css">
+    .hlDiv .span
+    {
+        width: 150px;
+        text-align: right;
+    }
+</style>
+<div id="ULiabilityStatementDetailsContainer" class="contentDetail">
+    @using (Html.BeginForm())
+    { 
+        <fieldset id="securedDetails" class="simpleFieldset">
+            <legend>Liability Statement Details</legend>
+            <table id="itemTable">
+                <tr>
+                    <th>
+                        No.
+                    </th>
+                    <th>
+                        Lender
+                    </th>
+                    <th>
+                        Amount Owing
+                    </th>
+                    <th>
+                        Repayments/month
+                    </th>
+                    <th>
+                        Operate
+                    </th>
+                </tr>
+                @if (Model != null)
+                {
+                    rowCount = Model.Count;
+                    for (int rowNumber = 0; rowNumber < rowCount; rowNumber++)
+                    {
+                        LiabilityEntity currentItem = Model[rowNumber];
+                        Html.RenderAction("ULiabilityStatementAddRow", new { rowNumber = rowNumber, entity = currentItem });
+                    }
+                }
+                @{
+                if (rowCount < rowCountMin)
+                {
+                    for (int rowNumber = rowCount; rowNumber < rowCountMin; rowNumber++)
+                    {
+                        Html.RenderAction("ULiabilityStatementAddRow", new { rowNumber = rowNumber });
+                    }
+
+                    rowCountToFeedback = rowCountMin;
+                }
+                else
+                {
+                    rowCountToFeedback = rowCount;
+                }
+                }
+            </table>
+            <span>@Html.Hidden("rowCountToFeedback", rowCountToFeedback)</span>
+            <div style="text-align: right">
+                <a id="aAddNewRow" class="operateEntry addEntry">Add New Row</a>
+            </div>
+        </fieldset>
+    }
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#aAddNewRow").click(function () {
+                //1.
+                var lastRowNumber = $("#rowCountToFeedback").attr("value");
+                var targetUrl = '@Url.Action("ULiabilityStatementAddRow")' + "?rowNumber=" + lastRowNumber;
+                $.get(targetUrl, function (data) {
+                    $('#itemTable tr:last').after(data);
+                });
+                //2.
+                $("#rowCountToFeedback").attr("value", +lastRowNumber + 1);
+            });
+
+            $(".deleteEntry").live("click", function () {
+                var currentObject = $(this);
+                var itemGuid = currentObject.attr("itemGuid");
+
+                $.post('@Url.Action("ULiabilityStatementDeleteRow")', { itemIDToDelete: itemGuid }, function (responseInfo) {
+                    if (responseInfo.IsSuccessful == false) {
+                    }
+                    else {
+                        currentObject.parents("tr").html("");
+                    }
+                });
+            });
+        });
+    </script>
+    @if (isPopLayer == true)
+    {
+        <div class="notification attention png_bg">
+            <a href="#" class="close">
+                <img src="@Url.Content("~/Content/NotificationImages/cross_grey_small.png")" title="Close this notification"
+            alt="close" /></a>
+            <div class="notificationContent">
+                You can close this PopWindow by the key "Esc".
+            </div>
+        </div>
+        <input type="button" value="Save" id="btnSave" />
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#ULiabilityStatementDetailsContainer #btnSave").click(function () {
+                    submitAndRedirect("#ULiabilityStatementDetailsContainer form");
+                });
+            });
+        </script>
+    }
+</div>

@@ -1,0 +1,52 @@
+﻿@using HiLand.General.Entity
+@using HiLand.Utility.Data
+@model  LoanBasicEntity
+@{
+    Layout = null;
+    string todayString = HiLand.Utility.Data.DateTimeHelper.UnParse(DateTimeHelper.RunningLocalToday, HiLand.Utility.Enums.DateFormats.DMY, "/");
+    string loanUserID = HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.Get(GuidHelper.TryConvert(Model.LoanOwnerKey)).UserID.ToString();
+}
+<div id="LoanInfoForScheduleContainer">
+    <div style="display: inline; width: 75%">
+        <span>Custom No.:</span>@loanUserID <span>Loan No.:</span>@Model.LoanID <span>User Name:</span>@Model.LoanOwnerDisplay
+        <span>Amount:</span>@Model.LoanAmount
+        @Html.Hidden("loanGuid", Model.LoanGuid)
+        <a href="#" id="GenerateSchedulesA" class="modalInput" rel="#GenerateSchedulesDIV">GenerateSchedules</a>
+    </div>
+    <div style="display: inline; width: 25%;text-align: right">
+       <a href="@Url.Action("SecuredLoanList")">return list</a>
+    </div>
+</div>
+<div class="modal modalFix" id="GenerateSchedulesDIV">
+    Start Calculate Date :<input type="text" id="inputStartCalculateDate" name="inputStartCalculateDate" value="@todayString"/>
+    <br />
+    <input type="button" id="btnGenerateSchedules" value="Save" />
+    <input type="button" class="close" id="btnCancel" value="Cancel" /><br />
+    *按ESC键关闭当前弹出窗口
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".modalInput").overlay({
+            mask: {
+                color: '#ebecff',
+                loadSpeed: 200,
+                opacity: 0.9
+            },
+            closeOnClick: false,
+            oneInstance: false
+        });
+
+        $("#btnGenerateSchedules").click(function () {
+            var confirmReturn = confirm("If click the button,the data of before will be disposed. Are you sure?");
+            if (confirmReturn == true) {
+                var paymentStartCalculateDate = $("#inputStartCalculateDate").val();
+                var loanGuid = "@Model.LoanGuid";
+                var url = '@Url.Action("GenerateSchedules")';
+                $.post(url, { loanGuid: loanGuid, paymentStartCalculateDate: paymentStartCalculateDate }, function (data) {
+                    //alert(data);
+                    window.location.reload();
+                });
+            }
+        });
+    });
+</script>

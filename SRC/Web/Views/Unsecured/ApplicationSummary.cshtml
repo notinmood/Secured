@@ -1,0 +1,58 @@
+﻿@using HiLand.Utility4.MVC.Controls;
+@{
+    ViewBag.Title = "ApplicationSummary";
+    Layout = this.ViewData["_Layout"].ToString();
+    int usingModeDisplay = (int)MvcControlUsingModes.Display;
+    int usingModeEditable = (int)MvcControlUsingModes.Editable;
+}
+
+@{
+    Html.RenderAction("UApplicationSummary");
+}
+<div class="bottombtns">
+    <a href="@Url.Action("BusinessBankDetails")" class="green2" style="float: left">BACK</a> <a href="#"
+        id="aNext" class="green2" style="float: right">NEXT</a>
+</div>
+<script src="@Url.Content("~/Scripts/jQuery.effect.TitleContent.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.effectTitleContent();
+        $("#process #ApplicationSummary").addClass("activedprocess");
+        $("#process #ApplicationSummary a").addClass("activedprocesstxt");
+        $(".modalInput").overlay({
+            mask: {
+                color: '#ebecff',
+                loadSpeed: 200,
+                opacity: 0.9
+            },
+            closeOnClick: false,
+            oneInstance: false
+        });
+
+        $("#aNext").click(function () {
+            window.location = "@Url.Action("SubmitApplication")";
+        });
+
+//        $("#InitialLoanInformationDIV").load('@Url.Action("UInitialLoanInformation", new { usingMode = usingModeDisplay })');
+//        $("#InitialLoanInformationDisplayDIV").load('@Url.Action("UInitialLoanInformation", new { usingMode = usingModeEditable, isPopLayer = true })');
+
+//        $("#AboutTheApplicantsDIV").load('@Url.Action("UApplicantList", new { usingMode = usingModeDisplay })');
+//        $("#AboutTheApplicantsDisplayDIV").load('@Url.Action("UApplicantList", new { usingMode = usingModeEditable, isPopLayer = true })');
+
+//        $("#AboutYourBusinessDIV").load('@Url.Action("UAboutYourBusiness", new { usingMode = usingModeDisplay })');
+//        $("#AboutYourBusinessDisplayDIV").load('@Url.Action("UAboutYourBusiness", new { usingMode = usingModeEditable, isPopLayer = true })');
+
+//        $("#LiabilityStatementDIV").load('@Url.Action("ULiabilityStatementList", new { usingMode = usingModeDisplay, isPopLayer = true })');
+//        $("#LiabilityStatementDisplayDIV").load('@Url.Action("ULiabilityStatementWrapper", new { usingMode = usingModeEditable, isPopLayer = true })');
+
+//        $("#AssetStatementDIV").load('@Url.Action("UAssetStatementList", new { usingMode = usingModeDisplay })');
+//        $("#AssetStatementDisplayDIV").load('@Url.Action("UAssetStatementList", new { usingMode = usingModeEditable, isPopLayer = true })');
+
+//        $("#AboutTheSecuritiesDIV").load('@Url.Action("UAboutTheSecuritiesList", new { usingMode = usingModeDisplay })');
+//        $("#AboutTheSecuritiesDisplayDIV").load('@Url.Action("UAboutTheSecuritiesList", new { usingMode = usingModeEditable, isPopLayer = true })');
+
+//        $("#BusinessBankDetailsDIV").load('@Url.Action("UBusinessBankDetails", new { usingMode = usingModeDisplay })');
+//        $("#BusinessBankDetailsDisplayDIV").load('@Url.Action("UBusinessBankDetails", new { usingMode = usingModeEditable, isPopLayer = true })');
+    });
+</script>

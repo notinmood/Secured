@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "DataBaseTest";
+    Layout = null;
+
+    string result = (string)this.ViewData["result"];
+}
+
+<h2>DataBaseTest</h2>
+
+@using (Html.BeginForm())
+{ 
+    <span>
+        @result
+    </span>
+    <input type="submit" value="submit" />
+}
+

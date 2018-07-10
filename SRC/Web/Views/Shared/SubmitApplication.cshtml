@@ -1,0 +1,31 @@
+﻿@using GBFinance.Entity;
+@using HiLand.Utility4.MVC.Controls
+@using HiLand.Framework.BusinessCore
+@{
+    ViewBag.Title = "SubmitApplication";
+    Layout = this.ViewData["_Layout"].ToString();
+}
+<h1>
+    Submit Application
+</h1>
+<div id="outterFormContainer">
+    
+</div>
+<div class="bottombtns">
+    <a href="@Url.Action("ApplicationSummary")" class="green2" style="float: left">BACK</a> <a href="#"
+        id="aNext" class="green2" style="float: right">SUBMIT</a>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#outterFormContainer").load('@Url.Action("USubmitApplication", new { isPopLayer = false })');
+
+        $("#process #SubmitApplication").addClass("activedprocess");
+        $("#process #SubmitApplication a").addClass("activedprocesstxt");
+
+        $("#aNext").click(function () {
+            submitAndRedirect("#outterFormContainer form", '@Url.Action("FinalStep")');
+        });
+
+        $("#IsAgreeTerm").parent(".hlDiv").attr("style", "text-indent:40px;")
+    });
+</script>

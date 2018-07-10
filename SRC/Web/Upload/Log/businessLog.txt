@@ -1,0 +1,132 @@
+2014/7/18 12:46:53-列名 'LoanOwnerKey' 无效。
+列名 'LoanOwnerType' 无效。
+列名 'LoanOwnerAddon' 无效。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteNonQuery(TTransaction trans, TConnection connection, CommandType commandType, String commandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 153
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteNonQuery(TConnection connection, CommandType commandType, String commandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 105
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteSingleRowNonQuery(TConnection connection, CommandType commandType, String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 329
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteSingleRowNonQuery(String connectionString, CommandType commandType, String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 356
+   在 HiLand.Utility.DataBase.CommonHelperEx`5.ExecuteSingleRowNonQuery(String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelperEx.cs:行号 143
+--------
+2014/7/18 12:47:00-列名 'LoanOwnerKey' 无效。
+列名 'LoanOwnerType' 无效。
+列名 'LoanOwnerAddon' 无效。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteNonQuery(TTransaction trans, TConnection connection, CommandType commandType, String commandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 153
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteNonQuery(TConnection connection, CommandType commandType, String commandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 105
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteSingleRowNonQuery(TConnection connection, CommandType commandType, String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 329
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteSingleRowNonQuery(String connectionString, CommandType commandType, String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 356
+   在 HiLand.Utility.DataBase.CommonHelperEx`5.ExecuteSingleRowNonQuery(String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelperEx.cs:行号 143
+--------
+2014/7/18 12:47:08-列名 'LoanOwnerKey' 无效。
+列名 'LoanOwnerType' 无效。
+列名 'LoanOwnerAddon' 无效。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteNonQuery(TTransaction trans, TConnection connection, CommandType commandType, String commandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 153
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteNonQuery(TConnection connection, CommandType commandType, String commandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 105
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteSingleRowNonQuery(TConnection connection, CommandType commandType, String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 329
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteSingleRowNonQuery(String connectionString, CommandType commandType, String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 356
+   在 HiLand.Utility.DataBase.CommonHelperEx`5.ExecuteSingleRowNonQuery(String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelperEx.cs:行号 143
+--------
+2014/7/18 12:47:18-列名 'LoanOwnerKey' 无效。
+列名 'LoanOwnerType' 无效。
+列名 'LoanOwnerAddon' 无效。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteNonQuery(TTransaction trans, TConnection connection, CommandType commandType, String commandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 153
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteNonQuery(TConnection connection, CommandType commandType, String commandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 105
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteSingleRowNonQuery(TConnection connection, CommandType commandType, String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 329
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteSingleRowNonQuery(String connectionString, CommandType commandType, String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 356
+   在 HiLand.Utility.DataBase.CommonHelperEx`5.ExecuteSingleRowNonQuery(String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelperEx.cs:行号 143
+--------
+2014/7/18 12:50:32-列名 'LoanOwnerKey' 无效。
+列名 'LoanOwnerType' 无效。
+列名 'LoanOwnerAddon' 无效。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteNonQuery(TTransaction trans, TConnection connection, CommandType commandType, String commandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 153
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteNonQuery(TConnection connection, CommandType commandType, String commandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 105
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteSingleRowNonQuery(TConnection connection, CommandType commandType, String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 329
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteSingleRowNonQuery(String connectionString, CommandType commandType, String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 356
+   在 HiLand.Utility.DataBase.CommonHelperEx`5.ExecuteSingleRowNonQuery(String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelperEx.cs:行号 143
+--------
+2014/7/18 12:51:12-列名 'LoanOwnerKey' 无效。
+列名 'LoanOwnerType' 无效。
+列名 'LoanOwnerAddon' 无效。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteNonQuery(TTransaction trans, TConnection connection, CommandType commandType, String commandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 153
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteNonQuery(TConnection connection, CommandType commandType, String commandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 105
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteSingleRowNonQuery(TConnection connection, CommandType commandType, String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 329
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteSingleRowNonQuery(String connectionString, CommandType commandType, String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 356
+   在 HiLand.Utility.DataBase.CommonHelperEx`5.ExecuteSingleRowNonQuery(String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelperEx.cs:行号 143
+--------
+2014/7/18 12:52:24-尝试读取或写入受保护的内存。这通常指示其他内存已损坏。   在 HiLand.Utility.DataBase.CommonHelperEx`5.ExecuteSingleRowNonQuery(String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelperEx.cs:行号 143
+--------
+2014/7/18 12:53:33-尝试读取或写入受保护的内存。这通常指示其他内存已损坏。   在 HiLand.Utility.DataBase.CommonHelperEx`5.ExecuteSingleRowNonQuery(String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelperEx.cs:行号 143
+--------
+2014/7/18 12:55:17-列名 'LoanOwnerKey' 无效。
+列名 'LoanOwnerType' 无效。
+列名 'LoanOwnerAddon' 无效。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteNonQuery(TTransaction trans, TConnection connection, CommandType commandType, String commandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 153
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteNonQuery(TConnection connection, CommandType commandType, String commandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 105
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteSingleRowNonQuery(TConnection connection, CommandType commandType, String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 329
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteSingleRowNonQuery(String connectionString, CommandType commandType, String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 356
+   在 HiLand.Utility.DataBase.CommonHelperEx`5.ExecuteSingleRowNonQuery(String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelperEx.cs:行号 143
+--------
+2014/7/18 13:05:10-列名 'LoanOwnerKey' 无效。
+列名 'LoanOwnerType' 无效。
+列名 'LoanOwnerAddon' 无效。   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteNonQuery(TTransaction trans, TConnection connection, CommandType commandType, String commandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 153
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteNonQuery(TConnection connection, CommandType commandType, String commandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 105
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteSingleRowNonQuery(TConnection connection, CommandType commandType, String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 329
+   在 HiLand.Utility.DataBase.CommonHelper`5.ExecuteSingleRowNonQuery(String connectionString, CommandType commandType, String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelper.cs:行号 356
+   在 HiLand.Utility.DataBase.CommonHelperEx`5.ExecuteSingleRowNonQuery(String singleRowCommandText, TParameter[] commandParameters) 位置 e:\MyWorkSpace\myProject\HiLand\SRC\HiLand.Utility\DataBase\CommonHelperEx.cs:行号 143
+--------

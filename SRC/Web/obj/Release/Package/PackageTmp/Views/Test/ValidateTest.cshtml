@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "ValidateTest";
+    Layout = null;
+}
+@*    <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jQuery.form.2.84.js")" type="text/javascript"></script>*@
+<h2>
+    ValidateTest</h2>
+<div id="myDiv">
+    @using (Html.BeginForm())
+    { 
+        <input type="text" name="myInput" id="myInput" />
+        <br />
+        <input type="button" name="mySubmit" id="mySubmit" value="submit" />
+        <input type="button" name="myFormat" id="myFormat" value="format" />
+        <input type="button" name="myConvert" id="myConvert" value="Convert" />
+    }
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#myDiv form").validate({
+            rules: {
+                myInput: "required"
+            },
+            messages: {
+                myInput: "*"
+            }
+        });
+
+        $("#mySubmit").click(function () {
+            $("#myDiv form").ajaxSubmit({
+                beforeSend: function () {
+                    var result = $("#myDiv form").valid();
+                    return result;
+                },
+                success: function (content) {
+                    alert(content);
+                }
+            });
+        });
+
+        $("#myFormat").click(function () {
+            var myString = jQuery.validator.format("welcome {0} to {1}", "Sun", "Qingdao");
+            alert(myString);
+        });
+
+        $("#myConvert").click(function () {
+            var myString ="5";
+            alert(myString + 1);
+            alert(+myString +1)
+        });
+        
+    });
+</script>

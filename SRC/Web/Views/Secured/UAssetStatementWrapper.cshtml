@@ -1,0 +1,14 @@
+﻿@using HiLand.Utility4.MVC.Controls
+@using HiLand.Framework.BusinessCore
+@{
+    Layout = null;
+    MvcControlUsingModes usingMode = (this.ViewContext.Controller as GBFinance.Web.Controllers.BaseLoanController).GetUsingMode();
+    bool isPopLayer = (this.ViewContext.Controller as GBFinance.Web.Controllers.BaseLoanController).CheckIsPopLayer(); 
+    int usingModeInt = (int)usingMode;
+}
+<div id="itemDetailsDIV"></div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#itemDetailsDIV").load('@Url.Action("UAssetStatementDetails", new { usingMode = usingModeInt,isPopLayer = isPopLayer })');
+    });
+</script>

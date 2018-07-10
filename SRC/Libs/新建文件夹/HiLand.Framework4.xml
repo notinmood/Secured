@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HiLand.Framework4</name>
+    </assembly>
+    <members>
+        <member name="T:HiLand.Framework4.Permission.Attributes.PermissionAuthorizeAttribute">
+            <summary>
+            用于自定义权限（比如根据管理员分配的权限）进行登录认证的场景
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.Attributes.PermissionAuthorizeAttribute.#ctor(HiLand.Framework4.Permission.Attributes.PermissionAuthorizeModes)">
+            <summary>
+            权限验证构造函数
+            </summary>
+            <param name="permissionAuthorizeMode">验证模式类型</param>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.Attributes.PermissionAuthorizeAttribute.OnAuthorization(System.Web.Mvc.AuthorizationContext)">
+            <summary>
+            具体验证方法
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="T:HiLand.Framework4.Permission.Attributes.PermissionAuthorizeModes">
+            <summary>
+            验证模式类型
+            </summary>
+        </member>
+        <member name="F:HiLand.Framework4.Permission.Attributes.PermissionAuthorizeModes.Normal">
+            <summary>
+            正常验证
+            </summary>
+        </member>
+        <member name="F:HiLand.Framework4.Permission.Attributes.PermissionAuthorizeModes.LoginedAsPass">
+            <summary>
+            登录即为通过验证
+            </summary>
+        </member>
+        <member name="F:HiLand.Framework4.Permission.Attributes.PermissionAuthorizeModes.None">
+            <summary>
+            跳过验证
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework4.Permission.Attributes.UserAuthorizeAttribute">
+            <summary>
+            用户类型使用授权的特性
+            </summary>
+            <remarks>
+            允许某（几）种类型的用户使用授权功能的特性
+            </remarks>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.Attributes.UserAuthorizeAttribute.#ctor">
+            <summary>
+            用户类型使用授权
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.Attributes.UserAuthorizeAttribute.#ctor(HiLand.Utility.Enums.UserTypes)">
+            <summary>
+            用户类型使用授权
+            </summary>
+            <param name="allowedUserType">允许访问的用户类型</param>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.Attributes.UserAuthorizeAttribute.IsBelongToUserType(System.String)">
+            <summary>
+            判断指定的用户是否属于允许的用户类型之列
+            </summary>
+            <param name="userName">指定的用户名称</param>
+            <returns></returns>
+        </member>
+        <member name="T:HiLand.Framework4.Permission.Controls.AControl">
+            <summary>
+            超连接控件
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework4.Permission.Controls.OperateControl`1">
+            <summary>
+            与MVC中Area/Controller/Action对应操作的控件基类
+            主要包括通过点击等方式触发客户端与服务器端进行交互的控件
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.Controls.OperateControl`1.Area(System.String)">
+            <summary>
+            MVC中Area的名称
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.Controls.OperateControl`1.Controller(System.String)">
+            <summary>
+            MVC中控制器名称
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.Controls.OperateControl`1.Action(System.String)">
+            <summary>
+            MVC中Action名称
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.Controls.OperateControl`1.ACA(System.String,System.String,System.String)">
+            <summary>
+            对Action,Controller,Area进行统一赋值
+            </summary>
+            <param name="area"></param>
+            <param name="controller"></param>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.Controls.OperateControl`1.IsUsePermission(System.Boolean)">
+            <summary>
+            是否在控件上进行权限控制(缺省值为false)
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="P:HiLand.Framework4.Permission.Controls.OperateControl`1.HasPermission">
+            <summary>
+            当前用户是否有操作此ACA的权限
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.Controls.AControl.Href(System.String)">
+            <summary>
+            超连接的目标地址
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.Controls.AControl.RouteValue(System.Object)">
+            <summary>
+            路由数据
+            </summary>
+            <param name="value">其结构通常为类似如下： new { area="Manage",id=6,password="ssss"}</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.Controls.ControlsHtmlHelper.HiA(System.String)">
+            <summary>
+            超连接控件
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.Controls.ControlsHtmlHelper.HiA(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            超连接控件
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.Controls.ControlsHtmlHelper.HiSubmit(System.String)">
+            <summary>
+            提交按钮
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.Controls.ControlsHtmlHelper.HiSubmit(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            提交按钮
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HiLand.Framework4.Permission.Controls.SubmitControl">
+            <summary>
+            提交控件
+            </summary>
+            <remarks>
+            由于提交的时候都是对本页面对应的form进行提交，
+            所以本控件内设置了可以自动获取ACA的功能，其几个值可以不用手工设置
+            </remarks>
+        </member>
+        <member name="T:HiLand.Framework4.Permission.PermissionDataHelper">
+            <summary>
+            数据权限帮助器
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.PermissionDataHelper.GetDataPermission">
+            <summary>
+             获取MVC的数据权限
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.PermissionDataHelper.GetDataPermission(System.String,System.String)">
+            <summary>
+             获取MVC的数据权限
+            </summary>
+            <param name="controllerName"></param>
+            <param name="areaName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.PermissionDataHelper.GetSettingItemGuid(HiLand.Utility.Setting.SectionHandler.PermissionDataConfig,System.String,System.String)">
+            <summary>
+            获取ACA对应的资源Guid
+            </summary>
+            <param name="areaName"></param>
+            <param name="controllerName"></param>
+            <returns></returns>
+            <remarks>
+            通过areaName, controllerName获取其对应的子模块配置项是否存在
+            </remarks>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.PermissionDataHelper.IsOwning(HiLand.Framework.FoundationLayer.IResource)">
+            <summary>
+            当前用户是否拥有资源的控制权（可以是编辑等权限）
+            </summary>
+            <param name="resource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.PermissionDataHelper.GetFilterCondition(System.String)">
+            <summary>
+            获取数据权限的过滤条件
+            </summary>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HiLand.Framework4.Permission.PermissionValidationHelper">
+            <summary>
+            操作权限帮助器
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.PermissionValidationHelper.GeneralValidate(HiLand.Framework4.Permission.Attributes.PermissionAuthorizeModes)">
+            <summary>
+            通用的MVC操作权限验证
+            </summary>
+            <param name="permissionAuthorizeMode">验证模式类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.PermissionValidationHelper.GeneralValidate(System.String,System.String,System.String,HiLand.Framework4.Permission.Attributes.PermissionAuthorizeModes)">
+            <summary>
+            通用的MVC操作权限验证
+            </summary>
+            <param name="actionName"></param>
+            <param name="controllerName"></param>
+            <param name="areaName"></param>
+            <param name="permissionAuthorizeMode">验证模式类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework4.Permission.PermissionValidationHelper.GetPermissionInfo(HiLand.Utility4.MVC.SectionHandler.PermissionValidateConfig,System.String,System.String,System.String)">
+            <summary>
+            获取ACA对应的资源所需要的权限值
+            </summary>
+            <param name="config"></param>
+            <param name="areaName"></param>
+            <param name="controllerName"></param>
+            <param name="actionName"></param>
+            <returns></returns>
+            <remarks>
+            通过areaName, controllerName, actionName获取其对应的子模块guid以及当前权限项的值 KVP对，如果没有匹配到合适的值，返回null
+            </remarks>
+        </member>
+    </members>
+</doc>

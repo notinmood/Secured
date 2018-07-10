@@ -1,0 +1,2087 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HiLand.Utility4</name>
+    </assembly>
+    <members>
+        <member name="T:HiLand.Utility4.DataBase.DataReaderEx">
+            <summary>
+            DataReader扩展类
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.DataBase.DataReaderEx.IsExistField(System.Data.IDataReader,System.String)">
+            <summary>
+            判定某个字段在IDataReader中是否存在
+            </summary>
+            <param name="reader"></param>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.DataBase.DataReaderEx.IsExistFieldAndNotNull(System.Data.IDataReader,System.String)">
+            <summary>
+            判定某个字段在IDataReader中是否存在，并且其值不为null
+            </summary>
+            <param name="reader"></param>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.DataBase.DataReaderEx.GetFiledValue``1(System.Data.IDataReader,System.String)">
+            <summary>
+            获取IDataReader中的某个字段的值，如果不存在此字段或者值为null那么返回T的缺省值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="reader"></param>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HiLand.Utility4.DataBase.DataRowEx">
+            <summary>
+             DataRow扩展类
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.DataBase.DataRowEx.IsExistField(System.Data.DataRow,System.String)">
+            <summary>
+            判断某个字段在DataRow中是否存在
+            </summary>
+            <param name="row"></param>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.DataBase.DataRowEx.IsExistFieldAndNotNull(System.Data.DataRow,System.String)">
+            <summary>
+            判断某个字段在DataRow中是否存在,并且其值不为null
+            </summary>
+            <param name="row"></param>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.DataBase.DataRowEx.GetFiledValue``1(System.Data.DataRow,System.String)">
+            <summary>
+            获取DataRow中的某个字段的值，如果不存在此字段或者值为null那么返回T的缺省值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="reader"></param>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HiLand.Utility4.Data.FlagEx">
+            <summary>
+            枚举扩展类
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.Data.FlagEx.ContainsFlag(System.Int32,System.Int32)">
+            <summary>
+            判断某一个flag类型的枚举值，是否在一个给定的枚举集合内
+            </summary>
+            <param name="flaggedItem"></param>
+            <param name="flaggedCollection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.Data.FlagEx.AddFlag(System.Int32,System.Int32)">
+            <summary>
+            向flag类型的枚举集合中添加某个flag枚举项目
+            </summary>
+            <param name="flaggedCollection"></param>
+            <param name="flaggedItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.Data.FlagEx.RemoveFlag(System.Int32,System.Int32)">
+            <summary>
+            向flag类型的枚举集合中添加某个flag枚举项目
+            </summary>
+            <param name="flaggedCollection"></param>
+            <param name="flaggedItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.Data.FlagEx.ContainsFlag``1(``0,``0)">
+            <summary>
+            判断某一个flag类型的枚举值，是否在一个给定的枚举集合内
+            </summary>
+            <typeparam name="TEnum"></typeparam>
+            <param name="flaggedCollection"></param>
+            <param name="valueToValidate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.Data.FlagEx.AddFlag``1(``0,``0)">
+            <summary>
+            向flag类型的枚举集合中添加某个flag枚举项目
+            </summary>
+            <typeparam name="TEnum"></typeparam>
+            <param name="flaggedCollection"></param>
+            <param name="flaggedItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.Data.FlagEx.RemoveFlag``1(``0,``0)">
+            <summary>
+            向flag类型的枚举集合中添加某个flag枚举项目
+            </summary>
+            <typeparam name="TEnum"></typeparam>
+            <param name="flaggedCollection"></param>
+            <param name="flaggedItem"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HiLand.Utility4.Data.EnumEx">
+            <summary>
+            枚举辅助类
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.Data.EnumEx.TryParse``1(System.String)">
+            <summary>
+            将某个枚举项的字符串值转化成其对应的枚举类型
+            </summary>
+            <typeparam name="TEnum"></typeparam>
+            <param name="enumItemValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.Data.EnumEx.TryParse``1(System.String,``0)">
+            <summary>
+            将某个枚举项的字符串值转化成其对应的枚举类型
+            </summary>
+            <typeparam name="TEnum"></typeparam>
+            <param name="enumItemValue"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.Data.EnumEx.BuildSelectItemList``1(System.String,System.String)">
+            <summary>
+            将枚举的各个枚举项构建成下拉列表项列表（MVC下使用）
+            </summary>
+            <typeparam name="TEnum">枚举类型</typeparam>
+            <param name="displayTextCategory"></param>
+            <param name="selectedValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.Data.EnumEx.BuildSelectItemList(System.Type,System.String,System.String)">
+            <summary>
+            将枚举的各个枚举项构建成下拉列表项列表（MVC下使用）
+            </summary>
+            <param name="enumType"></param>
+            <param name="displayTextCategory"></param>
+            <param name="selectedValue"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HiLand.Utility4.Data.ExceptionEx">
+            <summary>
+            异常信息扩展类
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.Data.ExceptionEx.GetExceptionMessage(System.Exception,System.Boolean)">
+            <summary>
+            得到异常的消息串，主要获得了StackTrace属性
+            </summary>
+            <param name="e"></param>
+            <param name="showAllMessage">是否显示所有错误信息</param>
+            <returns></returns>
+        </member>
+        <member name="T:HiLand.Utility4.Data.ObjectEx">
+            <summary>
+            对象帮助器的扩展
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.Data.ObjectEx.IsNullOrEmpty``1(``0)">
+            <summary>
+            判断对象是否为空，为空返回true
+            </summary>
+            <typeparam name="T">要验证的对象的类型</typeparam>
+            <param name="data">要验证的对象</param>        
+        </member>
+        <member name="M:HiLand.Utility4.Data.ObjectEx.IsNullOrEmpty(System.Object)">
+            <summary>
+            判断对象是否为空，为空返回true
+            </summary>
+            <param name="data">要验证的对象</param>
+        </member>
+        <member name="T:HiLand.Utility4.Data.StringEx">
+            <summary>
+            字符串扩展类
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.Data.StringEx.Format(System.String,System.Object[])">
+            <summary>
+            对使用占位符的字符串进行格式化
+            </summary>
+            <param name="stringWithFormating"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.Data.StringEx.SQLAppend(System.Text.StringBuilder,System.String)">
+            <summary>
+            对SQL语句进行反注入处理
+            </summary>
+            <param name="sb"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.Data.StringEx.SQLAppendFormat(System.Text.StringBuilder,System.String,System.String[])">
+            <summary>
+            对SQL语句进行反注入处理(带占位符格式化功能)
+            </summary>
+            <param name="sb"></param>
+            <param name="format"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HiLand.Utility4.Data.XmlEx">
+            <summary>
+            XML信息扩展类
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.Data.XmlEx.GetNodeValue(System.Xml.XmlNode)">
+            <summary>
+            获取某一节点的值
+            </summary>
+            <param name="xmlNode">Xml节点</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.Data.XmlEx.GetNodeValue(System.Xml.XmlNode,System.String)">
+            <summary>
+            获取某一节点的值
+            </summary>
+            <param name="xmlNode">Xml节点</param>
+            <param name="xpath">XPath查找路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.Data.XmlEx.GetNodeValue(System.Xml.XmlNode,System.String,System.String)">
+            <summary>
+            获取某一个节点中属性的值
+            </summary>
+            <param name="xmlNode">Xml节点</param>
+            <param name="xpath">XPath查找路径</param>
+            <param name="attributeName">属性名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.Data.XmlEx.GetNodeValue``1(System.Xml.XmlNode,System.String)">
+            <summary>
+            获取某一个节点中属性的值
+            </summary>
+            <param name="xmlNode">Xml节点</param>
+            <param name="xpath">XPath查找路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.Data.XmlEx.GetNodeValue``1(System.Xml.XmlNode,System.String,``0)">
+            <summary>
+            获取某一个节点中属性的值
+            </summary>
+            <param name="xmlNode">Xml节点</param>
+            <param name="xpath">XPath查找路径</param>
+            <param name="defaultValue">缺省值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.Data.XmlEx.GetNodeValue``1(System.Xml.XmlNode,System.String,System.String)">
+            <summary>
+            获取某一个节点中属性的值
+            </summary>
+            <param name="xmlNode">Xml节点</param>
+            <param name="xpath">XPath查找路径</param>
+            <param name="attributeName">属性名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.Data.XmlEx.GetNodeValue``1(System.Xml.XmlNode,System.String,System.String,``0)">
+            <summary>
+            获取某一个节点中属性的值
+            </summary>
+            <param name="xmlNode">Xml节点</param>
+            <param name="xpath">XPath查找路径</param>
+            <param name="attributeName">属性名称</param>
+            <param name="defaultValue">缺省值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.Data.XmlEx.GetXElementValue(System.Xml.Linq.XElement,System.String)">
+            <summary>
+            获取某子节点的值
+            </summary>
+            <param name="parentXElement"></param>
+            <param name="xElementName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.Data.XmlEx.GetXElementValue``1(System.Xml.Linq.XElement,System.String)">
+            <summary>
+            获取某子节点的值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parentXElement"></param>
+            <param name="xElementName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.Data.XmlEx.GetXElementAttribute(System.Xml.Linq.XElement,System.String)">
+            <summary>
+            获取某节点属性的值
+            </summary>
+            <param name="xElement"></param>
+            <param name="xAttributeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.Data.XmlEx.GetXElementAttribute``1(System.Xml.Linq.XElement,System.String)">
+            <summary>
+            获取某节点属性的值
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="xElement"></param>
+            <param name="xAttributeName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.BaseControl`1">
+            <summary>
+            MVC控件基类
+            </summary>
+            <remarks>
+            其中MvcControlCssPrefix可以读取配置文件mvcControlCssPrefix
+            </remarks>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.BaseControl`1.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.BaseControl`1.Name(System.String)">
+            <summary>
+            设置名称
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.BaseControl`1.CssClassName(System.String)">
+            <summary>
+            设置CSS类的名称
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.BaseControl`1.HtmlAttributes(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            设置HTML属性
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.BaseControl`1.AddOrUpdateAttributes(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            添加或更新既有的HTML属性
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="F:HiLand.Utility4.MVC.Controls.BaseControl`1.value">
+            <summary>
+            控件的值
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.BaseControl`1.Value(System.String)">
+            <summary>
+            设置控件的值
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.BaseControl`1.Value(System.Object)">
+            <summary>
+            设置控件的值
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.BaseControl`1.Render(System.Object)">
+            <summary>
+            以Html方式输出控件代码
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.BaseControl`1.WriteHtml(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            输出控件Html代码
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="F:HiLand.Utility4.MVC.Controls.BaseControl`1.javaScriptFiles">
+            <summary>
+            需要载入的外部JavaScript文件
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.BaseControl`1.JavaScriptFiles(System.Collections.Generic.List{System.String})">
+            <summary>
+            设置需要载入的外部JavaScript文件
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.BaseControl`1.LoadJavaScriptFiles(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            载入外部JavaScript文件
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="F:HiLand.Utility4.MVC.Controls.BaseControl`1.styleSheetFiles">
+            <summary>
+            需要载入的外部CSS文件
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.BaseControl`1.StyleSheetFiles(System.Collections.Generic.List{System.String})">
+            <summary>
+            设置需要载入的外部CSS文件
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.BaseControl`1.LoadStyleSheetFiles(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            载入的外部CSS文件
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.BaseControl`1.WriteJavascriptContent(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            绘制javascript脚本内容
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.BaseControl`1.CreateTag(System.String,System.String,System.String)">
+            <summary>
+            创建控件
+            </summary>
+            <param name="tagName">控件的标签名称</param>
+            <param name="idInfo">控件的ID值</param>
+            <param name="nameInfo">控件的name值</param>
+            <returns>
+            各个参数如果为“”：使用系统默认的数据；如果为null：不呈现此信息
+            </returns>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.BaseControl`1.name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.BaseControl`1.ID">
+            <summary>
+            控件ID 【根据name 自动生成】
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.BaseControl`1.cssClassName">
+            <summary>
+            CSS类的名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.BaseControl`1.htmlAttributes">
+            <summary>
+            Html属性字典集合
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.BaseControl`1.MvcControlCssPrefix">
+            <summary>
+            Css名称前缀
+            </summary>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.CascadingDropDownListControl">
+            <summary>
+            级联更新的列表控件
+            </summary>
+            <remarks>
+            必须在页面或者本控件的JavaScriptFiles方法中指定jquery.cascadingDropDown.js
+            </remarks>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.DropDownListControl`1">
+            <summary>
+            下拉列表控件（抽象）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <remarks>
+            获取选中项显示文本时，可以使用RequestHelper.GetValue("{name}_Text")或者直接使用ControlHelper.GetDisplayText;
+            </remarks>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.MultiItemStatusSelectControl`1">
+            <summary>
+            多子项列表状态控件
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.StatusSelectControl`1">
+            <summary>
+            状态选择控件（CheckBox，RadioButton等）的基类
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.InputControl`1">
+            <summary>
+            需要收集用户输入信息的MVC控件基类
+            </summary>
+        </member>
+        <member name="F:HiLand.Utility4.MVC.Controls.InputControl`1.usingMode">
+            <summary>
+            控件的使用模式
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.InputControl`1.UsingMode(HiLand.Utility4.MVC.Controls.MvcControlUsingModes)">
+            <summary>
+            设置控件的使用模式
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="F:HiLand.Utility4.MVC.Controls.InputControl`1.isDisabled">
+            <summary>
+            控件是否不可以使用
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.InputControl`1.IsDisabled(System.Boolean)">
+            <summary>
+            设置控件是否不可以使用
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="F:HiLand.Utility4.MVC.Controls.InputControl`1.lable">
+            <summary>
+            输入框前说明文本显示的内容
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.InputControl`1.Lable(System.String)">
+            <summary>
+            设置输入框前说明文本显示的内容
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="F:HiLand.Utility4.MVC.Controls.InputControl`1.seperator">
+            <summary>
+            提示和数据之间的分割符号
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.InputControl`1.Seperator(System.String)">
+            <summary>
+            设置提示和数据之间的分割符号
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.InputControl`1.IsUseSelfContainer(System.Boolean)">
+            <summary>
+            设置是否将生成的控件放入自己的容器（DIV）内
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.InputControl`1.LabelHtmlAttributes(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            设置label上的Html属性字典集合
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.InputControl`1.WriteHtml(System.Web.UI.HtmlTextWriter)">
+            <summary>
+             输出控件Html代码
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.InputControl`1.WriteCoreHtml">
+            <summary>
+            绘制控件核心部分的Html代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.InputControl`1.WriteLabelString">
+            <summary>
+            绘制文本说明字符代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.InputControl`1.CreateTag(System.String,System.String,System.String)">
+            <summary>
+            创建标签
+            </summary>
+            <param name="tagName"></param>
+            <param name="nameInfo"></param>
+            <param name="idInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.InputControl`1.CreateTag(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            创建标签
+            </summary>
+            <param name="tagName"></param>
+            <param name="valueInfo"></param>
+            <param name="htmlAttributes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.InputControl`1.CreateTag(System.String,System.String,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            创建标签
+            </summary>
+            <param name="tagName"></param>
+            <param name="nameInfo"></param>
+            <param name="idInfo"></param>
+            <param name="valueInfo"></param>
+            <param name="htmlAttributes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.StatusSelectControl`1.IsChecked(System.Boolean)">
+            <summary>
+            设置控件是否被选中
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.StatusSelectControl`1.Description(System.String)">
+            <summary>
+            设置控件的描述信息（显示在checkbox框的后面）
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.StatusSelectControl`1.WriteCoreHtml">
+            <summary>
+            绘制控件核心部分的Html代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.StatusSelectControl`1.InputTypeName">
+            <summary>
+            控件类型的名称（checkbox还是radio）
+            </summary>
+        </member>
+        <member name="F:HiLand.Utility4.MVC.Controls.MultiItemStatusSelectControl`1.itemList">
+            <summary>
+            列表项
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.MultiItemStatusSelectControl`1.ItemList(System.Collections.Generic.IEnumerable{System.Web.Mvc.SelectListItem})">
+            <summary>
+            设置列表项
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.MultiItemStatusSelectControl`1.WriteCoreHtml">
+            <summary>
+            绘制控件核心部分的Html代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.DropDownListControl`1.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.DropDownListControl`1.OptionLabel(System.String)">
+            <summary>
+            选择项的提示文本
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.DropDownListControl`1.WriteCoreHtml">
+            <summary>
+            绘制控件核心部分的Html代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.DropDownListControl`1.InputTypeName">
+            <summary>
+            控件类型的名称（checkbox还是radio）
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.CascadingDropDownListControl.ParentSelectControlSelector(System.String)">
+            <summary>
+            父下拉列表空间的选择器
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.CascadingDropDownListControl.DynamicSelectItemsLoadUrl(System.String)">
+            <summary>
+            当前下拉列表控件选择性的动态获取地址（这个地址返回的值必须是CascadingCollection（HiLand.Utility\Entity\CascadingCollection.cs）转成JSON的字符串）
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.CascadingDropDownListControl.WriteJavascriptContent(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            绘制javascript脚本内容
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.CheckBoxControl">
+            <summary>
+            多选框控件
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.CheckBoxControl.InputTypeName">
+            <summary>
+            控件类型的名称（checkbox还是radio）
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.CheckBoxControl.cssClassName">
+            <summary>
+            CSS类的名称
+            </summary>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.CheckBoxListControl">
+            <summary>
+            多选框列表控件
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.CheckBoxListControl.InputTypeName">
+            <summary>
+            控件类型的名称（checkbox还是radio）
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.CheckBoxListControl.cssClassName">
+            <summary>
+            CSS类的名称
+            </summary>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.ControlHelper">
+            <summary>
+            控件使用中的辅助类工具
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlHelper.GetRealValue``1(System.String)">
+            <summary>
+            获取某控件实际选择的值（通常是一个ID，Guid等信息，因为某些控件显示的值通常为一个对终端用户友好的文本值）
+            </summary>
+            <typeparam name="T">待获取数据的类型</typeparam>
+            <param name="controlName">控件的名称</param>
+            <returns></returns>
+            <remarks>
+            目前可以获取选择项的实际值的控件有：树控件
+            </remarks>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlHelper.GetRealValue``1(System.String,``0)">
+            <summary>
+            获取某控件实际选择的值（通常是一个ID，Guid等信息，因为某些控件显示的值通常为一个对终端用户友好的文本值）
+            </summary>
+            <typeparam name="T">待获取数据的类型</typeparam>
+            <param name="controlName">控件的名称</param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+            <remarks>
+            目前可以获取选择项的实际值的控件有：树控件
+            </remarks>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlHelper.GetDisplayText``1(System.String)">
+            <summary>
+            获取某控件选择项显示的值
+            </summary>
+            <typeparam name="T">待获取数据的类型</typeparam>
+            <param name="controlName">控件的名称</param>
+            <returns></returns>
+            <remarks>
+            目前可以获取选择项的实际值的控件有：下拉控件
+            </remarks>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlHelper.GetDisplayText``1(System.String,``0)">
+            <summary>
+            获取某控件选择项显示的值
+            </summary>
+            <typeparam name="T">待获取数据的类型</typeparam>
+            <param name="controlName">控件的名称</param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+            <remarks>
+            目前可以获取选择项的实际值的控件有：下拉控件
+            </remarks>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.DateTimeControl">
+            <summary>
+            日期显示控件
+            </summary>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.TextBoxControl`1">
+            <summary>
+            文本输入控件基类
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.TextBoxControl`1.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.TextBoxControl`1.ReadOnly(System.Boolean)">
+            <summary>
+            设置是否为只读性质
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.TextBoxControl`1.WriteCoreHtml">
+            <summary>
+            绘制控件核心部分的Html代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.TextBoxControl`1.cssClassName">
+            <summary>
+            CSS类的名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.TextBoxControl`1.readOnly">
+            <summary>
+            是否为只读性质
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.TextBoxControl`1.InputTag">
+            <summary>
+            输入标签
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.DateTimeControl.DateInputOptions(System.String)">
+            <summary>
+            日期输入框的可选项
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.DateTimeControl.WriteCoreHtml">
+            <summary>
+            绘制控件核心部分的Html代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.DateTimeControl.WriteDateTimeScript">
+            <summary>
+            绘制日期使用的脚本
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.DateTimeControl.cssClassName">
+            <summary>
+            CSS类的名称
+            </summary>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.DropDownListControl">
+            <summary>
+            下拉列表控件
+            </summary>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.HiddenControl">
+            <summary>
+            隐藏域控件
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.HiddenControl.WriteCoreHtml">
+            <summary>
+            绘制控件核心部分的Html代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper">
+            <summary>
+            HtmlHelper扩展器（扩展MVC控件）
+            </summary>
+            <remarks>
+            每个新建的MVC控件，如果要在HtmlHelper中方便调用，请在此类中注册。
+            </remarks>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiHidden(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiHidden(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiTextBox(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiTextBox(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiCheckBox(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiCheckBox(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiTextArea(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiTextArea(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiDropDownList(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiDropDownList(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiDropDonwList``1(System.String,System.String)">
+            <summary>
+            将枚举类型转换成下拉列表
+            </summary>
+            <typeparam name="T">必须为枚举类型</typeparam>
+            <param name="htmlHelper"></param>
+            <param name="selectedValue"></param>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiDropDonwList``1(System.Web.Mvc.HtmlHelper,System.String,System.String)">
+            <summary>
+            将枚举类型转换成下拉列表
+            </summary>
+            <typeparam name="T">必须为枚举类型</typeparam>
+            <param name="htmlHelper"></param>
+            <param name="selectedValue"></param>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiRadioButton(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiRadioButton(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiCheckBoxList(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiCheckBoxList(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiRadioButtonList(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiRadioButtonList(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiDateTime(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiDateTime(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            时间选择控件
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiTreeSelect(System.String)">
+            <summary>
+            树选择控件
+            </summary>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiTreeSelect(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            树选择控件
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiQuery(System.String)">
+            <summary>
+            查询控件
+            </summary>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiQuery(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            查询控件
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiCascadingDropDownList(System.String)">
+            <summary>
+            级联的下拉列表控件
+            </summary>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.ControlsHtmlHelper.HiCascadingDropDownList(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            级联的下拉列表控件
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="name">控件的name值</param>
+            <returns></returns>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.MvcControlUsingModes">
+            <summary>
+            控件的使用模式（是用于显示内容，还是用于编辑输入）
+            </summary>
+        </member>
+        <member name="F:HiLand.Utility4.MVC.Controls.MvcControlUsingModes.Display">
+            <summary>
+            显示模式
+            </summary>
+        </member>
+        <member name="F:HiLand.Utility4.MVC.Controls.MvcControlUsingModes.Editable">
+            <summary>
+            编辑模式
+            </summary>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.QueryControl">
+            <summary>
+            综合查询控件
+            </summary>
+            <remarks>
+            此控件因为为日期输入使用了选择框，那么需要使用此控件的页面加入对css文件（jQuery.tools.dateinput.css）的引用
+            </remarks>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.QueryControl.IsDisplayBrackets(System.Boolean)">
+            <summary>
+            是否显示括号运算符(其可以在多个条件之间设置优先级)
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.QueryControl.IsDisplayTableHead(System.Boolean)">
+            <summary>
+            是否显示表头
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.QueryControl.WriteHtml(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            输出控件Html代码
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.QueryControl.GetQueryControlDisplayStatusString">
+            <summary>
+            获取查询控件展开/关闭模式的字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.QueryControl.WriteJavascriptContent(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            绘制javascript脚本内容
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.QueryControl.IsDisplayQueryButton(System.Boolean)">
+            <summary>
+            是否显示查询按钮
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.QueryControl.GetLeftBracketsString(System.Int32)">
+            <summary>
+            获取左括号的字符串
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.QueryControl.GetRightBracketsString(System.Int32)">
+            <summary>
+            获取右括号的字符串
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.QueryControl.GetConditionNameString(HiLand.Utility4.MVC.Controls.QueryConditionItem,System.Int32)">
+            <summary>
+            获取查询项条件中字段的名称字符串
+            </summary>
+            <param name="queryConditionItem"></param>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.QueryControl.GetConditionValueString(HiLand.Utility4.MVC.Controls.QueryConditionItem,System.Int32)">
+            <summary>
+            获取查询项条件中值字符串
+            </summary>
+            <param name="queryConditionItem"></param>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.QueryControl.GetConditionOperatorString(HiLand.Utility4.MVC.Controls.QueryConditionItem,System.Int32)">
+            <summary>
+            获取查询条件中条件名称和条件值之间的连接关系字符串
+            </summary>
+            <param name="queryConditionItem"></param>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.QueryControl.GetCompareModeOptionString(HiLand.Utility.Enums.CompareModes,System.String,System.String)">
+            <summary>
+            获取比较模式选项字符串
+            </summary>
+            <param name="compareMode"></param>
+            <param name="selectedValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.QueryControl.GetRelationshipString(System.Int32,System.Boolean)">
+            <summary>
+            获取多个条件查询项之间的连接关系字符串
+            </summary>
+            <param name="number"></param>
+            <param name="isLastItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.QueryControl.QueryConditionList(System.Collections.Generic.List{HiLand.Utility4.MVC.Controls.QueryConditionItem})">
+            <summary>
+            设置查询条件集合
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.QueryControl.cssClassName">
+            <summary>
+            展示表的Css类名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.QueryControl.SQLMode">
+            <summary>
+            SQL语句的模式（标准sql语句、或者其他单独某数据库厂商的模式，默认值为stand-SQL）
+            </summary>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.QueryConditionItem">
+            <summary>
+            查询条件项
+            ConditionFieldName和ConditionDisplayName可以设置多个字段的信息，
+            多个字段之间用“,”进行分割。但是这个多个字段必须是同种数据类型的。设置时，
+            请注意ConditionFieldName和ConditionDisplayName的内部的数量保证一致。
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.QueryConditionItem.GetAddonItem(System.String,System.String)">
+            <summary>
+            获取查询条件附加数据中的某个附加信息的值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.QueryConditionItem.isMultiFieldName">
+            <summary>
+            在字段名称里面是否包含多个值
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.QueryConditionItem.ConditionDisplayName">
+            <summary>
+            查询条件项显示的名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.QueryConditionItem.ConditionFieldName">
+            <summary>
+            查询条件项对应的数据库字段名称（可以设置多个字段，多个字段之间用“,”进行分割。但是这个多个字段必须是同种数据类型的）
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.QueryConditionItem.ConditionType">
+            <summary>
+            查询条件项的数据类型
+            </summary>
+            <remarks>请一定跟数据库字段的类型匹配（如果设置ConditionValueItems的值系统也会将其进行转换）</remarks>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.QueryConditionItem.ConditionValueItems">
+            <summary>
+            查询条件值的各个可选择项（在控件内部使用下拉列表的方式来呈现）
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.QueryConditionItem.AddonData">
+            <summary>
+            查询条件项的附加数据
+            </summary>
+            <remarks>
+            其格式为 key1:value1||key2:value2
+            </remarks>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.QueryControlHelper">
+            <summary>
+            查询控件辅助工具
+            </summary>
+            <remarks>
+            获取QueryControl提交的结果，请使用本辅助工具内的方法GetQueryCondition，其会返回查询条件
+            </remarks>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.QueryControlHelper.GetNewQueryUrl(System.String,System.String)">
+            <summary>
+            获取附加了查询字符串的新url
+            </summary>
+            <param name="queryControlName">查询控件的名称</param>
+            <param name="baseUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.QueryControlHelper.GetQueryCondition(System.String)">
+            <summary>
+            获取数据库查询获取查询条件字符串（Where子句部分）
+            </summary>
+            <param name="queryControlName">查询控件的名称</param>
+            <returns></returns>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.RadioButtonControl">
+            <summary>
+            单选框控件
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.RadioButtonControl.InputTypeName">
+            <summary>
+            控件类型的名称（checkbox还是radio）
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.RadioButtonControl.cssClassName">
+            <summary>
+            CSS类的名称
+            </summary>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.RadioButtonListControl">
+            <summary>
+            单选框列表控件
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.RadioButtonListControl.InputTypeName">
+            <summary>
+            控件类型的名称（checkbox还是radio）
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.RadioButtonListControl.cssClassName">
+            <summary>
+            CSS类的名称
+            </summary>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.TextAreaControl">
+            <summary>
+            多行多列的文本控件
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.TextAreaControl.Rows(System.Int32)">
+            <summary>
+            文本框的行数
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.TextAreaControl.Cols(System.Int32)">
+            <summary>
+            文本框的列数
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.TextAreaControl.WriteCoreHtml">
+            <summary>
+            绘制控件核心部分的Html代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.TextBoxControl">
+            <summary>
+            文本输入控件
+            </summary>
+            <remarks>
+            如果要启用自动完成功能，必须引用jquery-ui.js和jquery-ui.css。
+            如果设置了DynamicLoadDataUrl则自动启用自动完成功能
+            </remarks>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.TextBoxControl.MinLengthForWakeup(System.Int32)">
+            <summary>
+            设置能够唤醒自动提示的最短字符数（缺省为2）
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:HiLand.Utility4.MVC.Controls.TextBoxControl.DynamicLoadDataUrl(System.String)" -->
+        <member name="M:HiLand.Utility4.MVC.Controls.TextBoxControl.ExtraParamFunctionName(System.String)">
+            <summary>
+            设置获取在自动完成时，提交到服务器端的附加参数的JavaScript方法名称
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+            <remarks>
+            本JavaScript函数应该返回一个数值。这数值将作为request["autoCompleteExtraParam"]的值被提交到服务器端
+            </remarks>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.TextBoxControl.SelectedCallbackFunctionName(System.String)">
+            <summary>
+            自动完成提示列表中选定项后的回调JS函数名称（缺省值为autoCompleteSelectedCallback）
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+            <remarks>
+            此JS函数会传统一个参数item，其有如下几个属性（分别对应AutoCompleteEntity类的几个属性）
+            value：自动完成提示列表中选定项后，实际填充文本框的值
+            label：自动完成提示列表中显示的提示内容
+            key：自动完成提示列表中选定项后，后台对应的实际标志值（通常可以是某实体的ID信息）
+            details：自动完成提示列表中选定项后，可以传递和展示的其他内容
+            </remarks>
+        </member>
+        <member name="F:HiLand.Utility4.MVC.Controls.TextBoxControl.hiddenFieldValue">
+            <summary>
+            保存实际值的隐藏域的值
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.TextBoxControl.HiddenFieldValue(System.String)">
+            <summary>
+            设置保存实际值的隐藏域的值
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.TextBoxControl.WriteCoreHtml">
+            <summary>
+            绘制控件核心部分的Html代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.TextBoxControl.WriteJavascriptContent(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            绘制javascript脚本内容
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.TextBoxControl.isUseAutoComplete">
+            <summary>
+            是否启用自动完成
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.TextBoxControl.hiddenFieldName">
+            <summary>
+            保存实际值的隐藏域的名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.TextBoxControl.hiddenFieldID">
+            <summary>
+            保存实际值的隐藏域的ID
+            </summary>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Controls.TreeSelectControl">
+            <summary>
+            树形选择控件
+            </summary>
+            <remarks>
+            1.本控件使用了ztree，请在属性JavaScriptFiles里面设置 jQuery和jquery.ztree.all-3.3.js
+                                     请在属性StyleSheetFiles里面设置 zTreeStyle.css
+                                     
+            2.关于jquery.ztree.all-3.3.js和zTreeStyle.css，请参见http://www.ztree.me的官方文档
+            3.本控件向外暴露2个值，一个是显示的Name（通常是选定节点的名称，通过属性Name获取或设置）；一个是真实的value（通常是选定节点的ID，通过字段hiddenFieldName获取）
+            4.动态加载节点的属性DataUrl，具体可以参考SampleConsoleMvcApplication\Controllers\HomeController.cs内的方法TreeData()
+            </remarks>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.TreeSelectControl.WriteCoreHtml">
+            <summary>
+            绘制控件核心部分的Html代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.TreeSelectControl.WriterHiddenField">
+            <summary>
+            绘制保存实际值（通常是选定节点的ID）的隐藏域
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.TreeSelectControl.Text(System.String)">
+            <summary>
+            设置控件的文本
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.TreeSelectControl.DynamicDataUrl(System.String)">
+            <summary>
+            动态获取数据的URL
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.TreeSelectControl.StaticDataNodes(System.String)">
+            <summary>
+            静态数据节点集合
+            </summary>
+            <param name="data">必须是JSON类型的数据（如果有嵌套关系，请使用zTree的简单数据模式）</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.TreeSelectControl.DataLoadType(HiLand.Utility.Enums.DataLoadTypes)">
+            <summary>
+            数据载入的方式
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.TreeSelectControl.DataSelectType(HiLand.Utility.Enums.DataSelectTypes)">
+            <summary>
+            数据选择的方式
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Controls.TreeSelectControl.IsInPopupWindow(System.Boolean)">
+            <summary>
+            本树是否在弹出窗口中使用
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.TreeSelectControl.readOnly">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.TreeSelectControl.hiddenFieldName">
+            <summary>
+            保存实际值的隐藏域的名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.TreeSelectControl.hiddenFieldID">
+            <summary>
+            保存实际值的隐藏域的ID
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.Controls.TreeSelectControl.containerLayout">
+            <summary>
+            树容器使用的布局方式
+            </summary>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.Data.ControllerEx">
+            <summary>
+            Controller扩展器
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Data.ControllerEx.GetParam(System.Web.Mvc.Controller,System.String,System.String)">
+            <summary>
+            获取传递给Controller的参数
+            </summary>
+            <param name="controller"></param>
+            <param name="paramName"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Data.ControllerEx.GetParam``1(System.Web.Mvc.Controller,System.String,``0)">
+            <summary>
+            获取传递给Controller的参数
+            </summary>
+            <param name="controller"></param>
+            <param name="paramName"></param>
+            <param name="defaultValue"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Data.ControllerEx.PassParam``1(System.Web.Mvc.Controller,System.String,``0)">
+            <summary>
+            从Controller向View传递数据
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="controller"></param>
+            <param name="paramName"></param>
+            <param name="paramValue"></param>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Data.ControllerEx.PassParam(System.Web.Mvc.Controller,System.String,System.Object)">
+            <summary>
+            从Controller向View传递数据
+            </summary>
+            <param name="controller"></param>
+            <param name="paramName"></param>
+            <param name="paramValue"></param>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Data.ControllerEx.BrokeParam(System.Web.Mvc.Controller,System.String)">
+            <summary>
+            在Controller中接受参数并传递到View中
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Data.ControllerEx.BrokeParam``1(System.Web.Mvc.Controller,System.String)">
+            <summary>
+            在Controller中接受参数并传递到View中
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Data.WebViewPageEx.GetPassedParam``1(System.Web.Mvc.WebViewPage{``0},System.String)">
+            <summary>
+            获取从Controller传递到View中的值
+            </summary>
+            <typeparam name="TModel"></typeparam>
+            <param name="page"></param>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Data.WebViewPageEx.GetPassedParam``2(System.Web.Mvc.WebViewPage{``0},System.String)">
+            <summary>
+            获取从Controller传递到View中的值
+            </summary>
+            <typeparam name="TModel"></typeparam>
+            <typeparam name="TParam"></typeparam>
+            <param name="page"></param>
+            <param name="paramName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.HtmlHelperEx">
+            <summary>
+            HtmlHelper扩展类
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.HtmlHelperEx.DropDownListWithHierachical(System.Web.Mvc.HtmlHelper,System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SelectListItem},System.String,System.Int32,System.String)">
+            <summary>
+            带级别格式的下拉列表
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="name"></param>
+            <param name="itemList"></param>
+            <param name="optionLabel"></param>
+            <param name="codeLenghtPerLevel"></param>
+            <param name="textPrefix">出现在子级别前面的字符，用以跟父级别区分</param>
+            <returns>
+            这不是一个通用的下拉列表，满足一下条件才能使用
+            1.列表项的Value必须满足海澜科技Code的编码规则（Code规则另见）
+            2.Code中每几位表示一个级别，需要通过参数codeLenghtPerLevel指定（通常是2位表示一个级别）
+            </returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.HtmlHelperEx.DropDownListWithHierachical(System.Web.Mvc.HtmlHelper,System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SelectListItem},System.Object,System.Int32,System.String)">
+            <summary>
+            带级别格式的下拉列表
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="name"></param>
+            <param name="itemList"></param>
+            <param name="htmlAttributes"></param>
+            <param name="codeLenghtPerLevel"></param>
+            <param name="textPrefix">出现在子级别前面的字符，用以跟父级别区分</param>
+            <returns>
+            这不是一个通用的下拉列表，满足一下条件才能使用
+            1.列表项的Value必须满足海澜科技Code的编码规则（Code规则另见）
+            2.Code中每几位表示一个级别，需要通过参数codeLenghtPerLevel指定（通常是2位表示一个级别）
+            </returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.HtmlHelperEx.DropDownListWithHierachical(System.Web.Mvc.HtmlHelper,System.String,System.Collections.Generic.IEnumerable{System.Web.Mvc.SelectListItem},System.String,System.Object,System.Int32,System.String)">
+            <summary>
+            带级别格式的下拉列表
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="name"></param>
+            <param name="itemList"></param>
+            <param name="htmlAttributes"></param>
+            <param name="codeLenghtPerLevel"></param>
+            <param name="textPrefix">出现在子级别前面的字符，用以跟父级别区分</param>
+            <returns>
+            这不是一个通用的下拉列表，满足一下条件才能使用
+            1.列表项的Value必须满足海澜科技Code的编码规则（Code规则另见）
+            2.Code中每几位表示一个级别，需要通过参数codeLenghtPerLevel指定（通常是2位表示一个级别）
+            </returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.HtmlHelperEx.DropDownListAllEnglishChars(System.Web.Mvc.HtmlHelper,System.String,System.Object,System.Boolean)">
+            <summary>
+            英文26字母的下拉列表
+            </summary>
+            <param name="htmlHelper"></param>
+            <param name="name"></param>
+            <param name="htmlAttributes"></param>
+            <param name="isUpper">是否使用大写字母（确省为true）</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.HtmlHelperEx.GenerateSelectListItem(System.Int32)">
+            <summary>
+            通过将数字转换成相应的字符来创建DropDownList的选择项
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:HiLand.Utility4.MVC.HtmlHelperEx.RenderAction``1(System.Web.Mvc.HtmlHelper,System.Linq.Expressions.Expression{System.Action{``0}})" -->
+        <member name="T:HiLand.Utility4.MVC.MVCHelper">
+            <summary>
+            MVC辅助类
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.MVCHelper.GetCurrentControllerName">
+            <summary>
+            获取当前请求对应的Controller名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.MVCHelper.GetCurrentActionName">
+            <summary>
+            获取当前请求对应的Action名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.MVCHelper.GetCurrentNamespace">
+            <summary>
+            获取当前请求对应的命名空间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.MVCHelper.GetCurrentAreaName">
+            <summary>
+            获取当前请求对应的Area名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.MVCHelper.SetCustomData(System.String,System.String)">
+            <summary>
+            设置用户自定义数据
+            </summary>
+            <param name="dataName"></param>
+            <param name="dataValue"></param>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.MVCHelper.SetCustomData``1(System.String,``0)">
+            <summary>
+            设置用户自定义数据
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataName"></param>
+            <param name="dataValue"></param>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.MVCHelper.GetCustomData(System.String,System.String)">
+            <summary>
+            获取用户自定义数据
+            </summary>
+            <param name="dataName">数据名称</param>
+            <param name="defaultValue">缺省值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.MVCHelper.GetCustomData``1(System.String,``0)">
+            <summary>
+            获取用户自定义数据
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataName">数据名称</param>
+            <param name="defaultValue">缺省值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.MVCHelper.GetParam(System.String,System.String)">
+            <summary>
+            获取传递的参数
+            </summary>
+            <param name="paramName"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.MVCHelper.GetParam``1(System.String,``0)">
+            <summary>
+            获取传递的参数
+            </summary>
+            <param name="defaultValue"></param>
+            <param name="paramName"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.MVCHelper.CurrentRouteData">
+            <summary>
+            当前请求信息中的路由数据
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Paging.PagedListEx.ToPagedList``1(HiLand.Utility.Paging.PagedEntityCollection{``0})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="pagedEntityCollection"></param>
+            <returns></returns>
+            <remarks>pagedEntityCollection内部的PageSize，PageIndex，TotalCount属性必须有值</remarks>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.Paging.PagedListEx.ToPagedList``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="entityCollection"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="totalItemCount"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.SectionHandler.PermissionValidateConfig">
+            <summary>
+            权限验证的配置类
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.SectionHandler.PermissionValidateConfig.GetConfig(System.String)">
+            <summary>
+            从配置文件读取配置
+            </summary>
+            <param name="sectionNodePath">配置节点的路径</param>
+            <returns></returns>
+        </member>
+        <member name="F:HiLand.Utility4.MVC.SectionHandler.PermissionValidateConfig.AllSubModuleDic">
+            <summary>
+            系统内所有的子模块集合
+            </summary>
+        </member>
+        <member name="F:HiLand.Utility4.MVC.SectionHandler.PermissionValidateConfig.SubModelOperationDic">
+            <summary>
+            子模块与其操作权限对照字典
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.SectionHandler.PermissionValidateConfig.OptimizeStrcture">
+            <summary>
+            优化GeneralValidateConfig存储结构
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.SectionHandler.PermissionValidateConfig.Applications">
+            <summary>
+            系统内所有的应用程序集合
+            </summary>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.SectionHandler.PermissionValidateApplication">
+            <summary>
+            权限控制的应用程序
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.SectionHandler.PermissionValidateApplication.Guid">
+            <summary>
+            应用程序Guid
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.SectionHandler.PermissionValidateApplication.Name">
+            <summary>
+            应用程序名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.SectionHandler.PermissionValidateApplication.IsVisible">
+            <summary>
+            在权限配置页面中是否可见
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.SectionHandler.PermissionValidateApplication.Modules">
+            <summary>
+            应用程序内的模块集合
+            </summary>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.SectionHandler.PermissionValidateModule">
+            <summary>
+            权限控制的模块
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.SectionHandler.PermissionValidateModule.Guid">
+            <summary>
+            模块的Guid
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.SectionHandler.PermissionValidateModule.Name">
+            <summary>
+            模块的名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.SectionHandler.PermissionValidateModule.IsVisible">
+            <summary>
+            在权限配置页面中是否可见
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.SectionHandler.PermissionValidateModule.SubModules">
+            <summary>
+            模块内的子模块集合
+            </summary>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.SectionHandler.PermissionValidateSubModule">
+            <summary>
+            权限控制的子模块
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.SectionHandler.PermissionValidateSubModule.Guid">
+            <summary>
+            子模块的Guid
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.SectionHandler.PermissionValidateSubModule.Name">
+            <summary>
+            子模块的名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.SectionHandler.PermissionValidateSubModule.IsVisible">
+            <summary>
+            在权限配置页面中是否可见
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.SectionHandler.PermissionValidateSubModule.Operations">
+            <summary>
+            子模块内的功能操作集合
+            </summary>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.SectionHandler.PermissionValidateOperation">
+            <summary>
+            权限控制的功能操作
+            </summary>
+            <remarks>
+            每个具体操作的描述如下<operation name="List" text="列表" value="2" area="manage" controller="Home" action="List"></operation>
+            </remarks>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.SectionHandler.PermissionValidateOperation.#ctor(System.String,System.String,System.Int32,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            权限控制的功能操作
+            </summary>
+            <param name="name"></param>
+            <param name="text"></param>
+            <param name="value"></param>
+            <param name="controller"></param>
+            <param name="action"></param>
+            <param name="area"></param>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.SectionHandler.PermissionValidateOperation.Value">
+            <summary>
+            功能操作的值
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.SectionHandler.PermissionValidateOperation.Area">
+            <summary>
+            功能操作的对应的MVC中Area的名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.SectionHandler.PermissionValidateOperation.Controller">
+            <summary>
+            功能操作的对应的MVC中控制器名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.SectionHandler.PermissionValidateOperation.Action">
+            <summary>
+            功能操作的对应的MVC中Action名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.SectionHandler.PermissionValidateOperation.Name">
+            <summary>
+            功能操作的名称
+            </summary>
+            <remarks>通常是几个固定的枚举值，比如Add，Edit等</remarks>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.SectionHandler.PermissionValidateOperation.Text">
+            <summary>
+            功能操作显示的文本
+            </summary>
+            <remarks>比如将Add显示为添加，将Edit显示为修改等</remarks>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.SectionHandler.PermissionValidateOperation.IsVisible">
+            <summary>
+            在权限配置页面中是否可见
+            </summary>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.SectionHandler.PermissionValidateSectionHandler">
+            <summary>
+            权限控制配置节点读取工具
+            </summary>
+            <remarks>
+            此类型需要配置在web.config等文件中，其会通过如下代码自动执行
+            (PermissionValidateSectionHandler)ConfigurationManager.GetSection("generalValidate");
+            </remarks>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.SectionHandler.PermissionValidateSectionHandler.Create(System.Object,System.Object,System.Xml.XmlNode)">
+            <summary>
+             从配置文件自动构建权限配置对象
+            </summary>
+            <param name="parent"></param>
+            <param name="configContext"></param>
+            <param name="section"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HiLand.Utility4.MVC.UrlHelperEx">
+            <summary>
+            UrlHelper扩展类
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.UrlHelperEx.JavaScript(System.Web.Mvc.UrlHelper,System.String)">
+            <summary>
+            在页面内生成JavaScript引用
+            </summary>
+            <param name="urlHelper"></param>
+            <param name="scriptVirtualPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.MVC.UrlHelperEx.CSS(System.Web.Mvc.UrlHelper,System.String)">
+            <summary>
+            在页面内生成CSS引用
+            </summary>
+            <param name="urlHelper"></param>
+            <param name="cssVirtualPath"></param>
+            <returns></returns>
+        </member>
+        <member name="P:HiLand.Utility4.MVC.UrlHelperEx.UrlHelper">
+            <summary>
+            从当前请求信息中构建的Url帮助器
+            </summary>
+        </member>
+        <member name="T:HiLand.Utility4.Native.ControlEx">
+            <summary>
+            控件操作扩展器
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.Native.ControlEx.CrossThreadInvoke``1(System.Windows.Forms.Control,HiLand.Utility.Event.Actions{``0},``0)">
+            <summary>
+            对控件的跨线程调用
+            </summary>
+            <typeparam name="T">委托参数的类型</typeparam>
+            <param name="control">目标控件</param>
+            <param name="action">无返回值的委托</param>
+            <param name="arg">委托的参数</param>
+        </member>
+        <member name="M:HiLand.Utility4.Native.ControlEx.CrossThreadInvoke``2(System.Windows.Forms.Control,HiLand.Utility.Event.Funcs{``0,``1},``0)">
+            <summary>
+            对控件的跨线程调用
+            </summary>
+            <typeparam name="T">委托参数的类型</typeparam>
+            <typeparam name="TResult">方法返回值的类型</typeparam>
+            <param name="control">目标控件</param>
+            <param name="func">有回值的委托</param>
+            <param name="arg">委托的参数</param>
+        </member>
+        <member name="T:HiLand.Utility4.Office.WordHelper">
+            <summary>
+            Word文档操作辅助器
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.Office.WordHelper.ReplaceSteamContent(System.IO.Stream,System.String,System.IO.Stream)">
+            <summary>
+            替换DOCX文件中某个子文件的全部内容
+            </summary>
+            <param name="docxStream">docx文件流</param>
+            <param name="innerfileFullName">docx内部子文件全名称</param>
+            <param name="newStreamContent">新的内容流</param>
+        </member>
+        <member name="M:HiLand.Utility4.Office.WordHelper.GetTextContent(System.IO.Stream,System.String)">
+            <summary>
+            获取DOCX文件中某个子文件的文本内容
+            </summary>
+            <param name="docxStream">docx文件流</param>
+            <param name="innerfileFullName">docx内部子文件全名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.Office.WordHelper.ReplaceTextContent(System.IO.Stream,System.String,System.String,System.String)">
+            <summary>
+            替换DOCX文件中某个子文件的文本内容
+            </summary>
+            <param name="docxStream">docx文件流</param>
+            <param name="innerfileFullName">docx内部子文件全名称</param>
+            <param name="originalContent">原文本内容</param>
+            <param name="newContent">新的文本内容</param>
+        </member>
+        <member name="M:HiLand.Utility4.Paging.PagedEntityCollectionEx.ToPagedList``1(HiLand.Utility.Paging.PagedEntityCollection{``0})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="pagedEntityCollection"></param>
+            <returns></returns>
+            <remarks>pagedEntityCollection内部的PageSize，PageIndex，TotalCount属性必须有值</remarks>
+        </member>
+        <member name="M:HiLand.Utility4.Paging.PagedEntityCollectionEx.ToPagedList``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="entityCollection"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="totalItemCount"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HiLand.Utility4.Resource.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.Resource.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.Resource.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:HiLand.Utility4.Resource.Resources.jquery_1_4_4_min">
+            <summary>
+              Looks up a localized string similar to /*!
+            * Note: While Microsoft is not the author of this file, Microsoft is
+            * offering you a license subject to the terms of the Microsoft Software
+            * License Terms for Microsoft ASP.NET Model View Controller 3.
+            * Microsoft reserves all other rights. The notices below are provided
+            * for informational purposes only and are not the license terms under
+            * which Microsoft distributed this file.
+            *
+            * jQuery JavaScript Library v1.4.4
+            * http://jquery.com/
+            *
+            * Copyright 2010, John Resig
+            *
+            * Incl [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:HiLand.Utility4.Resource.Resources.jQuery_tools_dateinput" -->
+        <member name="P:HiLand.Utility4.Resource.Resources.jQuery_tools_min">
+            <summary>
+              Looks up a localized string similar to /*
+            * jQuery Tools 1.2.5 - The missing UI library for the Web
+            * 
+            * [tabs, tabs.slideshow, tooltip, tooltip.slide, tooltip.dynamic, scrollable, scrollable.autoscroll, scrollable.navigator, overlay, overlay.apple, dateinput, rangeinput, validator, toolbox.flashembed, toolbox.history, toolbox.expose, toolbox.mousewheel]
+            * 
+            * NO COPYRIGHTS OR LICENSES. DO WHAT YOU LIKE.
+            * 
+            * http://flowplayer.org/tools/
+            * 
+            * jquery.event.wheel.js - rev 1 
+            * Copyright (c) 2008, Three Dub Media (http://threedubmedia.com) [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="T:HiLand.Utility4.Web.HttpPostedFileEx">
+            <summary>
+            用户提交的文件扩展
+            </summary>
+        </member>
+        <member name="M:HiLand.Utility4.Web.HttpPostedFileEx.HasFile(System.Web.HttpPostedFileBase)">
+            <summary>
+            判断上传控件中是否有选中的文件
+            </summary>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Utility4.Web.ResponseEx.SetNoCache(System.Web.HttpResponse)">
+            <summary>
+            禁用客户端缓存
+            </summary>
+        </member>
+    </members>
+</doc>

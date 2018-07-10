@@ -1,0 +1,3473 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HiLand.Framework</name>
+    </assembly>
+    <members>
+        <member name="T:HiLand.Framework.BusinessCore.BLL.BusinessDepartmentBLL">
+            <summary>
+            部门业务逻辑类
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.FoundationLayer.BaseBLL`4">
+            <summary>
+            业务逻辑的基类
+            </summary>
+            <typeparam name="TBLL">具体的业务逻辑类</typeparam>
+            <typeparam name="TModel">业务实体</typeparam>
+            <typeparam name="TDAL">数据访问类型</typeparam>
+            <typeparam name="TIDALExtend"></typeparam>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.GetInstance(System.Int32)">
+            <summary>
+            单例
+            </summary>
+            <param name="cacheMintues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.Create(`1)">
+            <summary>
+            创建实体对象
+            </summary>
+            <param name="model">实体对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.Update(`1)">
+            <summary>
+            更新实体对象
+            </summary>
+            <param name="model">实体对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.CreateOrUpdate(`1)">
+            <summary>
+            添加或者更新
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.Delete(System.String)">
+            <summary>
+            删除实体对象
+            </summary>
+            <param name="modelID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.Delete(System.Guid)">
+            <summary>
+            删除实体对象
+            </summary>
+            <param name="modelID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.Delete(System.Int32)">
+            <summary>
+            删除实体对象
+            </summary>
+            <param name="modelID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.Delete(`1)">
+            <summary>
+            删除实体对象
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.DeleteList(System.String)">
+            <summary>
+            按照条件删除实体对象
+            </summary>
+            <param name="whereClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.Get(System.Guid)">
+            <summary>
+            获取实体对象
+            </summary>
+            <param name="modelID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.Get(System.Guid,System.Boolean)">
+            <summary>
+            获取实体对象
+            </summary>
+            <param name="modelID"></param>
+            <param name="isForceUseNoCache">是否强制不使用缓存</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.Get(System.Int32)">
+            <summary>
+             获取实体对象
+            </summary>
+            <param name="modelID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.Get(System.Int32,System.Boolean)">
+            <summary>
+             获取实体对象
+            </summary>
+            <param name="modelID"></param>
+            <param name="isForceUseNoCache">是否强制不使用缓存</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.Get(System.String)">
+            <summary>
+             获取实体对象
+            </summary>
+            <param name="modelID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.Get(System.String,System.Boolean)">
+            <summary>
+             获取实体对象
+            </summary>
+            <param name="modelID"></param>
+            <param name="isForceUseNoCache">是否强制不使用缓存</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.GetTotalCount(System.String)">
+            <summary>
+            获取总的条目
+            </summary>
+            <param name="whereClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.GetList(System.String,System.Data.IDbDataParameter[])">
+            <summary>
+             获取实体对象列表
+            </summary>
+            <param name="whereClause"></param>
+            <param name="paras"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.GetList(System.String,System.String,System.Data.IDbDataParameter[])">
+            <summary>
+            获取实体对象列表
+            </summary>
+            <param name="whereClause"></param>
+            <param name="orderByClause"></param>
+            <param name="paras"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.GetList(HiLand.Utility.Enums.Logics,HiLand.Utility.DataBase.ClauseModel{System.Data.IDbDataParameter},System.Int32,System.String)">
+            <summary>
+            获取实体对象列表
+            </summary>
+            <param name="onlyDisplayUsable"></param>
+            <param name="whereClauseModel"></param>
+            <param name="topCount"></param>
+            <param name="orderByClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.GetList(HiLand.Utility.Enums.Logics,System.String,System.Int32,System.String,System.Data.IDbDataParameter[])">
+            <summary>
+            获取实体对象列表
+            </summary>
+            <param name="onlyDisplayUsable"></param>
+            <param name="whereClause"></param>
+            <param name="topCount"></param>
+            <param name="orderByClause"></param>
+            <param name="paras"></param>
+            <returns></returns>
+            <remarks>
+            二次开发TIP：获取类别的原始方法，其他各个GetList重载最后均调用此方法。即如果要开派生类中重写的时候，请重写此方法即可。
+            </remarks>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.GetListBySQL(System.String)">
+            <summary>
+            获取实体集合
+            </summary>
+            <param name="sqlClause"></param>
+            <returns></returns>
+            <remarks>直接传递sql语句获取实体集合</remarks>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.GetScalar(System.String,System.Data.IDbDataParameter[])">
+            <summary>
+            获取单条执行结果
+            </summary>
+            <param name="sqlClause"></param>
+            <param name="paras"></param>
+            <returns></returns>
+            <remarks>
+            虽然本方法可以执行任何sql语句，但是为了缓存保存的条理性，建议仅执行跟本实体有关的sql语句
+            </remarks>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.ExcuteNonQuery(System.String,System.Data.IDbDataParameter[])">
+            <summary>
+            非查询的方式执行语句
+            </summary>
+            <param name="sqlClause"></param>
+            <param name="paras"></param>
+            <returns></returns>
+            <remarks>
+            虽然本方法可以执行任何sql语句，但是为了缓存清除的准确性，请务必仅执行跟本实体有关的sql语句
+            </remarks>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.GetRealWhereClauseString(System.String,System.Data.IDbDataParameter[])">
+            <summary>
+            
+            </summary>
+            <param name="whereClauseWithPara"></param>
+            <param name="paras"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.GetPagedCollection(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            获取分页显示的实体对象列表
+            </summary>
+            <param name="startIndex"></param>
+            <param name="pageSize"></param>
+            <param name="whereClause"></param>
+            <param name="orderClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.CleanUpAllCache">
+            <summary>
+            清空关于当前业务的所有的缓存
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.CleanUpCache(`1)">
+            <summary>
+            清理某些已经改变的缓存
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.CleanUpListCache">
+            <summary>
+            清空列表的缓存
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseBLL`4.BuildUpCache(`1)">
+            <summary>
+            根据实体构建缓存
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.BaseBLL`4.Instance">
+            <summary>
+            单例
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.BaseBLL`4.CacheMintues">
+            <summary>
+            缓存的时间
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.BaseBLL`4.LoadDAL">
+            <summary>
+            从存储介质载入数据时使用的DAL
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.BaseBLL`4.SaveDAL">
+            <summary>
+            向存储介质写入数据时使用的DAL
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessDepartmentBLL.GetFullPath(System.Guid)">
+            <summary>
+            获取从根部门到当前部门的全路径
+            </summary>
+            <param name="departmentGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessDepartmentBLL.GetFullPath(HiLand.Framework.BusinessCore.BusinessDepartment)">
+            <summary>
+            获取从根部门到当前部门的全路径
+            </summary>
+            <param name="department"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessDepartmentBLL.ChangeFullPath(System.String,System.String)">
+            <summary>
+            变更部门的全路径
+            </summary>
+            <param name="originalFullPath"></param>
+            <param name="newFullpath"></param>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessDepartmentBLL.GetByCode(System.String)">
+            <summary>
+            根据编码获取部门信息
+            </summary>
+            <param name="departmentCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessDepartmentBLL.GetOrdedList(HiLand.Utility.Enums.Logics,System.String)">
+            <summary>
+            获取按照部门子部门排序后的列表
+            </summary>
+            <param name="onlyDisplayUsable"></param>
+            <param name="whereClause"></param>
+            <param name="isFormat">子部门名称是否进行缩减格式</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessDepartmentBLL.GetSubList(System.Guid)">
+            <summary>
+            获取子部门列表
+            </summary>
+            <param name="departmentGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessDepartmentBLL.GetSubList(System.Guid,HiLand.Utility.Enums.Logics)">
+            <summary>
+            获取子部门列表
+            </summary>
+            <param name="departmentGuid"></param>
+            <param name="onlyDisplayUsable">是否仅显示有效的子部门</param>
+            <returns></returns>
+        </member>
+        <member name="E:HiLand.Framework.BusinessCore.BLL.BusinessDepartmentBLL.FullPathChanged">
+            <summary>
+            全路径改变的事件
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.BusinessCore.BLL.BusinessGroupBLL">
+            <summary>
+            组业务逻辑类
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.BusinessCore.BLL.BusinessPermissionBLL">
+            <summary>
+            权限业务逻辑类
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.FoundationLayer.BaseBLL`3">
+            <summary>
+            业务逻辑的基类
+            </summary>
+            <typeparam name="TBLL">具体的业务逻辑类</typeparam>
+            <typeparam name="TModel">业务实体</typeparam>
+            <typeparam name="TDAL">数据访问类型</typeparam>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessPermissionBLL.HasPermission(System.String,HiLand.Framework.BusinessCore.Enum.PermissionModes,System.Guid,System.Int32)">
+            <summary>
+            判断某一个所有者是否对某项目拥有某种模式（允许/拒绝）的权限
+            </summary>
+            <param name="ownerKey">所有者的标识(通常是Guid)</param>
+            <param name="permissionItemGuid">待验证的项目的Guid(通常是子模块的Guid)</param>
+            <param name="permissionItemValue">待验证的项目的值</param>
+            <param name="permissionMode">权限模式（允许权限还是拒绝权限）</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessPermissionBLL.GetPermissions(System.String,HiLand.Framework.BusinessCore.Enum.PermissionModes)">
+            <summary>
+            获取某所有者拥有的所有权限的集合
+            </summary>
+            <param name="ownerKey">所有者标识</param>
+            <param name="permissionMode">权限模式（允许权限还是拒绝权限）</param>
+        </member>
+        <member name="T:HiLand.Framework.BusinessCore.BLL.BusinessRoleBLL">
+            <summary>
+            角色业务逻辑类
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessRoleBLL.IsExistRole(System.String)">
+            <summary>
+            判断是否存在某个名称的角色
+            </summary>
+            <param name="roleName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessRoleBLL.CreateRole(HiLand.Framework.BusinessCore.IBusinessRole,HiLand.Utility.Enums.CreateUserRoleStatuses@)">
+            <summary>
+            创建角色
+            </summary>
+            <param name="entity"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessRoleBLL.UpdateRole(HiLand.Framework.BusinessCore.IBusinessRole)">
+            <summary>
+            更新角色
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessRoleBLL.Get(System.Guid)">
+            <summary>
+            获取角色
+            </summary>
+            <param name="roleGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessRoleBLL.Get(System.Guid,System.Boolean)">
+            <summary>
+            获取角色
+            </summary>
+            <param name="roleGuid"></param>
+            <param name="isForceUseNoCache">是否强制不使用缓存</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessRoleBLL.Get(System.String)">
+            <summary>
+            获取角色
+            </summary>
+            <param name="roleName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessRoleBLL.Get(System.String,System.Boolean)">
+            <summary>
+            获取角色
+            </summary>
+            <param name="roleName"></param>
+            <param name="isForceUseNoCache">是否强制不使用缓存</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessRoleBLL.GetList(HiLand.Utility.Enums.Logics,System.String)">
+            <summary>
+            获取所有的角色
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessRoleBLL.GetUsers(System.String)">
+            <summary>
+            获取角色内的用户
+            </summary>
+            <param name="roleName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessRoleBLL.GetUsers(System.Guid)">
+            <summary>
+            获取角色内的用户
+            </summary>
+            <param name="roleGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessRoleBLL.CleanUpCache(HiLand.Framework.BusinessCore.IBusinessRole)">
+            <summary>
+            清理某些已经改变的缓存
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessRoleBLL.BuildUpCache(HiLand.Framework.BusinessCore.IBusinessRole)">
+            <summary>
+            根据实体构建缓存
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="T:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL">
+            <summary>
+            人员业务逻辑类
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.Department_FullPathChanged(System.Object,HiLand.Utility.Entity.DataForChange{System.String})">
+            <summary>
+            部门的全路径变更事件处理程序
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.IsExistUser(System.String,System.String,System.String)">
+            <summary>
+            判断用户的用户名和EMail是否在系统内存在
+            </summary>
+            <param name="userName"></param>
+            <param name="userEMail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.IsExistUserName(System.String)">
+            <summary>
+            判断用户账号是否存在
+            </summary>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.IsExistUserEMail(System.String)">
+            <summary>
+            判断用户的EMail是否存在
+            </summary>
+            <param name="userEMail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.IsExistUserIDCard(System.String)">
+            <summary>
+            判断用户的身份证是否存在
+            </summary>
+            <param name="userIDCard"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.CreateUser(HiLand.Framework.BusinessCore.IBusinessUser,HiLand.Utility.Enums.CreateUserRoleStatuses@)">
+            <summary>
+            创建用户
+            </summary>
+            <param name="entity"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.UpdateUser(HiLand.Framework.BusinessCore.IBusinessUser)">
+            <summary>
+            更新用户
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.ChangeFullPath(System.String,System.String)">
+            <summary>
+            变更用户的全路径
+            </summary>
+            <param name="originalFullPath"></param>
+            <param name="newFullpath"></param>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.GetFullPath(HiLand.Framework.BusinessCore.IBusinessUser)">
+            <summary>
+            获取部门内用户的全路径
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.DeleteUser(System.Guid)">
+            <summary>
+            (真实)删除用户
+            </summary>
+            <param name="userGuid"></param>
+            <returns>由于有很多业务更用户关联,请谨慎使用本方法,同时推进使用方法LogicDeleteUser</returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.ProhibitUser(System.Guid)">
+            <summary>
+             禁用(逻辑删除)用户
+            </summary>
+            <param name="userGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.RecoveryUser(System.Guid)">
+            <summary>
+            恢复被逻辑删除的用户
+            </summary>
+            <param name="userGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.UpdateLastInfo(System.Guid,System.String,System.DateTime)">
+            <summary>
+            更新用户的最后访问信息
+            </summary>
+            <param name="userGuid"></param>
+            <param name="lastIP"></param>
+            <param name="lastTime"></param>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.ChangePassword(System.Guid,System.String,System.String)">
+            <summary>
+            修改用户的口令
+            </summary>
+            <param name="userGuid"></param>
+            <param name="newPassword"></param>
+            <param name="oldPassword"></param>
+            <remarks>修改口令的时候不修改加密方式和加密盐,本方法主要用于用户自己修改口令</remarks>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.ChangePassword(System.Guid,System.String)">
+            <summary>
+            修改用户的口令
+            </summary>
+            <param name="userGuid"></param>
+            <param name="newPassword"></param>
+            <remarks>修改口令的时候不修改加密方式和加密盐,本方法主要用于管理员修改用户的口令</remarks>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.SetUserStatus(System.Guid,HiLand.Utility.Enums.UserStatuses)">
+            <summary>
+            改变用户的状态
+            </summary>
+            <param name="newStatus"></param>
+            <param name="userGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.Get(System.Guid)">
+            <summary>
+            获取用户
+            </summary>
+            <param name="userGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.Get(System.Guid,System.Boolean)">
+            <summary>
+            获取用户
+            </summary>
+            <param name="userGuid"></param>
+            <param name="isForceUseNoCache">是否强制不使用缓存</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.Get(System.String)">
+            <summary>
+            获取用户(根据用户账号)
+            </summary>
+            <param name="userAccount">此处的账号可以是用户名或者用户EMail</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.Get(System.String,System.Boolean)">
+            <summary>
+            获取用户(根据用户账号)
+            </summary>
+            <param name="userAccount">此处的账号可以是用户名或者用户EMail</param>
+            <param name="isForceUseNoCache">是否强制不使用缓存</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.GetByUserName(System.String)">
+            <summary>
+            获取用户(根据用户名)
+            </summary>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.GetByUserName(System.String,System.Boolean)">
+            <summary>
+            获取用户(根据用户名)
+            </summary>
+            <param name="userName"></param>
+            <param name="isForceUseNoCache">是否强制不使用缓存</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.GetByUserEMail(System.String)">
+            <summary>
+            获取用户(根据用户EMail)
+            </summary>
+            <param name="userEMail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.GetByUserEMail(System.String,System.Boolean)">
+            <summary>
+            获取用户(根据用户EMail)
+            </summary>
+            <param name="userEMail"></param>
+            <param name="isForceUseNoCache">是否强制不使用缓存</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.GetByUserIDCard(System.String)">
+            <summary>
+            获取用户(根据用户IDCard)
+            </summary>
+            <param name="userIDCard"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.GetByUserIDCard(System.String,System.Boolean)">
+            <summary>
+            获取用户(根据用户IDCard)
+            </summary>
+            <param name="userIDCard"></param>
+            <param name="isForceUseNoCache">是否强制不使用缓存</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.GetTotalCount(System.String)">
+            <summary>
+            获取总的条目
+            </summary>
+            <param name="whereClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.GetList(System.String)">
+            <summary>
+            获取用户列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.GetList(HiLand.Utility.Enums.UserTypes)">
+            <summary>
+            获取用户列表
+            </summary>
+            <param name="userType">用户类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.GetList(HiLand.Utility.Enums.UserTypes,System.Nullable{HiLand.Utility.Enums.UserStatuses})">
+            <summary>
+            获取用户列表
+            </summary>
+            <param name="userType">用户类型</param>
+            <param name="userStatus">用户状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.GetPagedCollection(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            获取一批用户
+            </summary>
+            <param name="startIndex"></param>
+            <param name="endIndex"></param>
+            <param name="whereClause"></param>
+            <param name="orderClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.Login(System.String,System.String,HiLand.Utility.Enums.LoginStatuses@)">
+            <summary>
+            用户登录
+            </summary>
+            <param name="userAccount">其可以是用户的UserName,也可以是其EMail</param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.LoginWithUserName(System.String,System.String,HiLand.Utility.Enums.LoginStatuses@)">
+            <summary>
+            使用用户名称和口令登录
+            </summary>
+            <param name="userName"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.LoginWithUserEMail(System.String,System.String,HiLand.Utility.Enums.LoginStatuses@)">
+            <summary>
+            使用Email和口令进行登录
+            </summary>
+            <param name="userEMail"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.LoginWithUserIDCard(System.String,System.String,HiLand.Utility.Enums.LoginStatuses@)">
+            <summary>
+            使用Email和口令进行登录
+            </summary>
+            <param name="userIDCard"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.RecordCurrentUserInfoAndLoginInfo(System.String,HiLand.Framework.BusinessCore.BusinessUser)">
+            <summary>
+            记录当前用户信息和登录信息
+            </summary>
+            <param name="userAccount"></param>
+            <param name="entity"></param>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.Logout">
+            <summary>
+            用户退出
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.GetUserGuidsByDepartment(System.String,System.Boolean)">
+            <summary>
+            根据部门获取用户Guid集合
+            </summary>
+            <param name="departmentFullPath">部门全路径</param>
+            <param name="isIncludeSubDepartment">是否包含子部门数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.GetUsersByDepartment(System.String,System.Boolean)">
+            <summary>
+            根据部门获取用户集合
+            </summary>
+            <param name="departmentFullPath">部门全路径</param>
+            <param name="isIncludeSubDepartment">是否包含子部门数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.GetUsersByDepartment(System.String)">
+            <summary>
+            根据部门获取用户集合
+            </summary>
+            <param name="departmentCode">部门编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.GetUsersByDepartment(System.Int32)">
+            <summary>
+            根据部门获取用户集合
+            </summary>
+            <param name="departmentID">部门ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.GetUsersByDepartment(System.Guid)">
+            <summary>
+            根据部门获取用户集合
+            </summary>
+            <param name="departmentGuid">部门GUID</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.GetUserRoles(System.Guid)">
+            <summary>
+            获取用户所拥有的角色
+            </summary>
+            <param name="userGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.UpdateUserRoles(System.Guid,System.Collections.Generic.List{System.Guid})">
+            <summary>
+            更新用户所属的角色
+            </summary>
+            <param name="userGuid"></param>
+            <param name="roleGuidList"></param>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.CleanUpCache(HiLand.Framework.BusinessCore.IBusinessUser)">
+            <summary>
+            清理某些已经改变的缓存
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.BuildUpCache(HiLand.Framework.BusinessCore.IBusinessUser)">
+            <summary>
+            根据实体构建缓存
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="E:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.FullPathChanged">
+            <summary>
+            全路径改变的事件
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.CurrentUser">
+            <summary>
+            获取当前登录的用户
+            </summary>
+            <remarks>
+            本属性在NativeApp和WebApp模式下均可以使用，但是其实现原理不同：
+            1.WebApp模式下，通过在请求中设置的用户名称，动态获取完整的用户信息
+            2.NativeApp模式下，需要在用户登录时，给此属性赋值，然后其他地方调用此属性
+            （即本属性的Set方法仅仅适用于NativeApp模式）
+            </remarks>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.CurrentUserName">
+            <summary>
+            当前用户名
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.CurrentUserGuid">
+            <summary>
+            当前用户Guid
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.CurrentUserNameDisplay">
+            <summary>
+            当前用户向外显示的名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BLL.BusinessUserBLL.IsLogined">
+            <summary>
+            当前用户是否已经登录
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.BusinessCore.BusinessDepartment">
+            <summary>
+            部门实体类
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.FoundationLayer.BaseModel`1">
+            <summary>
+            实体基类
+            </summary>
+            <typeparam name="TEntity">具体的实体类型</typeparam>
+        </member>
+        <member name="T:HiLand.Framework.FoundationLayer.IModel">
+            <summary>
+            实体接口
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.IModel.ForceSetEmpty">
+            <summary>
+            将当前实例强制设置为空对象（二次开发中请勿直接使用）
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.IModel.IsEmpty">
+            <summary>
+            当前实例是否为空对象
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.IModel.ModelName">
+            <summary>
+            实体的名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.IModel.BusinessKeyNames">
+            <summary>
+            实体的业务主键（区别于数据库的物理主键）
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.IModel.BusinessKeyValues">
+            <summary>
+            实体的业务主键的值（区别于数据库的物理主键）
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.IModel.PropertyNames">
+            <summary>
+            扩展属性的名字
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.IModel.PropertyValues">
+            <summary>
+            扩展属性的值
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.IModelExtensible.PropertyNames">
+            <summary>
+            扩展属性的名字（用逗号分隔的字符串集合）
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.IModelExtensible.PropertyValues">
+            <summary>
+            扩展属性的值（用逗号分隔的字符串集合）
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseModel`1.Clone">
+            <summary>
+            实体克隆
+            </summary>
+            <returns></returns>
+            <remarks>
+            对方法MemberwiseClone的简单暴漏
+            </remarks>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseModel`1.ToJSON">
+            <summary>
+            获取实体的JSON表述
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseModel`1.ForceSetEmpty">
+            <summary>
+            将当前实例强制设置为空对象（二次开发中请勿直接使用）
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.BaseModel`1.ModelName">
+            <summary>
+            实体的名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.BaseModel`1.BusinessKeyNames">
+            <summary>
+            实体的业务主键（区别与数据库的物理主键）
+            </summary>
+            <remarks>
+            缺省为反射实现。但可以在具体派生类里面重写，以提高性能。
+            </remarks>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.BaseModel`1.BusinessKeyValues">
+            <summary>
+            实体的业务主键的值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.BaseModel`1.PropertyNames">
+            <summary>
+            扩展属性的名字
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.BaseModel`1.PropertyValues">
+            <summary>
+            扩展属性的值
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.BaseModel`1.Empty">
+            <summary>
+            空实体信息
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.BaseModel`1.IsEmpty">
+            <summary>
+            当前实例是否为空对象
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.BaseModel`1.ExtensiableRepository">
+            <summary>
+            扩展属性记录库
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.BusinessCore.IBusinessDepartment">
+            <summary>
+            部门实体的接口
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.BusinessCore.IExecutorObject">
+            <summary>
+             主体、客体行为对象的接口
+            </summary>
+            <remarks>
+            行为主体：行为的主动提出对象、使用对象（如某人执行某事的时候，某人即为行为主体）
+            行为客体：行为指派的被动对象（如给某人赋权限的时候，某人即为行为的客体）
+            </remarks>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IExecutorObject.ExecutorGuid">
+            <summary>
+            主体、客体行为对象的Guid
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IExecutorObject.ExecutorName">
+            <summary>
+            主体、客体行为对象的名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IExecutorObject.ExecutorType">
+            <summary>
+            主体、客体行为对象的类型
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessDepartment.DepartmentFullPath">
+            <summary>
+            部门的全路径信息
+            </summary>
+            <remarks>
+            全路径信息的结构类似如下：根部门名称/子部门名称/子子部门名称/.../当前部门名称
+            </remarks>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessDepartment.PermissionItems">
+            <summary>
+            角色的权限集合
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessDepartment.DepartmentFullPath">
+            <summary>
+            部门的全路径信息
+            </summary>
+            <remarks>
+            全路径信息的结构类似如下：根部门名称/子部门名称/子子部门名称/.../当前部门名称
+            </remarks>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessDepartment.DepartmentParent">
+            <summary>
+            父部门信息
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessDepartment.PermissionItems">
+            <summary>
+            权限集合
+            </summary>
+            <remarks>TODO:xieran 需要考虑多级部门的情形，目前只实现了直接部门的权限</remarks>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessDepartment.ExecutorGuid">
+            <summary>
+            主体、客体行为对象的Guid
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessDepartment.ExecutorName">
+            <summary>
+            主体、客体行为对象的名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessDepartment.ExecutorType">
+            <summary>
+            主体、客体行为对象的类型
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessDepartment.DepartmentLevel">
+            <summary>
+            部门的层级数
+            </summary>
+            <remarks>
+            1、这个值通过计算得到，不保存在数据库内
+            2、其中頂級部門的層級數為0
+            </remarks>
+        </member>
+        <member name="T:HiLand.Framework.BusinessCore.BusinessGroup">
+            <summary>
+            组实体类
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.BusinessCore.IBusinessGroup">
+            <summary>
+            组实体的接口
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessGroup.PermissionItems">
+            <summary>
+            用户组的权限集合
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BusinessGroup.Clone">
+            <summary>
+            实体克隆
+            </summary>
+            <returns></returns>
+            <remarks>
+            对方法MemberwiseClone的简单暴漏
+            </remarks>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessGroup.GroupID">
+            <summary>
+            用户组ID
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessGroup.GroupGuid">
+            <summary>
+            用户组GUID号
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessGroup.GroupName">
+            <summary>
+            用户组的名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessGroup.ExecutorGuid">
+            <summary>
+            主体、客体行为对象的Guid
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessGroup.ExecutorName">
+            <summary>
+            主体、客体行为对象的名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessGroup.ExecutorType">
+            <summary>
+            主体、客体行为对象的类型
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessGroup.PermissionItems">
+            <summary>
+            用户组的权限集合
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessGroup.PropertyNames">
+            <summary>
+            扩展属性的名字
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessGroup.PropertyValues">
+            <summary>
+            扩展属性的值
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.BusinessCore.BusinessKernal">
+            <summary>
+            部门实体类
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.BusinessCore.BusinessPermission">
+            <summary>
+            带归属者的权限控制项实体类（即当前权限项属于哪个所有者）
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.Membership.PermissionItem">
+            <summary>
+            权限控制项
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.Membership.PermissionItem.PermissionKey">
+            <summary>
+            权限的名字
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.Membership.PermissionItem.PermissionItemGuid">
+            <summary>
+            权限的键
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.Membership.PermissionItem.PermissionItemValue">
+            <summary>
+            权限的值
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.Membership.PermissionItem.CreateUserGuid">
+            <summary>
+            创建人的Guid
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.Membership.PermissionItem.CreateUserType">
+            <summary>
+            创建人的用户类型
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.Membership.PermissionItem.IsFreeAwayCreator">
+            <summary>
+            此权限是否可以游离于其创建人之外
+            </summary>
+            <remarks>
+            在权限允许下放的情况下,非系统管理员也可以给其他用户设置权限.但是其可以设置的权限必须自己有的权限,否则不能给其他用户设置.
+            在某种情形下,其给某用户设置的的时候,其有某种权限,但是过后其已经没有这种权限了,那么被设置的用户这个权限也应该去掉(具体如何去掉
+            在不同的系统中可以可以不同实现).此字段就是保证在设置人没有某权限的时候,被设置人还可以拥有这个权限.
+            </remarks>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BusinessPermission.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BusinessPermission.#ctor(HiLand.Framework.Membership.PermissionItem)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="permissionItem"></param>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BusinessPermission.ForceSetEmpty">
+            <summary>
+            将当前实例强制设置为空对象（二次开发中请勿直接使用）
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessPermission.OwnerKey">
+            <summary>
+            权限所有者的键值（可以是权限所有者的id，guid，code等）
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessPermission.OwnerType">
+            <summary>
+            权限所有者的类型
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessPermission.PermissionMode">
+            <summary>
+            权限模式
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessPermission.PermissionKind">
+            <summary>
+            权限控制类型
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessPermission.PropertyNames">
+            <summary>
+            扩展属性的名字
+            </summary>
+            <remarks>目前未实行</remarks>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessPermission.PropertyValues">
+            <summary>
+            扩展属性的值
+            </summary>
+            <remarks>目前未实行</remarks>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessPermission.IsEmpty">
+            <summary>
+            当前实例是否为空对象
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.BusinessCore.BusinessRole">
+            <summary>
+            角色实体类
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.BusinessCore.IBusinessRole">
+            <summary>
+            角色实体的接口
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessRole.PermissionItems">
+            <summary>
+            角色的权限集合
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BusinessRole.Clone">
+            <summary>
+            实体克隆
+            </summary>
+            <returns></returns>
+            <remarks>
+            对方法MemberwiseClone的简单暴漏
+            </remarks>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessRole.CanUsable">
+            <summary>
+             是否可用
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessRole.IsInnerRole">
+            <summary>
+             是否为内部角色
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessRole.PermissionItems">
+            <summary>
+            角色的权限集合
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessRole.PropertyNames">
+            <summary>
+            扩展属性的名字
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessRole.PropertyValues">
+            <summary>
+            扩展属性的值
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessRole.ExecutorGuid">
+            <summary>
+            主体、客体行为对象的Guid
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessRole.ExecutorName">
+            <summary>
+            主体、客体行为对象的名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessRole.ExecutorType">
+            <summary>
+            主体、客体行为对象的类型
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.BusinessCore.BusinessUser">
+            <summary>
+            人员实体类
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.BusinessCore.IBusinessUser">
+            <summary>
+            人员实体的接口
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.Membership.IUser.UserName">
+            <summary>
+            登陆名
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.Membership.IUser.UserType">
+            <summary>
+            用户类型
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.Membership.IUser.PermissionItems">
+            <summary>
+            用户的权限集合(包括操作权限，包括数据权限)
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.IsEmpty">
+            <summary>
+            当前实例是否为空对象
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.Roles">
+            <summary>
+            用户所属角色
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserID">
+            <summary>
+            用户ID号
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserGuid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.Password">
+            <summary>
+            用户口令
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.PasswordEncrytType">
+            <summary>
+            用户口令加密方式
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.PasswordEncrytSalt">
+            <summary>
+            用户口令加密盐
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserNameDisplay">
+            <summary>
+            向外显示的用户名称信息
+            </summary>
+            <remarks>
+            向外显示名称信息(推荐)的优先级规则
+            1、存在中文名称，就返回中文名称
+            2、存在英文名称就返回英文名称
+            3、拼合firstName，middleName，lastName等
+            4、返回登录名称
+            </remarks>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserNameCN">
+            <summary>
+            中文姓名
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserNameEN">
+            <summary>
+            英文名
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserNameFirst">
+            <summary>
+            用户的First名
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserNameLast">
+            <summary>
+            用户的Last名
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserNameMiddle">
+            <summary>
+            用户的Middle名
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserNameJointing">
+            <summary>
+            将用户的FirstName，MiddleName，LastName拼接后的显示名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.DepartmentID">
+            <summary>
+            所属部门ID号
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.DepartmentGuid">
+            <summary>
+            所属部门GUID号
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.DepartmentCode">
+            <summary>
+            所属部门的系统编号
+            </summary>
+            <remarks>
+            1.此号通常在部门模块中有系统按照规则自动生成，其主要用于有数据范围权限的情形（即某部门仅能查询操作本部门数据，而不能跨部门进行数据存取）：
+            2.各种业务数据中跟部门关联时，亦采用本DepartmentCode信息（与用户一样都关联部门的DepartmentCode信息）
+            3.在部门模块中生成DepartmentCode的规则
+                3.1各个部门的DepartmentCode不能重复
+                3.2部门是有级别的，那么我们的标号也应该有级别与之对应
+                3.3同一级别的部门，DepartmentCode的位数应该相同。
+                3.4下级部门的DepartmentCode，应包含上级部门的DepartmentCode（即在上级部门DepartmentCode后加入自己部门的Code）。这样便于业务数据按部门过滤（即便于使用在sql中 like 语句）。
+            </remarks>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.DepartmentUserType">
+            <summary>
+            部门内的人员类型
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserFullPath">
+            <summary>
+            如果是部门内的用户，那么记录包括部门在内的全路径
+            </summary>
+            <remarks>全路径信息的结构类似如下：根部门名称/子部门名称/子子部门名称/.../当前部门名称/用户名称</remarks>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.AreaCode">
+            <summary>
+            所属地区的系统编码
+            </summary>
+            <remarks>关联系统中地区表</remarks>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserEmail">
+            <summary>
+            电子邮件
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserStatus">
+            <summary>
+            用户状态
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserRemark">
+            <summary>
+            备注说明
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserCardID">
+            <summary>
+            身份证号码
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserCardIDIssued">
+            <summary>
+            身份证发证机关
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.DriversLicenceNumber">
+            <summary>
+            驾照号码
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.DriversLicenceNumberIssued">
+            <summary>
+            驾照发证机关
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.PassportCode">
+            <summary>
+            护照号码
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.PassportCodeIssued">
+            <summary>
+            护照发证机关
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserSex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserBirthDay">
+            <summary>
+            出生日期
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserMobileNO">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserCode">
+            <summary>
+            员工编号
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserAgreeDate">
+            <summary>
+            批准日期
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserRegisterDate">
+            <summary>
+            注册日期
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserWorkStartDate">
+            <summary>
+            入职日期
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserWorkEndDate">
+            <summary>
+            离职日期
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.CompanyMail">
+            <summary>
+            公司邮件地址
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserTitle">
+            <summary>
+            职称
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserPosition">
+            <summary>
+            职位
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.WorkTelphone">
+            <summary>
+            工作电话
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.HomeTelephone">
+            <summary>
+            家中电话
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserPhoto">
+            <summary>
+            用户照片
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserMacAddress">
+            <summary>
+            锁定机器硬件地址
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserLastIP">
+            <summary>
+            最后访问IP
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserLastDateTime">
+            <summary>
+            最后访问时间
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.BrokerKey">
+            <summary>
+            介绍人信息
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.EnterpriseKey">
+            <summary>
+            其所属企业的信息
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserHeight">
+            <summary>
+            用户身高
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserWeight">
+            <summary>
+            用户体重
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserNation">
+            <summary>
+            用户民族
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserCountry">
+            <summary>
+            用户国籍
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserEducationalBackground">
+            <summary>
+            用户学历
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.UserEducationalSchool">
+            <summary>
+            毕业院校
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IBusinessUser.SocialSecurityNumber">
+            <summary>
+            社保卡号
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.BusinessUser.Clone">
+            <summary>
+            实体克隆
+            </summary>
+            <returns></returns>
+            <remarks>
+            对方法MemberwiseClone的简单暴漏
+            </remarks>
+        </member>
+        <member name="F:HiLand.Framework.BusinessCore.BusinessUser.userWeight">
+            <summary>
+            用户体重
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.Empty">
+            <summary>
+            空实体
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.Roles">
+            <summary>
+            用户所属角色
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.Groups">
+            <summary>
+            用户所属组
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.PermissionItems">
+            <summary>
+            用户的权限集合用户的权限集合(包括操作权限，包括数据权限)
+            </summary>
+            <remarks>
+            用户的权限来自于用户所属的角色用户组部门以及自身的允许和拒绝权限，因此获取用户的权限时，
+            就是将这些权限进行综合计算，获取用户最后的权限
+            </remarks>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.PermissionItemsSelfAllow">
+            <summary>
+            用户自身的允许权限
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.PermissionItemsSelfDeny">
+            <summary>
+            用户自身的拒绝权限
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.UserID">
+            <summary>
+            用户ID号
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.UserTempGuid">
+            <summary>
+            未登录用户为其分配一个临时ID，用于记录用户的行为信息
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.UserNameDisplay">
+            <summary>
+            向外显示的用户名称信息
+            </summary>
+            <remarks>
+            向外显示名称信息的优先级规则
+            1、存在中文名称，就返回中文名称
+            2、存在英文名称就返回英文名称
+            3、拼合firstName，middleName，lastName等
+            4、返回登录名称
+            </remarks>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.UserNameFirst">
+            <summary>
+            用户的First名
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.UserNameLast">
+            <summary>
+            用户的Last名
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.UserNameMiddle">
+            <summary>
+            用户的Middle名
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.UserNameJointing">
+            <summary>
+            将用户的FirstName，MiddleName，LastName拼接后的显示名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.DepartmentID">
+            <summary>
+            所属部门ID号
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.DepartmentGuid">
+            <summary>
+            所属部门GUID号
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.DepartmentCode">
+            <summary>
+            所属部门的系统编号
+            </summary>
+            <remarks>
+            1.此号通常在部门模块中有系统按照规则自动生成，其主要用于有数据范围权限的情形（即某部门仅能查询操作本部门数据，而不能跨部门进行数据存取）：
+            2.各种业务数据中跟部门关联时，亦采用本DepartmentCode信息（与用户一样都关联部门的DepartmentCode信息）
+            3.在部门模块中生成DepartmentCode的规则
+                3.1各个部门的DepartmentCode不能重复
+                3.2部门是有级别的，那么我们的标号也应该有级别与之对应
+                3.3同一级别的部门，DepartmentCode的位数应该相同。
+                3.4下级部门的DepartmentCode，应包含上级部门的DepartmentCode（即在上级部门DepartmentCode后加入自己部门的Code）。这样便于业务数据按部门过滤（即便于使用在sql中 like 语句）。
+            </remarks>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.Department">
+            <summary>
+            用户所属的部门
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.DepartmentUserType">
+            <summary>
+            用户在其部门内的人员类型
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.UserFullPath">
+            <summary>
+            如果是部门内的用户，那么记录包括部门在内的全路径
+            </summary>
+            <remarks>全路径信息的结构类似如下：根部门名称//子部门名称//子子部门名称//...//当前部门名称||用户名称</remarks>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.DepartmentFullPath">
+            <summary>
+            所在部门的全路径
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.DepartmentName">
+            <summary>
+            所在部门的名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.AreaCode">
+            <summary>
+            所属地区的系统编码
+            </summary>
+            <remarks>关联系统中地区表</remarks>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.UserCardID">
+            <summary>
+            身份证号码
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.UserCardIDIssued">
+            <summary>
+            身份证发证机关
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.DriversLicenceNumber">
+            <summary>
+            驾照号码
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.DriversLicenceNumberIssued">
+            <summary>
+            驾照发证机关
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.PassportCode">
+            <summary>
+            护照号码
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.PassportCodeIssued">
+            <summary>
+            护照发证机关
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.UserAge">
+            <summary>
+            用户的年龄
+            </summary>
+            <remarks>
+            用户的年龄通过生日计算得来；如果未设置生日，年龄将返回0；
+            </remarks>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.UserBirthDay">
+            <summary>
+            用户的生日
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.UserAgreeDate">
+            <summary>
+            批准日期
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.UserRegisterDate">
+            <summary>
+            注册日期
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.BrokerKey">
+            <summary>
+            介绍人信息
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.EnterpriseKey">
+            <summary>
+            其所属企业的信息
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.UserHeight">
+            <summary>
+            用户身高
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.UserWeight">
+            <summary>
+            用户身高
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.UserNation">
+            <summary>
+            用户民族
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.UserCountry">
+            <summary>
+            用户国籍
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.UserEducationalBackground">
+            <summary>
+            用户学历
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.UserEducationalSchool">
+            <summary>
+            毕业院校
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.SocialSecurityNumber">
+            <summary>
+            社保卡号
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.IsEmpty">
+            <summary>
+            当前实例是否为空对象
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.PropertyNames">
+            <summary>
+            扩展属性的名字
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.PropertyValues">
+            <summary>
+            扩展属性的值
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.ExtensiableRepository">
+            <summary>
+            可扩展的属性库
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.ExecutorGuid">
+            <summary>
+            主体、客体行为对象的Guid
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.ExecutorName">
+            <summary>
+            主体、客体行为对象的名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.BusinessUser.ExecutorType">
+            <summary>
+            主体、客体行为对象的类型
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.FoundationLayer.BaseDAL`6">
+            <summary>
+            数据访问的基类
+            </summary>
+            <typeparam name="TModel"></typeparam>
+            <typeparam name="TTransaction"></typeparam>
+            <typeparam name="TConnection"></typeparam>
+            <typeparam name="TCommand"></typeparam>
+            <typeparam name="TDataReader"></typeparam>
+            <typeparam name="TParameter"></typeparam>
+        </member>
+        <member name="T:HiLand.Framework.FoundationLayer.BaseComputerDAL`5">
+            <summary>
+            数据访问的基类(仅处理计算机数据逻辑部分，不处理业务数据逻辑部分)
+            </summary>
+            <typeparam name="TTransaction"></typeparam>
+            <typeparam name="TConnection"></typeparam>
+            <typeparam name="TCommand"></typeparam>
+            <typeparam name="TDataReader"></typeparam>
+            <typeparam name="TParameter"></typeparam>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseComputerDAL`5.GenerateParameter``1(System.String,``0)">
+            <summary>
+            通过名称和值构建数据查询参数
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameterName"></param>
+            <param name="parameterValue"></param>
+            <returns></returns>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.BaseComputerDAL`5.CommonGeneralInstance">
+            <summary>
+            数据库访问通用操作单例
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.BaseComputerDAL`5.HelperExInstance">
+            <summary>
+            数据库访问辅助器扩展单例
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.BaseComputerDAL`5.ParameterNamePrefix">
+            <summary>
+            参数名称前缀
+            </summary>
+            <remarks>
+            在不同的数据库系统中，参数名称的前缀是不同的：SQLServer中为 “@”；SQLite中为“$”
+            </remarks>
+        </member>
+        <member name="T:HiLand.Framework.FoundationLayer.IDAL`1">
+            <summary>
+            数据访问层接口（提供CRUD等基本的几个数据访问逻辑）
+            </summary>
+            <typeparam name="TModel">数据实体类型</typeparam>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.IDAL`1.Create(`0)">
+            <summary>
+            创建实体信息
+            </summary>
+            <param name="model">实体信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.IDAL`1.Update(`0)">
+            <summary>
+            更新实体信息
+            </summary>
+            <param name="model">实体信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.IDAL`1.CreateOrUpdate(`0)">
+            <summary>
+            创建或者更新实体信息
+            </summary>
+            <param name="model">实体信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.IDAL`1.Delete(`0)">
+            <summary>
+            删除实体信息
+            </summary>
+            <param name="model">实体信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.IDAL`1.DeleteList(System.String)">
+            <summary>
+            批量删除实体信息
+            </summary>
+            <param name="whereClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.IDAL`1.Get(System.String)">
+            <summary>
+            获取实体信息
+            </summary>
+            <param name="modelID">主键信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.IDAL`1.Get(System.Guid)">
+            <summary>
+            获取实体信息
+            </summary>
+            <param name="modelGuiD">主键信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.IDAL`1.GetTotalCount(System.String)">
+            <summary>
+            获取总的条目
+            </summary>
+            <param name="whereClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.IDAL`1.GetList(HiLand.Utility.Enums.Logics,System.String,System.Int32,System.String,System.Data.IDbDataParameter[])">
+            <summary>
+            获取实体集合
+            </summary>
+            <param name="whereClause"></param>
+            <param name="topCount"></param>
+            <param name="orderByClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.IDAL`1.GetList(System.String)">
+            <summary>
+            获取实体集合
+            </summary>
+            <param name="sqlClause"></param>
+            <returns></returns>
+            <remarks>直接传递sql语句获取实体集合</remarks>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.IDAL`1.GetPagedCollection(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            获取分页的实体集合
+            </summary>
+            <param name="startIndex">记录的开始索引数值</param>
+            <param name="pageSize">每页数据量</param>
+            <param name="whereClause">过滤条件语句</param>
+            <param name="orderClause">排序条件语句</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.IDAL`1.GetScalar(System.String,System.Data.IDbDataParameter[])">
+            <summary>
+            获取单条执行结果
+            </summary>
+            <param name="sqlClause"></param>
+            <param name="paras"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.IDAL`1.ExcuteNonQuery(System.String,System.Data.IDbDataParameter[])">
+            <summary>
+            非查询的方式执行语句
+            </summary>
+            <param name="paras"></param>
+            <param name="sqlClause"></param>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseDAL`6.Create(`0)">
+            <summary>
+            创建实体信息
+            </summary>
+            <param name="model">实体信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseDAL`6.Update(`0)">
+            <summary>
+            更新实体信息
+            </summary>
+            <param name="model">实体信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseDAL`6.CreateOrUpdate(`0)">
+            <summary>
+            添加或者更新实体信息
+            </summary>
+            <param name="model">实体信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseDAL`6.Delete(`0)">
+            <summary>
+            删除实体信息
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseDAL`6.DeleteList(System.String)">
+            <summary>
+            批量删除实体信息
+            </summary>
+            <param name="whereClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseDAL`6.Get(System.String)">
+            <summary>
+            获取实体信息
+            </summary>
+            <param name="modelID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseDAL`6.Get(System.Guid)">
+            <summary>
+            获取实体信息
+            </summary>
+            <param name="modelGuiD"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseDAL`6.GetTotalCount(System.String)">
+            <summary>
+            获取总的条目
+            </summary>
+            <param name="whereClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseDAL`6.GetList(System.String,System.Data.IDbDataParameter[])">
+            <summary>
+            获取实体列表
+            </summary>
+            <param name="paras"></param>
+            <param name="whereClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseDAL`6.GetList(HiLand.Utility.Enums.Logics,System.String,System.Int32,System.String,System.Data.IDbDataParameter[])">
+            <summary>
+            获取实体列表
+            </summary>
+            <param name="onlyDisplayUsable"></param>
+            <param name="whereClause"></param>
+            <param name="orderByClause"></param>
+            <param name="topCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseDAL`6.GetList(System.String)">
+            <summary>
+            获取实体集合
+            </summary>
+            <param name="sqlClause"></param>
+            <returns></returns>
+            <remarks>直接传递sql语句获取实体集合</remarks>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseDAL`6.GetPagedCollection(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            获取分页的实体信息
+            </summary>
+            <param name="startIndex"></param>
+            <param name="pageSize"></param>
+            <param name="whereClause"></param>
+            <param name="orderClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseDAL`6.GetScalar(System.String,System.Data.IDbDataParameter[])">
+            <summary>
+            获取单条执行结果
+            </summary>
+            <param name="sqlClause"></param>
+            <param name="paras"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseDAL`6.ExcuteNonQuery(System.String,System.Data.IDbDataParameter[])">
+            <summary>
+            非查询的方式执行语句
+            </summary>
+            <param name="sqlClause"></param>
+            <param name="paras"></param>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseDAL`6.GetKeysWhereClause">
+            <summary>
+            获取主键形成的过滤条件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseDAL`6.GetKeyParameters(System.String[])">
+            <summary>
+            获取主键形成过滤条件是的参数集合
+            </summary>
+            <param name="keyValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseDAL`6.GetGuidKeyParameters(System.Guid)">
+            <summary>
+            获取主键形成过滤条件是的参数集合
+            </summary>
+            <param name="guidKeyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseDAL`6.PrepareParasAll(`0)">
+            <summary>
+            将实体信息的各属性值转换为数据库参数
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+            <remarks>
+            在派生类中如果给实体的参数赋属性值，应该重写InnerPrepareParasAll。
+            </remarks>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseDAL`6.InnerPrepareParasAll(`0,System.Collections.Generic.List{`5}@)">
+            <summary>
+            内部准备（为实体准备数据访问的参数）
+            </summary>
+            <param name="entity"></param>
+            <param name="paraList"></param>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseDAL`6.Load(System.Data.IDataReader)">
+            <summary>
+            将IDataReader中的数据装载如实体中
+            </summary>
+            <param name="reader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.BaseDAL`6.InnerLoad(System.Data.IDataReader,`0@)">
+            <summary>
+            内部载入（将IDataReader中的数据装载如实体中）
+            </summary>
+            <param name="reader"></param>
+            <param name="entity"></param>
+            <remarks>除了对PropertyNames和PropertyValues的载入除外，以及对通过上述两个字段进行扩展的属性除外</remarks>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.BaseDAL`6.TableName">
+            <summary>
+            实体对应主表的名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.BaseDAL`6.KeyNames">
+            <summary>
+            主键名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.BaseDAL`6.GuidKeyName">
+            <summary>
+            Guid主键名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.BaseDAL`6.PagingSPName">
+            <summary>
+            分页存储过程的名字
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.BaseDAL`6.OrderByCondition">
+            <summary>
+            GetList获取数据集合时的排序条件
+            </summary>
+            <remarks>
+            如果GetList的重载方法设置了参数OrderByClause，则此属性会被覆盖
+            </remarks>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.IBusinessDepartmentDAL.IsExistCode(System.String)">
+            <summary>
+            是否存在当前的系统编码
+            </summary>
+            <param name="departmentCode">待验证的部门编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.IBusinessDepartmentDAL.GetByCode(System.String)">
+            <summary>
+            根据编码获取部门信息
+            </summary>
+            <param name="departmentCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.IBusinessDepartmentDAL.ChangeFullPath(System.String,System.String)">
+            <summary>
+            变更部门的全路径
+            </summary>
+            <param name="originalFullPath"></param>
+            <param name="newFullpath"></param>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessDepartmentCommonDAL`5.IsExistCode(System.String)">
+            <summary>
+            是否存在当前的部门编码
+            </summary>
+            <param name="departmentCode">待验证的部门编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessDepartmentCommonDAL`5.GetByCode(System.String)">
+            <summary>
+            根据编码获取部门信息
+            </summary>
+            <param name="departmentCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessDepartmentCommonDAL`5.ChangeFullPath(System.String,System.String)">
+            <summary>
+            变更部门的全路径
+            </summary>
+            <param name="originalFullPath"></param>
+            <param name="newFullpath"></param>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessDepartmentCommonDAL`5.InnerLoad(System.Data.IDataReader,HiLand.Framework.BusinessCore.BusinessDepartment@)">
+            <summary>
+            
+            </summary>
+            <param name="reader"></param>
+            <param name="entity"></param>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessPermissionCommonDAL`5.InnerLoad(System.Data.IDataReader,HiLand.Framework.BusinessCore.BusinessPermission@)">
+            <summary>
+            
+            </summary>
+            <param name="reader"></param>
+            <param name="entity"></param>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessRoleDAL.IsExistRole(System.String)">
+            <summary>
+            判断是否存在某个名称的角色
+            </summary>
+            <param name="roleName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessRoleDAL.CreateRole(HiLand.Framework.BusinessCore.IBusinessRole,HiLand.Utility.Enums.CreateUserRoleStatuses@)">
+            <summary>
+            创建角色
+            </summary>
+            <param name="entity"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessRoleDAL.UpdateRole(HiLand.Framework.BusinessCore.IBusinessRole)">
+            <summary>
+            更新角色
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessRoleDAL.DeleteRole(System.Guid)">
+            <summary>
+            删除角色
+            </summary>
+            <param name="roleGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessRoleDAL.Get(System.Guid)">
+            <summary>
+            获取角色
+            </summary>
+            <param name="roleGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessRoleDAL.Get(System.String)">
+            <summary>
+            获取角色
+            </summary>
+            <param name="roleName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessRoleDAL.GetList(HiLand.Utility.Enums.Logics,System.String)">
+            <summary>
+            获取所有的角色
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessRoleDAL.GetUsers(System.Guid)">
+            <summary>
+            获取角色内的用户
+            </summary>
+            <param name="roleGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessRoleDAL.GetUsers(System.String)">
+            <summary>
+            获取角色内的用户
+            </summary>
+            <param name="roleName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessRoleCommonDAL`5.IsExistRole(System.String)">
+            <summary>
+            判断是否存在某个名称的角色
+            </summary>
+            <param name="roleName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessRoleCommonDAL`5.CreateRole(HiLand.Framework.BusinessCore.IBusinessRole,HiLand.Utility.Enums.CreateUserRoleStatuses@)">
+            <summary>
+            创建角色
+            </summary>
+            <param name="entity"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessRoleCommonDAL`5.UpdateRole(HiLand.Framework.BusinessCore.IBusinessRole)">
+            <summary>
+            更新角色
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessRoleCommonDAL`5.DeleteRole(System.Guid)">
+            <summary>
+            删除角色
+            </summary>
+            <param name="roleGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessRoleCommonDAL`5.Get(System.Guid)">
+            <summary>
+            获取角色
+            </summary>
+            <param name="roleGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessRoleCommonDAL`5.Get(System.String)">
+            <summary>
+            获取角色
+            </summary>
+            <param name="roleName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessRoleCommonDAL`5.GetList(HiLand.Utility.Enums.Logics,System.String)">
+            <summary>
+            获取用户列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessRoleCommonDAL`5.GetUsers(System.String)">
+            <summary>
+            获取角色内的用户
+            </summary>
+            <param name="roleName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessRoleCommonDAL`5.GetUsers(System.Guid)">
+            <summary>
+            获取角色内的用户
+            </summary>
+            <param name="roleGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5">
+            <summary>
+            
+            </summary>
+            <typeparam name="TTransaction"></typeparam>
+            <typeparam name="TConnection"></typeparam>
+            <typeparam name="TCommand"></typeparam>
+            <typeparam name="TDataReader"></typeparam>
+            <typeparam name="TParameter"></typeparam>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.IsExistUser(System.String,System.String,System.String)">
+            <summary>
+            判断用户的用户名和EMail是否在系统内存在
+            </summary>
+            <param name="userName"></param>
+            <param name="userEMail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.IsExistUserName(System.String)">
+            <summary>
+            判断用户账号是否存在
+            </summary>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.IsExistUserEMail(System.String)">
+            <summary>
+            判断用户的EMail是否存在
+            </summary>
+            <param name="userEMail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.IsExistUserIDCard(System.String)">
+            <summary>
+            判断用户的身份证是否存在
+            </summary>
+            <param name="userIDCard"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.CreateUser(HiLand.Framework.BusinessCore.IBusinessUser,HiLand.Utility.Enums.CreateUserRoleStatuses@)">
+            <summary>
+            创建用户
+            </summary>
+            <param name="entity"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.UpdateUser(HiLand.Framework.BusinessCore.IBusinessUser)">
+            <summary>
+            更新用户
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.ChangeFullPath(System.String,System.String)">
+            <summary>
+            变更用户的全路径
+            </summary>
+            <param name="originalFullPath"></param>
+            <param name="newFullpath"></param>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.DeleteUser(System.Guid)">
+            <summary>
+            删除用户
+            </summary>
+            <param name="userGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.SetUserStatus(System.Guid,HiLand.Utility.Enums.UserStatuses)">
+            <summary>
+            改变用户的状态
+            </summary>
+            <param name="newUserStatus"></param>
+            <param name="userGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.UpdateLastInfo(System.Guid,System.String,System.DateTime)">
+            <summary>
+            更新用户的最后访问信息
+            </summary>
+            <param name="userGuid"></param>
+            <param name="lastIP"></param>
+            <param name="lastTime"></param>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.ChangePassword(System.Guid,System.String,System.Int32,System.String)">
+            <summary>
+            修改用户的口令
+            </summary>
+            <param name="userGuid"></param>
+            <param name="newPassword"></param>
+            <param name="passwordEncrytType"></param>
+            <param name="passwordEncrytSalt"></param>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.Login(System.String,System.String,HiLand.Utility.Enums.LoginStatuses@)">
+            <summary>
+            用户登录
+            </summary>
+            <param name="userAccount">其可以是用户的UserName,也可以是其EMail</param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.LoginWithUserName(System.String,System.String,HiLand.Utility.Enums.LoginStatuses@)">
+            <summary>
+            使用用户名称和口令登录
+            </summary>
+            <param name="userName"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.LoginWithUserEMail(System.String,System.String,HiLand.Utility.Enums.LoginStatuses@)">
+            <summary>
+            使用Email和口令进行登录
+            </summary>
+            <param name="userEMail"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.LoginWithUserIDCard(System.String,System.String,HiLand.Utility.Enums.LoginStatuses@)">
+            <summary>
+            使用身份证和口令进行登录
+            </summary>
+            <param name="userIDCard"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.Get(System.Guid)">
+            <summary>
+            获取用户
+            </summary>
+            <param name="userGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.Get(System.String)">
+            <summary>
+            获取用户(根据用户账号)
+            </summary>
+            <param name="userAccount">此处的账号可以是用户名或者用户EMail</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.GetByUserName(System.String)">
+            <summary>
+            获取用户(根据用户名)
+            </summary>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.GetByUserEMail(System.String)">
+            <summary>
+            获取用户(根据用户EMail)
+            </summary>
+            <param name="userEMail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.GetByUserIDCard(System.String)">
+            <summary>
+            获取用户(根据用户IDCard)
+            </summary>
+            <param name="userIDCard"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.GetUserGuidsByDepartment(System.String,System.Boolean)">
+            <summary>
+            根据部门FullPath获取用户Guid集合
+            </summary>
+            <param name="departmentFullPath">部门编码</param>
+            <param name="isIncludeSubDepartment">是否包含子部门人员</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.GetUsersByDepartment(System.String,System.Boolean)">
+            <summary>
+            根据部门FullPath获取用户集合
+            </summary>
+            <param name="departmentFullPath">部门编码</param>
+            <param name="isIncludeSubDepartment">是否包含子部门人员</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.GetUsersByDepartment(System.String)">
+            <summary>
+            根据部门获取用户集合
+            </summary>
+            <param name="departmentCode">部门编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.GetUsersByDepartment(System.Int32)">
+            <summary>
+            根据部门获取用户集合
+            </summary>
+            <param name="departmentID">部门ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.GetUsersByDepartment(System.Guid)">
+            <summary>
+            根据部门获取用户集合
+            </summary>
+            <param name="departmentGuid">部门GUID</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.GetTotalCount(System.String)">
+            <summary>
+            获取总的条目
+            </summary>
+            <param name="whereClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.GetList(System.String)">
+            <summary>
+            获取用户列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.GetPagedCollection(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            获取一批用户
+            </summary>
+            <param name="startIndex"></param>
+            <param name="endIndex"></param>
+            <param name="whereClause"></param>
+            <param name="orderClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.GetRoles(System.Guid)">
+            <summary>
+            获取用户所拥有的角色
+            </summary>
+            <param name="userGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DAL.IBusinessUserDAL.UpdateUserRoles(System.Guid,System.Collections.Generic.List{System.Guid})">
+            <summary>
+            更新用户所属的角色
+            </summary>
+            <param name="userGuid"></param>
+            <param name="roleGuidList"></param>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.IsExistUser(System.String,System.String,System.String)">
+            <summary>
+            判断用户的用户名和EMail是否在系统内存在
+            </summary>
+            <param name="userName"></param>
+            <param name="userEMail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.IsExistUserName(System.String)">
+            <summary>
+            判断用户账号是否存在
+            </summary>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.IsExistUserEMail(System.String)">
+            <summary>
+            判断用户的EMail是否存在
+            </summary>
+            <param name="userEMail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.IsExistUserIDCard(System.String)">
+            <summary>
+            判断用户的身份证是否存在
+            </summary>
+            <param name="userIDCard"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.CreateUser(HiLand.Framework.BusinessCore.IBusinessUser,HiLand.Utility.Enums.CreateUserRoleStatuses@)">
+            <summary>
+            创建用户
+            </summary>
+            <param name="entity"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.UpdateUser(HiLand.Framework.BusinessCore.IBusinessUser)">
+            <summary>
+            更新用户
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.ChangeFullPath(System.String,System.String)">
+            <summary>
+            变更用户的全路径
+            </summary>
+            <param name="originalFullPath"></param>
+            <param name="newFullpath"></param>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.DeleteUser(System.Guid)">
+            <summary>
+            删除用户
+            </summary>
+            <param name="userGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.SetUserStatus(System.Guid,HiLand.Utility.Enums.UserStatuses)">
+            <summary>
+            改变用户的状态
+            </summary>
+            <param name="newUserStatus"></param>
+            <param name="userGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.UpdateLastInfo(System.Guid,System.String,System.DateTime)">
+            <summary>
+            更新用户的最后访问信息
+            </summary>
+            <param name="userGuid"></param>
+            <param name="lastIP"></param>
+            <param name="lastTime"></param>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.ChangePassword(System.Guid,System.String,System.Int32,System.String)">
+            <summary>
+            修改用户的口令
+            </summary>
+            <param name="userGuid"></param>
+            <param name="newPassword"></param>
+            <param name="passwordEncrytType"></param>
+            <param name="passwordEncrytSalt"></param>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.Login(System.String,System.String,HiLand.Utility.Enums.LoginStatuses@)">
+            <summary>
+            用户登录
+            </summary>
+            <param name="userAccount">其可以是用户的UserName,也可以是其EMail</param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.LoginWithUserName(System.String,System.String,HiLand.Utility.Enums.LoginStatuses@)">
+            <summary>
+            使用用户名称和口令登录
+            </summary>
+            <param name="userName"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.LoginWithUserEMail(System.String,System.String,HiLand.Utility.Enums.LoginStatuses@)">
+            <summary>
+            使用Email和口令进行登录
+            </summary>
+            <param name="userEMail"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.LoginWithUserIDCard(System.String,System.String,HiLand.Utility.Enums.LoginStatuses@)">
+            <summary>
+            使用身份证和口令进行登录
+            </summary>
+            <param name="userIDCard"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.Get(System.Guid)">
+            <summary>
+            获取用户
+            </summary>
+            <param name="userGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.Get(System.String)">
+            <summary>
+            获取用户(根据用户账号)
+            </summary>
+            <param name="userAccount">此处的账号可以是用户名或者用户EMail，IDCard</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.GetByUserName(System.String)">
+            <summary>
+            获取用户(根据用户名)
+            </summary>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.GetByUserEMail(System.String)">
+            <summary>
+            获取用户(根据用户EMail)
+            </summary>
+            <param name="userEMail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.GetByUserIDCard(System.String)">
+            <summary>
+            获取用户(根据用户IDCard)
+            </summary>
+            <param name="userIDCard"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.GetTotalCount(System.String)">
+            <summary>
+            获取总的条目
+            </summary>
+            <param name="whereClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.GetUserGuidsByDepartment(System.String,System.Boolean)">
+            <summary>
+            根据部门FullPath获取用户Guid集合
+            </summary>
+            <param name="departmentFullPath">部门编码</param>
+            <param name="isIncludeSubDepartment">是否包含子部门人员</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.GetUsersByDepartment(System.String,System.Boolean)">
+            <summary>
+            根据部门FullPath获取用户集合
+            </summary>
+            <param name="departmentFullPath">部门编码</param>
+            <param name="isIncludeSubDepartment">是否包含子部门人员</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.GetUsersByDepartment(System.String)">
+            <summary>
+            根据部门获取用户集合
+            </summary>
+            <param name="departmentCode">部门编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.GetUsersByDepartment(System.Int32)">
+            <summary>
+            根据部门获取用户集合
+            </summary>
+            <param name="departmentID">部门ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.GetUsersByDepartment(System.Guid)">
+            <summary>
+            根据部门获取用户集合
+            </summary>
+            <param name="departmentGuid">部门GUID</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.GetList(System.String)">
+            <summary>
+            获取所有的角色
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.GetUsers(System.String,`4[])">
+            <summary>
+            获取用户集合
+            </summary>
+            <param name="commandText">sql命令文本</param>
+            <param name="sqlParas">sql参数数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.GetPagedCollection(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            获取一批用户
+            </summary>
+            <param name="startIndex"></param>
+            <param name="endIndex"></param>
+            <param name="whereClause"></param>
+            <param name="orderClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.GetRoles(System.Guid)">
+            <summary>
+            获取用户所拥有的角色
+            </summary>
+            <param name="userGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.UpdateUserRoles(System.Guid,System.Collections.Generic.List{System.Guid})">
+            <summary>
+            更新用户所属的角色
+            </summary>
+            <param name="userGuid"></param>
+            <param name="roleGuidList"></param>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.DALCommon.BusinessUserCommonDAL`5.DealWithPassword(HiLand.Framework.BusinessCore.IBusinessUser)">
+            <summary>
+            处理用户口令的加密逻辑
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.DALSqlite.BusinessDepartmentDAL.ParameterNamePrefix">
+            <summary>
+            参数名称前缀
+            </summary>
+            <remarks>
+            在不同的数据库系统中，参数名称的前缀是不同的：SQLServer中为 “@”；SQLite中为“$”
+            </remarks>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.DALSqlite.BusinessPermissionDAL.ParameterNamePrefix">
+            <summary>
+            参数名称前缀
+            </summary>
+            <remarks>
+            在不同的数据库系统中，参数名称的前缀是不同的：SQLServer中为 “@”；SQLite中为“$”
+            </remarks>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.DALSqlite.BusinessRoleDAL.ParameterNamePrefix">
+            <summary>
+            参数名称前缀
+            </summary>
+            <remarks>
+            在不同的数据库系统中，参数名称的前缀是不同的：SQLServer中为 “@”；SQLite中为“$”
+            </remarks>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.DALSqlite.BusinessUserDAL.ParameterNamePrefix">
+            <summary>
+            参数名称前缀
+            </summary>
+            <remarks>
+            在不同的数据库系统中，参数名称的前缀是不同的：SQLServer中为 “@”；SQLite中为“$”
+            </remarks>
+        </member>
+        <member name="T:HiLand.Framework.BusinessCore.Enum.DepartmentTypes">
+            <summary>
+            部门类型
+            </summary>
+        </member>
+        <member name="F:HiLand.Framework.BusinessCore.Enum.DepartmentTypes.CommonDepartment">
+            <summary>
+            一般部门
+            </summary>
+        </member>
+        <member name="F:HiLand.Framework.BusinessCore.Enum.DepartmentTypes.OuterDepartment">
+            <summary>
+            外部部门
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.BusinessCore.Enum.EducationalBackgrounds">
+            <summary>
+            教育背景
+            </summary>
+        </member>
+        <member name="F:HiLand.Framework.BusinessCore.Enum.EducationalBackgrounds.NoSetting">
+            <summary>
+            未设置
+            </summary>
+        </member>
+        <member name="F:HiLand.Framework.BusinessCore.Enum.EducationalBackgrounds.NoSchool">
+            <summary>
+            未读书
+            </summary>
+        </member>
+        <member name="F:HiLand.Framework.BusinessCore.Enum.EducationalBackgrounds.PrimarySchool">
+            <summary>
+            小学
+            </summary>
+        </member>
+        <member name="F:HiLand.Framework.BusinessCore.Enum.EducationalBackgrounds.JuniorSchool">
+            <summary>
+            初中
+            </summary>
+        </member>
+        <member name="F:HiLand.Framework.BusinessCore.Enum.EducationalBackgrounds.SeniorSchool">
+            <summary>
+            高中
+            </summary>
+        </member>
+        <member name="F:HiLand.Framework.BusinessCore.Enum.EducationalBackgrounds.SpecialSchool">
+            <summary>
+            中专
+            </summary>
+        </member>
+        <member name="F:HiLand.Framework.BusinessCore.Enum.EducationalBackgrounds.JuniorCollege">
+            <summary>
+            专科
+            </summary>
+        </member>
+        <member name="F:HiLand.Framework.BusinessCore.Enum.EducationalBackgrounds.RegularCollege">
+            <summary>
+             本科
+            </summary>
+        </member>
+        <member name="F:HiLand.Framework.BusinessCore.Enum.EducationalBackgrounds.Graduate">
+            <summary>
+            研究生
+            </summary>
+        </member>
+        <member name="F:HiLand.Framework.BusinessCore.Enum.EducationalBackgrounds.Doctor">
+            <summary>
+            博士
+            </summary>
+        </member>
+        <member name="F:HiLand.Framework.BusinessCore.Enum.EducationalBackgrounds.PostDoctor">
+            <summary>
+            博士后
+            </summary>
+        </member>
+        <member name="F:HiLand.Framework.BusinessCore.Enum.EducationalBackgrounds.Other">
+            <summary>
+            其他
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.BusinessCore.Enum.PermissionModes">
+            <summary>
+            权限模式（允许权限还是拒绝权限）
+            </summary>
+        </member>
+        <member name="F:HiLand.Framework.BusinessCore.Enum.PermissionModes.Allow">
+            <summary>
+            允许权限
+            </summary>
+        </member>
+        <member name="F:HiLand.Framework.BusinessCore.Enum.PermissionModes.Deny">
+            <summary>
+            拒绝权限
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.BusinessCore.Enum.PermissionKinds">
+            <summary>
+            权限控制类型
+            </summary>
+            <remarks>
+            即是控制操作是否可以执行，还是控制数据是否可见
+            </remarks>
+        </member>
+        <member name="F:HiLand.Framework.BusinessCore.Enum.PermissionKinds.Operating">
+            <summary>
+            操作权限
+            </summary>
+        </member>
+        <member name="F:HiLand.Framework.BusinessCore.Enum.PermissionKinds.Data">
+            <summary>
+            数据权限
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.FoundationLayer.Attributes.DBFieldAttribute">
+            <summary>
+            实体成员（属性，字段等）的对应数据库字段信息
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.Attributes.DBFieldAttribute.FieldName">
+            <summary>
+            数据库中字段名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.Attributes.DBFieldAttribute.IsBusinessPrimaryKey">
+            <summary>
+            是否为业务主键
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.Attributes.DBFieldAttribute.IsDBPrimaryKey">
+            <summary>
+            是否为数据库主键
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.Attributes.DBFieldAttribute.IsIdentity">
+            <summary>
+            是否为标识字段（即自增加的字段）
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.Attributes.DBFieldAttribute.IsNullalbe">
+            <summary>
+            是否可以为null
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.Attributes.DBFieldAttribute.FieldExtendMode">
+            <summary>
+            字段的扩展模式
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.FoundationLayer.Attributes.PropertyInfoWithDBFieldAttributeCollection">
+            <summary>
+            带数据库字段特性的属性信息集合
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.Attributes.PropertyInfoWithDBFieldAttributeCollection.GetExtendedPropertyInfo``1">
+            <summary>
+            获取模型的所有被标注了DBFieldAttribute的属性信息（包括该属性的名称，是否为主键等）
+            </summary>
+            <typeparam name="TModel"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.Attributes.PropertyInfoWithDBFieldAttributeCollection.GetExtendedBusinessPrimaryKeys``1">
+            <summary>
+            获取主键信息
+            </summary>
+            <typeparam name="TModel"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.Attributes.PropertyInfoWithDBFieldAttributeCollection.GetBusinessPrimaryKeyNames``1">
+            <summary>
+            获取实体主键的名称
+            </summary>
+            <typeparam name="TModel"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.Attributes.PropertyInfoWithDBFieldAttributeCollection.GetBusinessPrimaryKeyValues``1(``0)">
+            <summary>
+            获取实体主键的值
+            </summary>
+            <typeparam name="TModel"></typeparam>
+            <param name="model">实体信息</param>
+            <returns></returns>
+        </member>
+        <member name="T:HiLand.Framework.FoundationLayer.BaseSqlDAL`1">
+            <summary>
+            数据访问的基类
+            </summary>
+            <typeparam name="TModel"></typeparam>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.BaseSqliteDAL`1.ParameterNamePrefix">
+            <summary>
+            参数名称前缀
+            </summary>
+            <remarks>
+            在不同的数据库系统中，参数名称的前缀是不同的：SQLServer中为 “@”；SQLite中为“$”
+            </remarks>
+        </member>
+        <member name="T:HiLand.Framework.FoundationLayer.GeneralCacheKeys`1">
+            <summary>
+            通用业务的缓冲键
+            </summary>
+            <typeparam name="TModel"></typeparam>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.GeneralCacheKeys`1.GetApplicationName">
+            <summary>
+            获取应用程序的名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.GeneralCacheKeys`1.GetModelName">
+            <summary>
+            获取当前实体的名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.GeneralCacheKeys`1.GetEntityKey(System.String[])">
+            <summary>
+            通过实体的主键信息获取实体的缓存键名称
+            </summary>
+            <param name="modelIDs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.GeneralCacheKeys`1.GetEntityGuidKey(System.Guid)">
+            <summary>
+            通过实体的Guid主键信息获取实体的缓存键名称
+            </summary>
+            <param name="modelGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.GeneralCacheKeys`1.GetEntityCustomKey(System.String,System.String)">
+            <summary>
+            通过开发人员自定义的实体信息获取实体的缓存键名称
+            </summary>
+            <param name="modelGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.GeneralCacheKeys`1.GetEntityBusinessKey(System.String,System.String[])">
+            <summary>
+            通过实体的其他业务信息获取实体的缓存键名称
+            </summary>
+            <param name="businessValues">业务的值（s）</param>
+            <param name="businessName">业务的名称</param>
+            <returns></returns>
+            <remarks>比如HiLand.General\BLL\BasicSettingBLL.cs中通过配置键的名称获取信息就会用到这个方法</remarks>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.GeneralCacheKeys`1.GetEntityCountKey(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="whereClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.GeneralCacheKeys`1.GetEntityListKey(HiLand.Utility.Enums.Logics,System.String,System.Int32,System.String)">
+            <summary>
+            获取按照GetList的各个参数生成的Key
+            </summary>
+            <param name="onlyDisplayUsable"></param>
+            <param name="whereClause"></param>
+            <param name="topCount"></param>
+            <param name="orderByClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.GeneralCacheKeys`1.GetEntityListKey(System.String)">
+            <summary>
+            获取按照GetList的各个参数生成的Key
+            </summary>
+            <param name="sqlClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.GeneralCacheKeys`1.GetScalarKey(System.String)">
+            <summary>
+            获取按照GetScalar的各个参数生成的Key
+            </summary>
+            <param name="sqlClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.GeneralCacheKeys`1.GetPagedEntityCollectionKey(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="startIndex"></param>
+            <param name="pageSize"></param>
+            <param name="whereClause"></param>
+            <param name="orderByClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.GeneralCacheKeys`1.GetEntityPrefixKey">
+            <summary>
+            通过实体的名称此前缀信息获取当前业务的缓存键名称
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.FoundationLayer.GeneralCacheKeys`1.GetEntityListPrefixKey">
+            <summary>
+            通过实体的名称此前缀信息获取实体集合的缓存键名称
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HiLand.Framework.FoundationLayer.IResource">
+            <summary>
+            资源数据接口
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.IResource.ResourceGuid">
+            <summary>
+            资源的Guid
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.IResource.ResourceName">
+            <summary>
+            资源的名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.IResource.IsProtectedByOwner">
+            <summary>
+            当前资源是否被Owner保护（被保护的数据，仅能所有者修改，其他人仅能查看）
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.IResource.OwnerKeys">
+            <summary>
+            资源所有人列表
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.IResource.IsOwning">
+            <summary>
+            是否拥有此资源（计算属性，计算当前人的数据权限是否可以拥有此资源；因为并发只有此资源的直接所有人才可以拥有资源，部门领导也可以拥有下属的资源）
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.IResource.CreateUserKey">
+            <summary>
+            资源创建人Key
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.IResource.CreateUserName">
+            <summary>
+            资源创建人名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.IResource.CreateDate">
+            <summary>
+            资源创建时间
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.IResource.LastUpdateUserKey">
+            <summary>
+            资源最后更新人Key
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.IResource.LastUpdateUserName">
+            <summary>
+            资源最后更新人名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.FoundationLayer.IResource.LastUpdateDate">
+            <summary>
+            资源最后更新时间
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.Permission.Control.PermissionButton.PermissionType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.Permission.Control.PermissionHyperLink.PermissionType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.Permission.Control.PermissionLinkButton.PermissionType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework.Permission.Control.PermissionMisc.DealDisplayStatues(System.Web.UI.WebControls.WebControl,HiLand.Utility.Enums.PermissionTypes)">
+            <summary>
+            根据权限处理按钮的状态
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.Membership.UserCookie">
+            <summary>
+            登录用户的Cookie
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework.Membership.UserCookie.Clear">
+            <summary>
+            清空用户Cookie
+            </summary>
+        </member>
+        <member name="T:HiLand.Framework.Permission.PermissionValidation">
+            <summary>
+            权限验证
+            </summary>
+            <remarks>
+            其内使用了两套cookie体系，验证时满足其一便为通过（1.微软本身的登录cookie信息；2.Hiland的实体化User的cookie）
+            </remarks>
+        </member>
+        <member name="M:HiLand.Framework.Permission.PermissionValidation.WriteCookie(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            为验证写入数据
+            </summary>
+            <param name="userName"></param>
+            <param name="roleList"></param>
+        </member>
+        <member name="M:HiLand.Framework.Permission.PermissionValidation.WriteCookieAndRedirect(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            为验证写入数据并且跳转到登录前的页面
+            </summary>
+            <param name="userName"></param>
+            <param name="roleList"></param>
+        </member>
+        <member name="M:HiLand.Framework.Permission.PermissionValidation.ReadCookie">
+            <summary>
+            通过读取cookie生成用户登录信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.Permission.PermissionValidation.GeneralPageValidate">
+            <summary>
+            通用的页面权限验证（仅验证到页面级别，即List功能）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.Permission.PermissionValidation.GeneralPageValidate(System.String)">
+            <summary>
+            通用的页面权限验证（仅验证到页面级别，即List功能）
+            </summary>
+            <param name="pageToValidate">被验证的页面</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.Permission.PermissionValidation.GeneralValidate(HiLand.Utility.Enums.PermissionTypes)">
+            <summary>
+            通用的权限验证
+            </summary>
+            <param name="permissionType">被验证的权限</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.Permission.PermissionValidation.GeneralValidate(System.String,HiLand.Utility.Enums.PermissionTypes)">
+            <summary>
+            通用的权限验证
+            </summary>
+            <param name="pageToValidate">被验证的页面</param>
+            <param name="permissionType">被验证的权限</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.Permission.PermissionValidation.GeneralValidate(System.Guid,HiLand.Utility.Enums.PermissionTypes)">
+            <summary>
+            通用的权限验证
+            </summary>
+            <param name="permissionItemGuid">被验证的权限Guid</param>
+            <param name="permissionType">被验证的权限类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.Permission.PermissionValidation.PathRoleValidate(System.String,System.String[])">
+            <summary>
+            按照路径角色进行权限验证
+            </summary>
+            <param name="virtualPathToValidate"></param>
+            <param name="rolesToValidate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.Permission.PermissionValidation.PathRoleValidateAndRedirect(System.String,System.String[])">
+            <summary>
+            按照路径角色进行权限验证
+            </summary>
+            <param name="virtualPathToValidate"></param>
+            <param name="rolesToValidate"></param>
+        </member>
+        <member name="M:HiLand.Framework.Permission.PermissionValidation.RedirectToOriginalRequestPage">
+            <summary>
+            重定向到原始的请求页
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework.Permission.PermissionValidation.RedirectToLoginPage">
+            <summary>
+            重定向到登录页面
+            </summary>
+        </member>
+        <member name="M:HiLand.Framework.Permission.PermissionValidation.RedirectToNoPermissionPage">
+            <summary>
+            重定向到无权限使用页面
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.ApplicationAttribute.Tag">
+            
+            用来存储一些有用的信息 
+            
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.ApplicationAttribute.Index">
+            
+            用来存储序号 
+            
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.ApplicationService.LoadPlugins">
+            <summary>
+            
+            </summary>
+            <remarks>
+            
+            </remarks>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.ApplicationService.GetApplication(System.String)">
+            <summary>
+            根据插件的名称获取插件
+            </summary>
+            <param name="applicationName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HiLand.Framework.BusinessCore.ApplicationService.GetApplication(System.Guid)">
+            <summary>
+            根据插件的GUID获取插件
+            </summary>
+            <param name="applicationGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.ApplicationService.Plugins">
+            <summary>
+            插件列表
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IApplication.Core">
+            <summary>
+            系统核心
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IApplication.ApplicationGuid">
+            <summary>
+            插件标示
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IApplication.ApplicationName">
+            <summary>
+            插件名称
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IApplication.ApplicationGroup">
+            <summary>
+            插件所属分组
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IApplication.ApplicationDescription">
+            <summary>
+             插件的描述信息
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IApplication.IsDisplayMenu">
+            <summary>
+            是否在菜单上显示
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IApplication.IsDisplayToolbar">
+            <summary>
+            是否在工具栏显示
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IApplication.MainMenu">
+            <summary>
+            主菜单
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IApplication.SubMenus">
+            <summary>
+            子菜单
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IApplication.ToolbarText">
+            <summary>
+            工具栏显示的文本
+            </summary>
+        </member>
+        <member name="P:HiLand.Framework.BusinessCore.IApplication.ToolbarIcon">
+            <summary>
+            工具栏显示的图标
+            </summary>
+        </member>
+    </members>
+</doc>

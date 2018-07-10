@@ -1,0 +1,68 @@
+﻿@using HiLand.General.Entity
+@using HiLand.General
+@model LoanBasicEntity
+@{
+    ViewBag.Title = "Loan Status";
+    this.Layout = null;
+
+}
+<div id="formContainer">
+    @using (Html.BeginForm())
+    { 
+        <span>Loan Statuse:</span>
+        <select name="loanStatuses">
+            @if (Model.LoanStatus == LoanStatuses.Approved)
+            {
+                <option value="Approved" selected="selected">Approved</option>
+            }
+            else
+            {
+                <option value="Approved">Approved</option>
+            }
+            @if (Model.LoanStatus == LoanStatuses.Rejected)
+            {
+                <option value="Rejected" selected="selected">Rejected</option>
+            }
+            else
+            {
+                <option value="Rejected">Rejected</option>
+            }
+
+            @if (Model.LoanStatus == LoanStatuses.Blacklisted)
+            {
+                <option value="Blacklisted" selected="selected">Blacklisted</option>
+            }
+            else
+            {
+                <option value="Blacklisted">Blacklisted</option>
+            }
+
+            @if (Model.LoanStatus == LoanStatuses.Collection)
+            {
+                <option value="Collection" selected="selected">Collection</option>
+            }
+            else
+            {
+                <option value="Collection">Collection</option>
+            }
+
+            @if (Model.LoanStatus == LoanStatuses.Completed)
+            {
+                <option value="Completed" selected="selected">Completed</option>
+            }
+            else
+            {
+                <option value="Completed">Completed</option>
+            }
+        </select>
+        <input  type="hidden" name="userID" value="@Model.LoanGuid"/>
+        <input type="button" id="submitButton" value="Save" />
+    }
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#submitButton").click(function () {
+            submitAndRedirect("#formContainer form", '@Url.Action("SecuredLoanList")');
+        });
+    });
+</script>

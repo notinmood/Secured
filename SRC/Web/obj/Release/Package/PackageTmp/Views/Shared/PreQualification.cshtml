@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Pre-Qualification";
+    Layout = "~/Views/Shared/_SecuredProgressLayout.cshtml";
+}
+<h1>
+    Pre-Qualification
+</h1>
+<div>
+    <ul>
+        <li  style="list-style:none"><input type="checkbox" id="cbx_1" /><label for="cbx_1">Are you an Australian permanent resident and over 18 years old?</label></li>
+        <li  style="list-style:none"><input type="checkbox" id="cbx_2" /><label for="cbx_2">Are you a wage or salary earner and take home at least $500 per week?</label></li>
+        <li  style="list-style:none"><input type="checkbox" id="cbx_3" /><label for="cbx_3">Do you have a bank account in good standing verifying the income deposits?</label></li>
+        <li  style="list-style:none"><input type="checkbox" id="cbx_4" /><label for="cbx_4">Have you been with your current employer for at least 6 months?</label></li>
+        <li  style="list-style:none"><input type="checkbox" id="cbx_5" /><label for="cbx_5">Have you been on your current address for at the last 3 months?</label></li>
+        <li  style="list-style:none"><input type="checkbox" id="cbx_6" /><label for="cbx_6">Have you read and understood Golden Bridge Cash Solution's <a href="../Information/INFORMATIONSTATEMENT.doc">Information Statement</a> ,<a href="../Information/Form3A.doc">Form3A</a>, <a href="../Information/Credit-Guide.doc">Credit Guide</a>?</label></li>
+    </ul>
+</div>
+<br />
+
+<div class="bottombtns">
+    <a href="@Url.Action("Index")" class="green2"  style="float: right">
+        NEXT</a>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#process #preQualification").addClass("activedprocess");
+        $("#process #preQualification a").addClass("activedprocesstxt");
+        $(".modalInput").overlay({
+            mask: {
+                color: '#ebecff',
+                loadSpeed: 200,
+                opacity: 0.9
+            },
+            closeOnClick: false
+        });
+    });
+</script>

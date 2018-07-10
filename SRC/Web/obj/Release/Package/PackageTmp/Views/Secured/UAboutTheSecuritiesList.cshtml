@@ -1,0 +1,91 @@
+﻿@using GBFinance.Entity;
+@using HiLand.Utility4.MVC.Controls
+@using HiLand.Framework.BusinessCore
+@model List<SecuredPropertyEntity>
+@{
+    Layout = null;
+    MvcControlUsingModes usingMode = (this.ViewContext.Controller as GBFinance.Web.Controllers.BaseLoanController).GetUsingMode();
+    bool isPopLayer = (this.ViewContext.Controller as GBFinance.Web.Controllers.BaseLoanController).CheckIsPopLayer(); 
+}
+<div class="contentDetail" id="UAboutTheSecuritiesListContainer">
+    <table>
+        <tr>
+            <th style="width: 5%">
+                No.
+            </th>
+            <th style="width: 20%">
+                Details
+            </th>
+            <th style="width: 20%">
+                OwerName(s)
+            </th>
+            <th style="width: 20%">
+                ItemValue
+            </th>
+            <th style="width: 20%">
+                Operate
+            </th>
+        </tr>
+        @if (Model != null)
+        {
+            for (int i = 0; i < Model.Count; i++)
+            {
+                SecuredPropertyEntity secueredPropertyEntity = Model[i];
+                int j = i + 1;
+                string editButtonID = "btnEdit" + secueredPropertyEntity.ItemGuid;
+                string deleteButtonID = "btnDelete" + secueredPropertyEntity.ItemGuid;
+            <tr>
+                <td>
+                    @j
+                </td>
+                <td>
+                    @secueredPropertyEntity.ItemDetail
+                </td>
+                <td>
+                    @secueredPropertyEntity.ItemOwerName
+                </td>
+                <td>
+                    @secueredPropertyEntity.ItemValue
+                </td>
+                <td>
+                    @if (usingMode == MvcControlUsingModes.Editable)
+                    {
+                        <input type="button" value="Edit" id="@editButtonID" isPopLayer="@isPopLayer" entityGuid="@secueredPropertyEntity.ItemGuid" />
+                    }
+                    <input type="button" value="Delete" id="@deleteButtonID" entityGuid="@secueredPropertyEntity.ItemGuid" />
+                </td>
+            </tr>
+            }
+        }
+    </table>
+    @using (Html.BeginForm())
+    { 
+        <input type="hidden" id="entityGuidToDelete" name="entityGuidToDelete" value="" />
+    }
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#UAboutTheSecuritiesListContainer input[type='button'][value='Edit']").click(function () {
+                var entityGuid = $(this).attr("entityGuid");
+                var isPopLayer = $(this).attr("isPopLayer");
+                var address = '@Url.Action("UAboutTheSecuritiesDetails")' + '?ItemGuid=' + entityGuid + '&isPopLayer=' + isPopLayer;
+                $("#securedDetailsDIV").load(address);
+            });
+
+            $("#UAboutTheSecuritiesListContainer input[type='button'][value='Delete']").click(function () {
+                var entityGuid = $(this).attr("entityGuid");
+                //$("#UAboutTheSecuritiesListContainer #entityGuidToDelete").val(entityGuid);
+                var address = '@Url.Action("UAboutTheSecuritiesDelete")';
+                //submitAndRedirect("#UAboutTheSecuritiesListContainer form");
+
+                $.post(address, { entityGuidToDelete: entityGuid }, function (responseInfo) {
+                    if (responseInfo.IsSuccessful == false) {
+
+                    }
+                    else {
+                        window.location.reload();
+                    }
+                });
+            });
+        });
+    </script>
+</div>

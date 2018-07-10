@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "BusinessBankDetails";
+    Layout = this.ViewData["_Layout"].ToString();
+    string backUrl = string.Empty;
+    if (GBFinance.Web.Models.Miscs.CurrentLoanSimpleInfo.loanType == HiLand.General.LoanTypes.Secured)
+    {
+        backUrl = Url.Action("AboutTheSecurities");
+    }
+    else
+    {
+        backUrl = Url.Action("AssetStatement");
+    }
+}
+
+<h1>
+    Bank Details
+</h1>
+<div id="outterFormContainer"></div>
+<div class="bottombtns">
+    <a href="@backUrl" class="green2" style="float: left">BACK</a> <a  href="#" id="aNext"   class="green2"
+        style="float: right">NEXT</a>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#process #BusinessBankDetails").addClass("activedprocess");
+        $("#process #BusinessBankDetails a").addClass("activedprocesstxt");
+        $("#outterFormContainer").load('@Url.Action("UBusinessBankDetails")');
+        $("#aNext").click(function () {
+            submitAndRedirect("#outterFormContainer form", '@Url.Action("ApplicationSummary")');
+        });
+    });
+</script>
+
+

@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "TimeZoneTest";
+}
+
+<h2>TimeZoneTest</h2>
+服务器当前时间 ： @DateTime.Now <br />
+修正时间： @HiLand.Utility.Data.DateTimeHelper.RunningLocalNow
+
+
+===================
+@HiLand.Utility.Setting.Config.GetAppSetting("TimeZoneDiff")
+

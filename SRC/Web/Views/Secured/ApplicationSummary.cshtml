@@ -1,0 +1,37 @@
+﻿@using HiLand.Utility4.MVC.Controls;
+@{
+    ViewBag.Title = "ApplicationSummary";
+    Layout = this.ViewData["_Layout"].ToString();
+    int usingModeDisplay = (int)MvcControlUsingModes.Display;
+    int usingModeEditable = (int)MvcControlUsingModes.Editable;
+}
+
+@{
+    Html.RenderAction("UApplicationSummary");
+}
+<div class="bottombtns">
+    <a href="@Url.Action("BusinessBankDetails")" class="green2" style="float: left">BACK</a> <a href="#"
+        id="aNext" class="green2" style="float: right">NEXT</a>
+</div>
+<script src="@Url.Content("~/Scripts/jQuery.effect.TitleContent.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.effectTitleContent();
+        $("#process #ApplicationSummary").addClass("activedprocess");
+        $("#process #ApplicationSummary a").addClass("activedprocesstxt");
+        $(".modalInput").overlay({
+            mask: {
+                color: '#ebecff',
+                loadSpeed: 200,
+                opacity: 0.9
+            },
+            closeOnClick: false,
+            oneInstance: false
+        });
+
+        $("#aNext").click(function () {
+            window.location = "@Url.Action("SubmitApplication")";
+        });
+    });
+</script>

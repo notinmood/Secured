@@ -1,0 +1,116 @@
+﻿@using GBFinance.Web.Models
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+
+    LoanCookie loanCookie = LoanCookie.Load<UnSecuredLoanCookie>();
+    int currentStep = loanCookie.CurrentStep;
+
+
+    //0. apply now
+    string applyNowString = "Apply now";
+    string applyUrl = Url.Action("Index");
+    applyNowString = string.Format("<a href=\"{0}\">{1}</a>", applyUrl, applyNowString);
+
+    //10.InitialLoanInformation
+    string InitialLoanInformationString = "<a href=\"{0}\">Initial loan information</a>";
+    string InitialLoanInformationUrl = "#";
+    if (currentStep >= 10)
+    {
+        InitialLoanInformationUrl = Url.Action("InitialLoanInformation");
+    }
+    InitialLoanInformationString = string.Format(InitialLoanInformationString, InitialLoanInformationUrl);
+
+    //20.<a href="@Url.Action("AboutTheApplicants")">About the applicant(s)</a>
+    string AboutTheApplicantsString = "<a href=\"{0}\">About the applicant(s)</a>";
+    string AboutTheApplicantsUrl = "#";
+    if (currentStep >= 20)
+    {
+        AboutTheApplicantsUrl = Url.Action("AboutTheApplicants");
+    }
+    AboutTheApplicantsString = string.Format(AboutTheApplicantsString, AboutTheApplicantsUrl);
+
+    //30.<a href="@Url.Action("AboutYourBusiness")">About your business</a>
+    string AboutYourBusinessString = "<a href=\"{0}\">About your business</a>";
+    string AboutYourBusinessUrl = "#";
+    if (currentStep >= 30)
+    {
+        AboutYourBusinessUrl = Url.Action("AboutYourBusiness");
+    }
+    AboutYourBusinessString = string.Format(AboutYourBusinessString, AboutYourBusinessUrl);
+
+
+
+    //40.<a href="@Url.Action("LiabilityStatement")">Liability statement</a>
+    string LiabilityStatementString = "<a href=\"{0}\">Liability statement</a>";
+    string LiabilityStatementUrl = "#";
+    if (currentStep >= 40)
+    {
+        LiabilityStatementUrl = Url.Action("LiabilityStatement");
+    }
+    LiabilityStatementString = string.Format(LiabilityStatementString, LiabilityStatementUrl);
+
+    //50.<a href="@Url.Action("SourceOfIncome")">Asset statement</a>
+    string AssetStatementString = "<a href=\"{0}\">Source of Income</a>";
+    string AssetStatementUrl = "#";
+    if (currentStep >= 50)
+    {
+        AssetStatementUrl = Url.Action("AssetStatement");
+    }
+    AssetStatementString = string.Format(AssetStatementString, AssetStatementUrl);
+
+    //70.<a href="@Url.Action("BusinessBankDetails")">               Business bank details</a>
+    string BusinessBankDetailsString = "<a href=\"{0}\">Business bank details</a>";
+    string BusinessBankDetailsUrl = "#";
+    if (currentStep >= 70)
+    {
+        BusinessBankDetailsUrl = Url.Action("BusinessBankDetails");
+    }
+    BusinessBankDetailsString = string.Format(BusinessBankDetailsString, BusinessBankDetailsUrl);
+
+    //80.<a href="@Url.Action("ApplicationSummary")">Application Summary</a>
+    string ApplicationSummaryString = "<a href=\"{0}\">Application Summary</a>";
+    string ApplicationSummaryUrl = "#";
+    if (currentStep >= 80)
+    {
+        ApplicationSummaryUrl = Url.Action("ApplicationSummary");
+    }
+    ApplicationSummaryString = string.Format(ApplicationSummaryString, ApplicationSummaryUrl);
+
+    //90.<a href="@Url.Action("SubmitApplication")">Submit Application</a>
+    string SubmitApplicationString = "<a href=\"{0}\">Submit Application</a>";
+    string SubmitApplicationUrl = "#";
+    if (currentStep >= 90)
+    {
+        SubmitApplicationUrl = Url.Action("SubmitApplication");
+    }
+    SubmitApplicationString = string.Format(SubmitApplicationString, SubmitApplicationUrl);
+}
+<div id="subheader">
+    <h1>
+        APPLICATION
+    </h1>
+</div>
+@*end subbanner*@ @*start main*@
+<div id="main">
+    @*start process*@
+    <div id="process">
+        <h1>
+            Application Process</h1>
+        <ul>
+            <li id="applyNow">@Html.Raw(applyNowString)</li>
+            <li id="InitialLoanInformation">@Html.Raw(InitialLoanInformationString)</li>
+            <li id="AboutTheApplicants">@Html.Raw(AboutTheApplicantsString)</li>
+            <li id="AboutYourBusiness">@Html.Raw(AboutYourBusinessString)</li>
+            <li id="LiabilityStatement">@Html.Raw(LiabilityStatementString)</li>
+            <li id="AssetStatement">@Html.Raw(AssetStatementString)</li>
+            <li id="BusinessBankDetails">@Html.Raw(BusinessBankDetailsString)</li>
+            <li id="ApplicationSummary">@Html.Raw(ApplicationSummaryString)</li>
+            <li id="SubmitApplication">@Html.Raw(SubmitApplicationString)</li>
+        </ul>
+    </div>
+    @*end process*@ @* start content*@
+    <div id="content">
+        @RenderBody()
+    </div>
+    @*end content*@
+</div>

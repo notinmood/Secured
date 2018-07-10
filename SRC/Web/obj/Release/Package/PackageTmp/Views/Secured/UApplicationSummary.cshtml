@@ -1,0 +1,128 @@
+﻿@using HiLand.Utility4.MVC.Controls;
+@{
+    Layout = null;
+    int usingModeDisplay = (int)MvcControlUsingModes.Display;
+    int usingModeEditable = (int)MvcControlUsingModes.Editable;
+    int rv = new Random().Next();
+}
+<style type="text/css">
+    .modalFix
+    {
+        width: 750px;
+    }
+</style>
+<h1>
+    Application Summary
+</h1>
+<dl>
+    <dt class="contentTitle">1.Initial Loan Information</dt>
+    <dd class="contentContainer">
+        <div class="modal modalFix" id="InitialLoanInformationDisplayDIV">
+        </div>
+        <div id="InitialLoanInformationDIV">
+        </div>
+        <div>
+            <a href="#" id="InitialLoanInformationA" class="modalInput" rel="#InitialLoanInformationDisplayDIV">Edit</a></div>
+    </dd>
+    <dt class="contentTitle">2.About Yourself</dt>
+    <dd class="contentContainer">
+        <div class="modal modalFix" id="AboutTheApplicantsDisplayDIV">
+        </div>
+        <div id="AboutTheApplicantsDIV">
+        </div>
+        <div>
+            <a href="#" id="AboutTheApplicantsA" class="modalInput" rel="#AboutTheApplicantsDisplayDIV">Edit</a></div>
+    </dd>
+    <dt class="contentTitle">3.About Your Works</dt>
+    <dd class="contentContainer">
+        <div class="modal modalFix" id="AboutYourBusinessDisplayDIV">
+        </div>
+        <div id="AboutYourBusinessDIV">
+        </div>
+        <div>
+            <a href="#" id="AboutYourBusinessA" class="modalInput" rel="#AboutYourBusinessDisplayDIV">Edit</a></div>
+    </dd>
+    <dt class="contentTitle">4.Liability Statement</dt>
+    <dd class="contentContainer">
+        <div class="modal modalFix" id="LiabilityStatementDisplayDIV">
+        </div>
+        <div id="LiabilityStatementDIV">
+        </div>
+        <div>
+            <a href="#" id="LiabilityStatementA" class="modalInput" rel="#LiabilityStatementDisplayDIV">Edit</a></div>
+    </dd>
+    <dt class="contentTitle">5.Asset Statement</dt>
+    <dd class="contentContainer">
+        <div class="modal modalFix" id="AssetStatementDisplayDIV">
+        </div>
+        <div id="AssetStatementDIV">
+        </div>
+        <div>
+            <a href="#" id="AssetStatementA" class="modalInput" rel="#AssetStatementDisplayDIV">Edit</a></div>
+    </dd>
+    <dt class="contentTitle">6.About The Securities</dt>
+    <dd class="contentContainer">
+        <div class="modal modalFix" id="AboutTheSecuritiesDisplayDIV">
+        </div>
+        <div id="AboutTheSecuritiesDIV">
+        </div>
+        <div>
+            <a href="#" id="AboutTheSecuritiesA" class="modalInput" rel="#AboutTheSecuritiesDisplayDIV">Edit</a></div>
+    </dd>
+    <dt class="contentTitle">7.Business Bank Details</dt>
+    <dd class="contentContainer">
+        <div class="modal modalFix" id="BusinessBankDetailsDisplayDIV">
+        </div>
+        <div id="BusinessBankDetailsDIV">
+        </div>
+        <div>
+            <a href="#" id="BusinessBankDetailsA" class="modalInput" rel="#BusinessBankDetailsDisplayDIV">Edit</a></div>
+    </dd>
+</dl>
+<div id="outterFormContainer">
+    @using (Html.BeginForm())
+    {
+        <input type="hidden" name="onlyPlaceHolder" value="onlyPlaceHolder" />
+    }
+</div>
+<script src="@Url.Content("~/Scripts/jQuery.effect.TitleContent.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.effectTitleContent();
+        $(".modalInput").overlay({
+            mask: {
+                color: '#ebecff',
+                loadSpeed: 200,
+                opacity: 0.9
+            },
+            finish: {
+                top: 10,
+                absolute: false
+            },   
+            closeOnClick: false,
+            oneInstance: false
+        });
+
+        $("#InitialLoanInformationDIV").load('@Url.Action("UInitialLoanInformation", new { usingMode = usingModeDisplay,r= rv})');
+        $("#InitialLoanInformationDisplayDIV").load('@Url.Action("UInitialLoanInformation", new { usingMode = usingModeEditable, isPopLayer = true,r= rv })');
+
+        $("#AboutTheApplicantsDIV").load('@Url.Action("UApplicantDetail", new { usingMode = usingModeDisplay,r= rv })');
+        $("#AboutTheApplicantsDisplayDIV").load('@Url.Action("UApplicantDetail", new { usingMode = usingModeEditable, isPopLayer = true,r= rv })');
+
+        $("#AboutYourBusinessDIV").load('@Url.Action("UAboutYourWorks", new { usingMode = usingModeDisplay,r= rv })');
+        $("#AboutYourBusinessDisplayDIV").load('@Url.Action("UAboutYourWorks", new { usingMode = usingModeEditable, isPopLayer = true,r= rv })');
+
+        $("#LiabilityStatementDIV").load('@Url.Action("ULiabilityStatementList", new { usingMode = usingModeDisplay, isPopLayer = true,r= rv })');
+        $("#LiabilityStatementDisplayDIV").load('@Url.Action("ULiabilityStatementWrapper", new { usingMode = usingModeEditable, isPopLayer = true,r= rv })');
+
+        $("#AssetStatementDIV").load('@Url.Action("UAssetStatementList", new { usingMode = usingModeDisplay,r= rv })');
+        $("#AssetStatementDisplayDIV").load('@Url.Action("UAssetStatementDetails", new { usingMode = usingModeEditable, isPopLayer = true,r= rv })');
+
+        $("#AboutTheSecuritiesDIV").load('@Url.Action("UAboutTheSecuritiesList", new { usingMode = usingModeDisplay,r= rv })');
+        $("#AboutTheSecuritiesDisplayDIV").load('@Url.Action("UAboutTheSecuritiesDetails", new { usingMode = usingModeEditable, isPopLayer = true,r= rv })');
+
+        $("#BusinessBankDetailsDIV").load('@Url.Action("UBusinessBankDetails", new { usingMode = usingModeDisplay,r= rv })');
+        $("#BusinessBankDetailsDisplayDIV").load('@Url.Action("UBusinessBankDetails", new { usingMode = usingModeEditable, isPopLayer = true,r= rv })');
+    });
+</script>

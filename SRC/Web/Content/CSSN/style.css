@@ -1,0 +1,224 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{padding: 0;margin: 0;}
+div,ul,dl,h1,h2,h3,h4,blockquote,table,p{position:relative;}
+table{border-collapse: collapse;border-spacing: 0;}
+fieldset,img{border:0;vertical-align:middle;}
+input,select{vertical-align:middle;}
+address,caption,cite,code,dfn,em,th,var{font-weight: normal;font-style: normal;}
+abbr,span.abbr,acronym{cursor:help;border-bottom:1px dashed #aaa;letter-spacing:0.1em;}
+var{font-style:italic;}
+ul,li{list-style:none;}
+
+body{ background-color:#e5e4e0;}
+
+#top{width:983px; height:94px; margin:0 auto; background-color:#FFF;}
+#top .logo{float:left; padding-top:20px; }
+#top .login{width:170px; height:66px; float:right; top:27px; margin-right:5px;}
+
+#top .call{font-family: Georgia, 'Times New Roman' , Times, serif;font-weight:bold; width:180px; height:66px; float:right;background-color:#3b3b3b;color:White; text-align:center; height:25px; margin-right:0px; top:40px;}
+
+#nav{width:983px; height:36px; margin:0 auto; background-color:#e5e4e0; z-index:900}
+
+.menus
+{
+    width: auto;
+    height: 36px;
+    margin-left: 24px;
+}
+.menus .menuItme
+{
+    float: left;
+    background: url(../imagesN/nav-divid.png) center right no-repeat;
+    height: 36px;
+    padding-right: 18px;
+    padding-left: 18px;
+}
+.menus .menuItme .menuItemA
+{
+    font-family: Georgia, "Times New Roman" , Times, serif;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    line-height: 32px;
+    height: 32px;
+    display: block;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 7px 7px 0px 0px;
+    margin-top: 2px;
+    behavior: url(PIE.htc);
+}
+.menus .menuItme .menuItemA:hover
+{
+    margin-top: 4px;
+    color: #614e33;
+    background: #ff6600 0px 0px repeat-x;
+    z-index: 3;
+    position: relative;
+}
+.menus .menuItme .actived
+{
+	margin-top:4px; color:#fff;  background-color:#ff6600; position:relative;z-index: 3;
+}
+.menus .last
+{
+    background: none;
+}
+
+/* 二级菜单 */
+.children
+{
+    position: absolute;
+    top: 35px;
+    display: none;  /*初始化页面时不显示出来 */
+    padding: -20,20,20,20;
+    margin: -20;
+    margin: 0 0 0 0;
+    z-index: 3000;
+}
+
+.nestedchildren
+{ 
+    display:none;
+    top : 0px;
+    padding: -20,20,20,20;
+    margin: -20;
+    margin: 0 0 0 0;
+    z-index: 3000;      
+    left: 180px;   
+    position: absolute;   
+    z-index: 3000;
+
+}
+
+.nestedchildren1
+{ 
+    display:none;
+    top : 35px;
+    padding: -20,20,20,20;
+    margin: -20;
+    margin: 0 0 0 0;
+    z-index: 3000;      
+    left: 180px;   
+    position: absolute;   
+    z-index: 3000;
+
+}
+
+/* 二级菜单的菜单项 */
+.children li,.nestedchildren li,.nestedchildren1 li
+{
+    border-top: solid 1px #FFFFFF;
+    float: none; /* 垂直排列 */
+    margin: 0;
+    padding: 0;
+    display: block; /* 显示为块 */
+    color: #FFFFFF; /* 文字颜色 */
+    background: #AC761E; /* 背景颜色 */
+    line-height: 35px;
+    margin: 0px;
+}
+/* 二级菜单的当前菜单项链接 */
+.children li a
+{
+    text-decoration: none; /* 没有下横线 */
+    color: #FFFFFF;
+    display: block;
+    padding: 0px 10px; /* 内边距 */
+    width: 160px; /* 对 IE6 来说十分很重要 */
+}
+
+.nestedchildren li a,.nestedchildren1 li a
+{
+    text-decoration: none; /* 没有下横线 */
+    color: #FFFFFF;
+    display: block;
+    padding: 0px 10px; /* 内边距 */
+    width: 100px; /* 对 IE6 来说十分很重要 */
+}
+
+.children li a:hover,.nestedchildren li a:hover,.nestedchildren1 li a:hover
+{
+    background-color: #FFFFFF;
+    color: #AC761E;
+}
+/*菜单导航结束*/
+
+#homebanner{width:983px; height:265px; margin:0 auto; background:url(../imagesN/homebannerbox.jpg) top right no-repeat; margin-top:10px;}
+#homebanner .slideshow{width:707px; height:260px; float:left;}
+#homebanner ul.tickbox{float:left; top:30px; left:25px;}
+#homebanner ul.tickbox li{width:auto; height:27px; background:url(../imagesN/tick2.png) top left no-repeat; padding-left:42px; font-family:Georgia, "Times New Roman", Times, serif; font-size:20px; color:#fff; line-height:27px; margin-bottom:10px;}
+#homebanner ul.tickbox li.end{letter-spacing:-0.7px;}
+
+
+#homeboxcontainer{width:983px; height:319px; margin:0 auto; margin-top:6px;}
+.homebox{width:321px; height:319px; float:left; display:block; background:url(../imagesN/homeboxbg.gif); margin-right:10px;}
+.homebox h1{ height:44px; padding-left:30px; font-family:Georgia, "Times New Roman", Times, serif; font-size:20px; color:#FFF; line-height:44px; left:10px; font-weight:normal;}
+.homebox h1.box1hd{ background:url(../imagesN/box1icon.jpg) left center no-repeat;padding-left:34px; }
+.homebox h1.box2hd{ background:url(../imagesN/box2icon.jpg) left center no-repeat; padding-left:36px;}
+.homebox h1.box3hd{ background:url(../imagesN/box3icon.jpg) left center no-repeat; padding-left:31px;}
+.homebox .fimg{width:284px; height:87px; margin:0 auto; margin-top:10px;}
+.homebox h2{width:284px; height:auto; font-family:Georgia, "Times New Roman", Times, serif; font-size:18px; color:#a46610; line-height:22px; font-weight:normal; margin:0 auto; text-align:center; margin-top:5px;}
+.homebox ul.homeboxinfo{width:284px; margin:0 auto; margin-top:10px;}
+.homebox ul.homeboxinfo li{background:url(../imagesN/arrow1.gif) left center no-repeat; height:13px; padding-left:10px; font-family:Georgia, "Times New Roman", Times, serif; font-size:13px; color:#5b5b5b; line-height:13px; margin-bottom:8px;}
+.homebox ul.homeboxinfo li.nobg{ background:none;}
+.homebox ul.homeboxinfo li.nobghead{ background:none; font-weight:bold;padding-left:0px; vertical-align:middle}
+.homebox ul.btns{width:284px; height:35px; margin:0 auto; margin-top:10px;}
+.homebox ul.btns li.btn1{float:left; margin-left:8px;}
+.homebox ul.btns a{width:105px; height:35px; background:url(../imagesN/greenbtn.gif) no-repeat; font-family:Georgia, "Times New Roman", Times, serif; font-size:15px; color:#FFF; line-height:35px; text-align:center; display:block; text-decoration:none;}
+.homebox ul.btns a:hover{color:#000;}
+.homebox ul.btns li.btn2{float:right; margin-right:8px;}
+.homebox ul.btns li.btn3{float:left; margin-left:8px;}
+.inlinebtns {width:105px; height:35px;background:url(../imagesN/greenbtn.gif) no-repeat;font-family:Georgia, "Times New Roman", Times, serif; font-size:15px;color:#FFF;line-height:35px;text-align:center;display:inline-block;text-decoration:none;  font-weight:normal}
+.price {border: 1px solid #ff6600; background-color: #f5f2e8; height:22px}
+
+#subheader{width:981px; height:107px; background:url(../imagesN/subpage-header.jpg); margin:0 auto; margin-top:10px;}
+#subheader h1{line-height:107px; font-family:Georgia, "Times New Roman", Times, serif; font-size:50px; color:#FFF; font-weight:normal; padding-left:50px;}
+
+#main{width:983px; height:auto; margin:0 auto; min-height:537px; margin-top:10px;}
+#main2{width:903px; height:auto; margin:0 auto; background-color:#FFF; border-radius: 6px;  behavior: url(PIE.htc); min-height:505px; margin-top:10px; padding:40px;}
+#process{width:321px; height:537px; float:left; display:block; background:url(../imagesN/processbg.gif); float:left; border-radius: 6px;  behavior: url(PIE.htc);}
+#process h1{height:32px; font-family:Georgia, "Times New Roman", Times, serif; font-size:18px; color:#FFF; line-height:32px; left:10px; font-weight:normal; background:url(../imagesN/box1icon.jpg) left center no-repeat; padding-left:32px;}
+#process h1.phoneicon{background:url(../imagesN/phoneicon.jpg) left center no-repeat;}
+#process ul{width:297px; margin:0 auto; margin-top:20px;}
+#process ul li{height:45px;}
+#process ul li.activedprocess{background:url(../imagesN/processactived.gif) top left no-repeat; height:51px;}
+#process ul li a{font-family:Georgia, "Times New Roman", Times, serif; font-size:16px; color:#777777; line-height:51px; text-decoration:none; padding-left:20px;}
+#process ul li a:hover{ color:#73b328;}
+#process ul li a.activedprocesstxt{padding-left:58px; color:#FFF;}
+#process ul li.contactdetials{font-family:Georgia, "Times New Roman", Times, serif; font-size:14px; color:#a46610; line-height:28px; height:28px; padding-left:20px;}
+#process ul li.contactdetials a.con{font-family:Georgia, "Times New Roman", Times, serif; font-size:14px; color:#a46610; line-height:28px; text-decoration:none;}
+#process a.applybtn{width:285px; height:54px; margin:0 auto; display:block; background:url(../imagesN/applybtn.gif); margin-top:15px;}
+
+#content{width:570px; height:auto; float:left; margin-left:10px; padding-top:32px; background-color:#FFF; border-radius: 6px;  behavior: url(PIE.htc); padding-left:40px; padding-right:40px; min-height:505px;}
+#content h1{font-family:Georgia, "Times New Roman", Times, serif; font-size:20px; color:#ff6600; line-height:20px; margin-bottom:20px; font-weight:normal;}
+#content p{font-family:Georgia, "Times New Roman", Times, serif; font-size:13px; color:#000; line-height:20px;}
+#content ul li{font-family:Georgia, "Times New Roman", Times, serif; font-size:13px; color:#000; line-height:20px; list-style:disc; list-style-position:inside;}
+#content a.brownlink{font-family:Georgia, "Times New Roman", Times, serif; font-size:13px; color:#ff6600; line-height:20px;}
+#content .bottombtns{width:260px; height:35px; margin:0 auto; margin-top:50px;}
+.bottombtns a.green2{width:105px; height:35px; background:url(../imagesN/greenbtn.gif) no-repeat; font-family:Georgia, "Times New Roman", Times, serif; font-size:15px; color:#FFF; line-height:35px; text-align:center; display:block; text-decoration:none;}
+.bottombtns a.green2:hover{color:#000;}
+
+#loginform{width:auto; height:auto; float:left; margin-left:30px;}
+#loginform h1{font-family:Georgia, "Times New Roman", Times, serif; font-size:20px; color:#3b3b3b; line-height:20px; margin-bottom:20px; font-weight:normal;}
+#loginform p{font-family:Georgia, "Times New Roman", Times, serif; font-size:13px; color:#000; line-height:23px;}
+#loginform a.brownlink{font-family:Georgia, "Times New Roman", Times, serif; font-size:13px; color:#ff6600; line-height:23px;}
+
+
+/********** contact form **********/
+#contactform { margin:0;}
+#contactform * { color:#ff6600;}
+#contactform ol { margin:0; padding:0; list-style:none;}
+#contactform li { margin:0; padding:0; background:none; border:none; display:block;}
+#contactform li.buttons { margin:5px 0 5px 0;}
+#contactform label { margin:0; width:90px; display:block; padding:10px 0px; font-family:Georgia, "Times New Roman", Times, serif; font-size:15px; color:#000; line-height:23px; text-transform:capitalize; float:left;}
+#contactform label span { color:#000;}
+#contactform input.text { width:270px; margin:10px 0; padding:5px 2px; height:16px; background:#e3d6c3; float:left; border:none;}
+#contactform textarea { width:420px; border:1px solid #deddd6; margin:10px 0; padding:2px; background:#e8e7e2; float:left;}
+#contactform li.buttons input {margin:0; border:0; color:#FFF; float:right; margin-top:20px;}
+p.response { text-align:center; color:#F00; font: normal 11px  Georgia, "Times New Roman", Times, serif; line-height:1.8em; width:auto;}
+
+span.browntxt{font-size:20px; color:#ff6600;}
+
+#footer{width:983px; height:30px; font-family:Georgia, "Times New Roman", Times, serif; font-size:11px; color:#b6b6b6; line-height:11px; text-align:center; margin:0 auto; margin-top:40px;}
+
